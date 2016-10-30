@@ -24,6 +24,5 @@ namespace MDTManagment.Data
         {
             base.OnModelCreating(modelBuilder);
         }
-        
     }
 }

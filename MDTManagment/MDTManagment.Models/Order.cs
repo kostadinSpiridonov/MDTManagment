@@ -15,7 +15,7 @@ namespace MDTManagment.Models
         public string Name { get; set; }
 
         public double Price{ get; set; }
-        public double PaidPrice { get; set; }
 
+        public double PaidPrice { get; set; }
     }
 }

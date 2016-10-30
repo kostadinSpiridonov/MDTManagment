@@ -11,13 +11,13 @@ namespace MDTManagment.Services
     public class OrderService
     {
         private ApplicationDbContext database;
-        public OrderService()
 
+        public OrderService()
         {
             this.database = new ApplicationDbContext();
         }
-        public Order GetOrder()
 
+        public Order GetOrder()
         {
             var order = database.Orders.First();
             return order;
