@@ -6,7 +6,20 @@
         xmlns:local="clr-namespace:MDTManagment"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <!--
     <StackPanel>
         <Button>Show dentist</Button>
-    </StackPanel>
+    </StackPanel> 
+    -->
+
+    <ListView ItemsSource="{Binding Names}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding}" />
+                </StackPanel>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
 </Window>
