@@ -13,6 +13,8 @@ namespace MDTManagment.ViewModels
 
         public string PhoneNumber { get; set; }
 
+        public string Diagnosis { get; set; }    
+
         private DentistService dentistService;
 
         public DentistViewModel()
@@ -22,6 +24,7 @@ namespace MDTManagment.ViewModels
 
             this.Name = databaseDentist.Name;
             this.PhoneNumber = databaseDentist.PhoneNumber;
+        
         }
     }
 }
