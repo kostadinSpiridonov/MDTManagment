@@ -24,9 +24,6 @@ namespace MDTManagment.ViewModels
         {
             this.dentistService = new DentistService();
             var databaseDentist = dentistService.GetDentists();  //.GetDentist() -> .GetDentistS()
-
-            this.Name = databaseDentist.Name;
-            this.PhoneNumber = databaseDentist.PhoneNumber;
         
             this.Names = new ObservableCollection<string> (databaseDentist.Select(x=>x.Name).ToList()); //this.Name -> this.NameS
             this.PhoneNumbers = databaseDentist.Select(x=>x.PhoneNumber).ToList(); //this.PhoneNumber -> this.PhoneNumberS
