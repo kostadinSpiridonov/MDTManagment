@@ -16,6 +16,8 @@ namespace MDTManagment.Data
 
         }
 
+        public DbSet<Order> Orders { get; set; }
+
         public DbSet<Dentist> Dentists { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

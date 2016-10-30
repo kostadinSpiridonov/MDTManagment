@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace MDTManagment.Models
 {
-    public class Dentist
+    public class Order
     {
         [Key]
-        public int Id { get; set; }
+        public int Id {  get; set; }
 
         public string Name { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public double Price{ get; set; }
 
-    
+        public double PaidPrice { get; set; }
     }
 }
