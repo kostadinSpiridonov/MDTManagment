@@ -12,10 +12,12 @@ namespace MDTManagment.Services
     {
         private ApplicationDbContext database;
         public OrderService()
+
         {
             this.database = new ApplicationDbContext();
         }
         public Order GetOrder()
+
         {
             var order = database.Orders.First();
             return order;

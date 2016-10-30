@@ -9,11 +9,11 @@ namespace MDTManagment.ViewModels
 {
    public class OrderViewModel
     {
-        public string Name { get; set; }
+    public string Name { get; set; }
 
-        public double Price { get; set; }
+    public double Price { get; set; }
 
-        public double PaidPrice { get; set; }
+    public double PaidPrice { get; set; }
 
        private OrderService orderService;
 
@@ -25,7 +25,6 @@ namespace MDTManagment.ViewModels
            this.Name = databaseOrder.Name;
            this.Price = databaseOrder.Price;
            this.PaidPrice = databaseOrder.PaidPrice;
-
        }
     }
 }
