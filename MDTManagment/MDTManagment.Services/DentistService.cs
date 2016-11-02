@@ -20,7 +20,7 @@ namespace MDTManagment.Services
         public Dentist GetDentist() //vmesto Dentist -> List<Dentist>
         {
             var dentist = database.Dentists.First(); // delete .First()
-            return dentist; // delete line or put in comment // nooo // just put .ToList()
+            return dentist; // .ToList()
         }
 
         public List<Dentist> GetDentists() 

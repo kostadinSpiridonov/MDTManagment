@@ -1,4 +1,5 @@
-﻿using MDTManagment.Services;
+﻿using MDTManagment.Models;
+using MDTManagment.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,6 +28,21 @@ namespace MDTManagment.ViewModels
         
             this.Names = new ObservableCollection<string> (databaseDentist.Select(x=>x.Name).ToList()); //this.Name -> this.NameS
             this.PhoneNumbers = databaseDentist.Select(x=>x.PhoneNumber).ToList(); //this.PhoneNumber -> this.PhoneNumberS
+        }
+
+
+
+
+        public List<Dentist> dentistList = new List<Dentist>();
+
+        public void CreateDentists()
+        {
+            dentistList.Add(new Dentist() { Id = 1, Name = "Charle Mange", PhoneNumber = "Seattle" });
+            dentistList.Add(new Dentist() { Id = 2, Name = "John Knox", PhoneNumber = "New York" });
+            dentistList.Add(new Dentist() { Id = 3, Name = "Michael Doher", PhoneNumber = "Washington" });
+
+            //   dentistListView.ItemsSource = dentistList;
+       
         }
     }
 }
