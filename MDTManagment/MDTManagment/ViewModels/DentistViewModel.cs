@@ -41,7 +41,7 @@ namespace MDTManagment.ViewModels
             dentistList.Add(new Dentist() { Id = 2, Name = "John Knox", PhoneNumber = "New York" });
             dentistList.Add(new Dentist() { Id = 3, Name = "Michael Doher", PhoneNumber = "Washington" });
 
-            //   dentistListView.ItemsSource = dentistList;
+           //dentistList.ItemsSource = dentistList;
        
         }
     }
