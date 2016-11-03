@@ -24,7 +24,7 @@ namespace MDTManagment
         public MainWindow() 
         {
             InitializeComponent();
-            this.DataContext = new DentistViewModel();           
+            this.DataContext = new DentistViewModel();
         }
     }
 }

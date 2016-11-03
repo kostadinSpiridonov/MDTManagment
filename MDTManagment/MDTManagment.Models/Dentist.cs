@@ -18,17 +18,18 @@ namespace MDTManagment.Models
         public string PhoneNumber { get; set; }
 
 
-//TVA NE TRQA DA E TUKAAAAA
-    //    public List<Dentist> dentistList = new List<Dentist>();
-    //
-    //    public void CreateDentists()
-    //    {
-    //        dentistList.Add(new Dentist() {Id = 1, Name = "Charle Mange", PhoneNumber = "Seattle"});
-    //        dentistList.Add(new Dentist() {Id = 2, Name = "John Knox", PhoneNumber = "New York" });
-    //        dentistList.Add(new Dentist() {Id = 3, Name = "Michael Doher", PhoneNumber = "Washington" });
-    //
-    //     //   dentistListView.ItemsSource = dentistList;
-    //    }
-    
+
+        //TVA NE TRQA DA E TUKAAAAA
+        //    public List<Dentist> dentistList = new List<Dentist>();
+        //
+        //    public void CreateDentists()
+        //    {
+        //        dentistList.Add(new Dentist() {Id = 1, Name = "Charle Mange", PhoneNumber = "Seattle"});
+        //        dentistList.Add(new Dentist() {Id = 2, Name = "John Knox", PhoneNumber = "New York" });
+        //        dentistList.Add(new Dentist() {Id = 3, Name = "Michael Doher", PhoneNumber = "Washington" });
+        //
+        //     //   dentistListView.ItemsSource = dentistList;
+        //    }
+
     }
 }
