@@ -22,5 +22,11 @@ namespace MDTManagment.Services
             var order = database.Orders.First();
             return order;
         }
+
+        public List<Order> GetDentists()
+        {
+            var orders = database.Orders;
+            return orders.ToList();
+        }
     }
 }

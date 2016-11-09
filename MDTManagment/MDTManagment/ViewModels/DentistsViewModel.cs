@@ -16,7 +16,7 @@ namespace MDTManagment.ViewModels
         public DentistsViewModel()
         {
             var dentistService = new DentistService();
-            var databaseDentists=dentistService.GetDentists();
+            var databaseDentists = dentistService.GetDentists();
             this.Dentists = new ObservableCollection<Dentist>(databaseDentists);
         }
     }

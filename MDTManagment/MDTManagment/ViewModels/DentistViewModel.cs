@@ -11,6 +11,9 @@ namespace MDTManagment.ViewModels
 {
     public class DentistViewModel
     {
+        //ALL of this is wrongGGGGGG 
+        //the working code is in dentistsSsViewModel
+
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
 
