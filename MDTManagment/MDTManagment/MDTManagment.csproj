@@ -79,14 +79,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DentistsWindow.xaml.cs">
+      <DependentUpon>DentistsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DentistWindow.xaml.cs">
       <DependentUpon>DentistWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrderWindow.xaml.cs">
       <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\DentistsViewModel.cs" />
     <Compile Include="ViewModels\DentistViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
+    <Page Include="DentistsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DentistWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
