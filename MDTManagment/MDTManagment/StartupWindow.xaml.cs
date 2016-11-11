@@ -1,4 +1,4 @@
-﻿using MDTManagment.ViewModels;
+﻿using MDTManagment.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,13 +17,14 @@ using System.Windows.Shapes;
 namespace MDTManagment
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StartupWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StartupWindow : NavigationWindow
     {
-        public MainWindow() 
+        public StartupWindow()
         {
             InitializeComponent();
+            App.Navigation = this.NavigationService;
         }
     }
 }

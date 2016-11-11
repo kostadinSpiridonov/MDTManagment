@@ -6,13 +6,12 @@
         xmlns:local="clr-namespace:MDTManagment"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <!--
-    <StackPanel>
-        <Button>Show dentist</Button>
-    </StackPanel> 
-    -->
 
-  <!--  <ListView ItemsSource = "{Binding Names, Mode=TwoWay}">   
+    <ListView>
+        <ListView.ItemsSource>
+            <Binding Path = "PhoneNumbers"/>
+            <!-- <Binding Path = "PhoneNumbers"/> tva mu prechi da raboti -->
+        </ListView.ItemsSource>
         <ListView.ItemTemplate>
             <DataTemplate>
                 <StackPanel Orientation="Horizontal">
@@ -20,42 +19,7 @@
                 </StackPanel>
             </DataTemplate>
         </ListView.ItemTemplate>
-    </ListView>     -->
+    </ListView> 
 
-    <!-- <ListView>
-        
-        <ListView.ItemsSource>
-            <MultiBinding StringFormat="{}{0}, {1}">
-                <Binding Path="Names"/>
-                <Binding Path="PhoneNumbers"/>
-            </MultiBinding>
-        </ListView.ItemsSource> -->
-        <!--   ItemsSource="{Binding Names, Mode=TwoWay}">    -->
-    
-  <!--  <ListView>
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding}"/>
-                    <TextBlock Text="{Binding}"/>
-                </StackPanel>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-        
-    </ListView> -->
-
-    <Grid>
-        <ListView Name="dentistListView" Margin="0,0,0,0" ItemsSource="{Binding dentistList}">
-            
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Id" Width="80" DisplayMemberBinding="{Binding Id}" />
-                    <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="PhoneNumber" Width="100" DisplayMemberBinding="{Binding PhoneNumber}" />
-                </GridView>
-            </ListView.View>
-            
-        </ListView>
-    </Grid> 
 
 </Window>

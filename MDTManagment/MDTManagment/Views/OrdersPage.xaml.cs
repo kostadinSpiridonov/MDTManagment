@@ -11,19 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MDTManagment
+namespace MDTManagment.Views
 {
     /// <summary>
-    /// Interaction logic for DentistsWindow.xaml
+    /// Interaction logic for OrdersPage.xaml
     /// </summary>
-    public partial class DentistsWindow : Window
+    public partial class OrdersPage : Page
     {
-        public DentistsWindow()
+        public OrdersPage()
         {
             InitializeComponent();
-            this.DataContext = new DentistsViewModel();
+            this.DataContext = new OrdersVeiwModel();
         }
     }
 }

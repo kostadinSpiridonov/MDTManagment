@@ -1,5 +1,4 @@
-﻿using MDTManagment.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,16 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MDTManagment
+namespace MDTManagment.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for HomePage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomePage : Page
     {
-        public MainWindow() 
+        public HomePage()
         {
             InitializeComponent();
+        }
+
+        private void GoToOrdersPage_Cick(object sender, RoutedEventArgs e)
+        {
+            App.Navigation.Navigate(new OrdersPage());
+        }
+
+        private void GoToDentistsPage_Cick(object sender, RoutedEventArgs e)
+        {
+            App.Navigation.Navigate(new DentistsPage());
         }
     }
 }
