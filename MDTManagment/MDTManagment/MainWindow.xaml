@@ -6,12 +6,8 @@
         xmlns:local="clr-namespace:MDTManagment"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    
-  <!--  <StackPanel>
-        <Button>Show dentist</Button>
-    </StackPanel> -->
-    
-     <ListView>
+
+    <ListView>
         <ListView.ItemsSource>
             <Binding Path = "PhoneNumbers"/>
             <!-- <Binding Path = "PhoneNumbers"/> tva mu prechi da raboti -->
@@ -25,65 +21,5 @@
         </ListView.ItemTemplate>
     </ListView> 
 
-
-    <!-- <ListView>, Mode=TwoWay
-        
-        <ListView.ItemsSource>
-            <MultiBinding StringFormat="{}{0}, {1}">
-                <Binding Path="Names"/>
-                <Binding Path="PhoneNumbers"/>
-            </MultiBinding>
-        </ListView.ItemsSource> -->
-        <!--   ItemsSource="{Binding Names, Mode=TwoWay}">    -->
-    
-  <!--  <ListView>
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding}"/>
-                    <TextBlock Text="{Binding}"/>
-                </StackPanel>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-        
-    </ListView> -->
-
-   
-    
-   <!-- <Grid>
-        <ListView ItemsSource="{Binding dentistList}">
-            
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Id" Width="80" DisplayMemberBinding="{Binding Id}" /> 
-                    <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="PhoneNumber" Width="100" DisplayMemberBinding="{Binding PhoneNumber}" />
-                </GridView>
-            </ListView.View>
-            
-        </ListView>
-    </Grid>   -->
-
-   <!-- <StackPanel>
-        
-        <TextBox>
-            <TextBox.Text>
-                <Binding Path="Name"/>
-            </TextBox.Text>
-        </TextBox>
-
-        <TextBox>
-            <TextBox.Text>
-                <Binding Path="PhoneNumber"/>
-            </TextBox.Text>
-        </TextBox>
-
-
-
-
-        <TextBlock Text="{Binding Id}"></TextBlock>
-        <TextBlock Text="{Binding Name}"></TextBlock>
-        <TextBlock Text="{Binding PhoneNumbers}"></TextBlock>
-    </StackPanel>   -->
 
 </Window>

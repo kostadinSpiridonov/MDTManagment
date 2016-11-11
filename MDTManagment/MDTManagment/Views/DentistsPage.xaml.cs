@@ -14,16 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MDTManagment
+namespace MDTManagment.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DentistsPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DentistsPage : Page
     {
-        public MainWindow() 
+        public DentistsPage()
         {
             InitializeComponent();
+            this.DataContext = new DentistsViewModel();
         }
     }
 }

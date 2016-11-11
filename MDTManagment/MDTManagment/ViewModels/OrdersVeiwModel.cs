@@ -12,7 +12,6 @@ namespace MDTManagment.ViewModels
 {
     public class OrdersVeiwModel
     {
-
         public ObservableCollection<Order> Orders { get; set; }
 
         public OrdersVeiwModel()

@@ -79,30 +79,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DentistsWindow.xaml.cs">
-      <DependentUpon>DentistsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DentistWindow.xaml.cs">
-      <DependentUpon>DentistWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OrdersWindow.xaml.cs">
-      <DependentUpon>OrdersWindow.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="OrderWindow.xaml.cs">
       <DependentUpon>OrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartupWindow.xaml.cs">
+      <DependentUpon>StartupWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\DentistsViewModel.cs" />
     <Compile Include="ViewModels\DentistViewModel.cs" />
     <Compile Include="ViewModels\OrdersVeiwModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
-    <Page Include="DentistsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DentistWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="Views\DentistPage.xaml.cs">
+      <DependentUpon>DentistPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DentistsPage.xaml.cs">
+      <DependentUpon>DentistsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrdersPage.xaml.cs">
+      <DependentUpon>OrdersPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -115,11 +114,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="OrdersWindow.xaml">
+    <Page Include="OrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OrderWindow.xaml">
+    <Page Include="StartupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DentistPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DentistsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrdersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

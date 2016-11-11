@@ -1,4 +1,4 @@
-﻿using MDTManagment.ViewModels;
+﻿using MDTManagment.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,21 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MDTManagment
 {
     /// <summary>
-    /// Interaction logic for OrdersWindow.xaml
+    /// Interaction logic for StartupWindow.xaml
     /// </summary>
-    public partial class OrdersWindow : Window
+    public partial class StartupWindow : NavigationWindow
     {
-        public OrdersWindow()
+        public StartupWindow()
         {
             InitializeComponent();
-            this.DataContext = new OrdersVeiwModel();
+            App.Navigation = this.NavigationService;
         }
-
-       
     }
 }
