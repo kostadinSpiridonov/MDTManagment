@@ -17,14 +17,14 @@ namespace MDTManagment.ViewModels
 
         private OrderService orderService;
 
-        public OrderViewModel()
-        {
-            this.orderService = new OrderService();
-            var databaseOrder = orderService.GetOrder();
-
-            this.Name = databaseOrder.Name;
-            this.Price = databaseOrder.Price;
-            this.PaidPrice = databaseOrder.PaidPrice;
-        }
+    //   public OrderViewModel()
+    //   {
+    //       this.orderService = new OrderService();
+    //       var databaseOrder = orderService.GetOrder();
+    //
+    //       this.Name = databaseOrder.Name;
+    //       this.Price = databaseOrder.Price;
+    //       this.PaidPrice = databaseOrder.PaidPrice;
+    //   }
     }
 }

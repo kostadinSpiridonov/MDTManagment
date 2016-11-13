@@ -12,9 +12,28 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <TextBlock Text="Type of the order: "></TextBlock>
+                        <TextBlock Text="{Binding TypeOfTheOrder}"></TextBlock>
+                        <TextBlock Text="; Date of receipt: "></TextBlock>
+                        <TextBlock Text="{Binding DateОfReceipt}"></TextBlock>
+                        <TextBlock Text="; Deadline: "></TextBlock>
+                        <TextBlock Text="{Binding DeadLine}"></TextBlock>
+                        <TextBlock Text="; Price: "></TextBlock>
                         <TextBlock Text="{Binding Price}"></TextBlock>
-                        <TextBlock Text="{Binding PaidPrice}"></TextBlock>
+                        <TextBlock Text="; Special Requirements: "></TextBlock>
+                        <TextBlock Text="{Binding SpecialRequirements}"></TextBlock>
+                        <TextBlock Text="; Declared Ingredients: "></TextBlock>
+                        <TextBlock Text="{Binding DeclaredIngredients}"></TextBlock>
+                        <TextBlock Text="; Facial Arc: "></TextBlock>
+                        <TextBlock Text="{Binding FacialArc}"></TextBlock>
+                        <TextBlock Text="; Articulator: "></TextBlock>
+                        <TextBlock Text="{Binding Articulator}"></TextBlock>
+                        <TextBlock Text="; Metal Test: "></TextBlock>
+                        <TextBlock Text="{Binding MetalTest}"></TextBlock>
+                        <TextBlock Text="; Ceramic Test: "></TextBlock>
+                        <TextBlock Text="{Binding CeramicTest}"></TextBlock>
+                        <TextBlock Text="; Type of Impression Material: "></TextBlock>
+                        <TextBlock Text="{Binding TypeOfImpressionMaterial}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -25,28 +25,27 @@ namespace MDTManagment.Services
 
         public List<Order> GetDentists()
         {
-            //var orders = database.Orders;
-            //return orders.ToList();
-
-            var orders = new List<Order>()
-            {
-                new Order()
-                {
-                    Id=1,
-                    Name="test",
-                    PaidPrice=15,
-                    Price=12
-                },
-                new Order()
-                {
-                    Id=1,
-                    Name="test",
-                    PaidPrice=15,
-                    Price=12
-                }
-            };
-
-            return orders;
+            var orders = database.Orders;
+            return orders.ToList();
         }
+      //  var orders = new List<Order>()
+      //  {
+      //      new Order()
+      //      {
+      //          Id=1,
+      //          TypeOfTheOrder="test",
+      //        
+      //          Price=12
+      //      },
+      //      new Order()
+      //      {
+      //          Id=1,
+      //          TypeOfTheOrder="test",
+      //          Price=12
+      //      }
+      //  };
+      // 
+      //  return orders;
+      // }
     }
 }

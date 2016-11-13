@@ -7,10 +7,10 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="HomePage">
-
     <StackPanel>
-        <TextBlock>Hello world</TextBlock>
+        <TextBlock>Main Menu</TextBlock>
         <Button Height="60" Width="120" Click="GoToOrdersPage_Cick">Orders</Button>
         <Button Height="60" Width="120" Click="GoToDentistsPage_Cick">Dentists</Button>
+        <Button Height="60" Width="120" Click="GoToPatientPage_Cick">Patients</Button>
     </StackPanel>
 </Page>
