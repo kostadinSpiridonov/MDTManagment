@@ -17,10 +17,10 @@ namespace MDTManagment.Services
             this.database = new ApplicationDbContext();
         }
 
-        public Dentist GetDentist(int dentistId) //vmesto Dentist -> List<Dentist>
+        public Dentist GetDentist(int dentistId)
         {
-            var dentist = database.Dentists.First(x => x.Id == dentistId); // delete .First()
-            return dentist; // .ToList()
+            var dentist = database.Dentists.First(x => x.Id == dentistId); 
+            return dentist;
         }
 
         public List<Dentist> GetDentists()

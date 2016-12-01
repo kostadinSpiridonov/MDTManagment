@@ -8,16 +8,16 @@
 	Title="PatientsPage">
 
     <StackPanel>
-        <ListView ItemsSource="{Binding Patients}" Height="250">
+        <ListView ItemsSource="{Binding Patients}" Height="50" IsSynchronizedWithCurrentItem="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding FirstName}"></TextBlock>
-                        <TextBlock Text="{Binding SurName}"></TextBlock>
-                        <TextBlock Text="{Binding Family}"></TextBlock>
-                        <TextBlock Text="{Binding PhoneNumber}"></TextBlock>
-                        <TextBlock Text="{Binding Age}"></TextBlock>
-                        <TextBlock Text="{Binding Address}"></TextBlock>
+                        <TextBlock Text="{Binding FirstName}">`</TextBlock>
+                        <TextBlock Text="{Binding Surname}">`</TextBlock>
+                        <TextBlock Text="{Binding Family}">`</TextBlock>
+                        <TextBlock Text="{Binding PhoneNumber}">`</TextBlock>
+                        <TextBlock Text="{Binding Age}">`</TextBlock>
+                        <TextBlock Text="{Binding Address}">`</TextBlock>
                         <Button  Command="{Binding Path=DataContext.ViewPatientCommand, 
                                     RelativeSource={RelativeSource Mode=FindAncestor,      
                                     AncestorType={x:Type ItemsControl}} }"
@@ -26,5 +26,21 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Right">
+                <StackPanel DataContext="{Binding NewPatient}">
+                    <TextBox Text="{Binding Path=FirstName}"/>
+                    <TextBox Text="{Binding Path=Surname}"/>
+                    <TextBox Text="{Binding Path=Family}"/>
+                    <TextBox Text="{Binding Path=Age}"/>
+                    <TextBox Text="{Binding Path=Address}"/>
+                    <TextBox Text="{Binding Path=PhoneNumber}"/>
+                </StackPanel>
+                <Button Content="AddPatient" Command="{Binding AddPatient}"/>
+                <Button Content="DeletePatient" Command="{Binding DeletePatient}"/>
+            </StackPanel>
+        </DockPanel>
+
+
     </StackPanel>
 </Page>

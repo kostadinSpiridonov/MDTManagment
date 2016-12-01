@@ -17,7 +17,7 @@ namespace MDTManagment.ViewModels
         public OrdersVeiwModel()
         {
             var ordersService = new OrderService();
-            var databaseOrders = ordersService.GetDentists();
+            var databaseOrders = ordersService.GetOrders();
             this.Orders = new ObservableCollection<Order>(databaseOrders);
         }
     }

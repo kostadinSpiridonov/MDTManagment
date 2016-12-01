@@ -9,7 +9,7 @@
 
     <StackPanel>
         <TextBlock Text="{Binding Patient.FirstName}"></TextBlock>
-        <TextBlock Text="{Binding Patient.SurName}"></TextBlock>
+        <TextBlock Text="{Binding Patient.Surname}"></TextBlock>
         <TextBlock Text="{Binding Patient.Family}"></TextBlock>
         <TextBlock Text="{Binding Patient.PhoneNumber}"></TextBlock>
         <TextBlock Text="{Binding Patient.Age}"></TextBlock>
