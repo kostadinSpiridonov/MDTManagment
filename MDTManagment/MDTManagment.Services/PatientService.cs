@@ -9,45 +9,39 @@ using System.Threading.Tasks;
 
 namespace MDTManagment.Services
 {
-    public class PatientService
+    public class PatientService:BaseService
     {
-        private ApplicationDbContext database;
-
-        public PatientService()
+        public Patient GetPatientById(int patientId) 
         {
-            this.database = new ApplicationDbContext();
-        }
-
-
-        public Patient GetPatient(int patientId) 
-        {
-            var patient = database.Patients.First(x => x.Id == patientId); 
+            var patient = this.database.Patients.First(x => x.Id == patientId); 
             return patient; 
         }
-
-
-        public List<Patient> GetPatients()
+        
+        public List<Patient> GetAllPatients()
         {
-            var patients = database.Patients;
+            var patients = this.database.Patients;
             return patients.ToList();
         }
 
 
-        public void DbDeletePatient(int patientId)
+        public void DeletePatient(int patientId)
         {
-            Patient patient = database.Patients.First(x => x.Id == patientId);
+            var patient = this.database.Patients.First(x => x.Id == patientId);
+            if(patient==null)
+            {
+                return;
+            }
 
-            database.Patients.Remove(patient);
-            database.SaveChanges();
+            this.database.Patients.Remove(patient);
+            this.database.SaveChanges();
         }
 
 
-        public void DbAddPatient(Patient patient)
+        public void AddPatient(Patient patient)
         {
-            database.Patients.Add(patient);
-            database.SaveChanges();
+            this.database.Patients.Add(patient);
+            this.database.SaveChanges();
         }
-
     }
     
 }

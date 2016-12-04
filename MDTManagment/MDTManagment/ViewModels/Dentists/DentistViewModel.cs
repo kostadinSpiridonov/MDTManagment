@@ -7,13 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MDTManagment.ViewModels
+namespace MDTManagment.ViewModels.Dentists
 {
     public class DentistViewModel
     {
-
-        public ObservableCollection<Dentist> AdditionalDentist { get; set; }
-
         public Dentist Dentist { get; set; }
 
         private DentistService dentistService;
@@ -21,12 +18,8 @@ namespace MDTManagment.ViewModels
         public DentistViewModel(int dentistId)
         {
             this.dentistService = new DentistService();
-            var databaseDentist = dentistService.GetDentist(dentistId);
+            var databaseDentist = dentistService.GetDentistById(dentistId);
             this.Dentist = databaseDentist;
-
-            this.AdditionalDentist = new ObservableCollection<Dentist>();
-            this.AdditionalDentist.Insert(0, Dentist);
         }
-
     }
 }

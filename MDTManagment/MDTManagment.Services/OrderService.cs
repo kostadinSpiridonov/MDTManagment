@@ -8,24 +8,17 @@ using System.Threading.Tasks;
 
 namespace MDTManagment.Services
 {
-    public class OrderService
+    public class OrderService : BaseService
     {
-        private ApplicationDbContext database;
-
-        public OrderService()
-        {
-            this.database = new ApplicationDbContext();
-        }
-
         public Order GetOrder()
         {
-            var order = database.Orders.First();
+            var order = this.database.Orders.First();
             return order;
         }
 
         public List<Order> GetOrders()
         {
-            var orders = database.Orders;
+            var orders = this.database.Orders;
             return orders.ToList();
         }
 

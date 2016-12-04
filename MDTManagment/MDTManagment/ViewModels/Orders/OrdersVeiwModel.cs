@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace MDTManagment.ViewModels
+namespace MDTManagment.ViewModels.Orders
 {
     public class OrdersVeiwModel
     {

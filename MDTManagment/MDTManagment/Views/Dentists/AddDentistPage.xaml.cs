@@ -1,4 +1,5 @@
 ﻿using MDTManagment.ViewModels;
+using MDTManagment.ViewModels.Dentists;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +12,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MDTManagment
+namespace MDTManagment.Views.Dentists
 {
     /// <summary>
-    /// Interaction logic for OrderWindow.xaml
+    /// Interaction logic for AddDentistPage.xaml
     /// </summary>
-    public partial class OrderWindow : Window
+    public partial class AddDentistPage : Page
     {
-        public OrderWindow()
+        public AddDentistPage()
         {
             InitializeComponent();
-            this.DataContext = new OrderViewModel();
+            this.DataContext = new DentistsViewModel();
         }
     }
 }

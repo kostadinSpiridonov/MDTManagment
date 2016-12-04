@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MDTManagment.Views.Dentists;
+using MDTManagment.Views.Orders;
+using MDTManagment.Views.Patients;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

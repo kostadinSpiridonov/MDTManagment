@@ -8,41 +8,36 @@ using System.Threading.Tasks;
 
 namespace MDTManagment.Services
 {
-    public class DentistService
+    public class DentistService:BaseService
     {
-        private ApplicationDbContext database;
-
-        public DentistService()
+        public Dentist GetDentistById(int dentistId)
         {
-            this.database = new ApplicationDbContext();
-        }
-
-
-        public Dentist GetDentist(int dentistId)
-        {
-            var dentist = database.Dentists.First(x => x.Id == dentistId); 
+            var dentist = this.database.Dentists.First(x => x.Id == dentistId); 
             return dentist;
         }
 
-        public List<Dentist> GetDentists()
+        public List<Dentist> GetAllDentists()
         {
-            var dentists = database.Dentists;
+            var dentists = this.database.Dentists;
             return dentists.ToList();
         }
 
-        public void DbDeleteDentist(int dentistId)
+        public void DeleteDentist(int dentistId)
         {
-            Dentist dentist = database.Dentists.First(x => x.Id == dentistId);
+            var dentist = this.database.Dentists.First(x => x.Id == dentistId);
+            if(dentist==null)
+            {
+                return;
+            }
 
-            database.Dentists.Remove(dentist);
-            database.SaveChanges();
+            this.database.Dentists.Remove(dentist);
+            this.database.SaveChanges();
         }
-
-
-        public void DbAddDentist(Dentist dentist)
+        
+        public void AddDentist(Dentist dentist)
         {
-            database.Dentists.Add(dentist);
-            database.SaveChanges();
+            this.database.Dentists.Add(dentist);
+            this.database.SaveChanges();
         }
     }
 }

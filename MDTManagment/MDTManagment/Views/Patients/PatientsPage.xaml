@@ -1,4 +1,4 @@
-﻿<Page x:Class="MDTManagment.Views.PatientsPage"
+﻿<Page x:Class="MDTManagment.Views.Patients.PatientsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,7 +17,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0">
-                <ListView ItemsSource="{Binding Patients}" IsSynchronizedWithCurrentItem="True">
+                <ListView ItemsSource="{Binding Patients}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedPatient, Mode=TwoWay}">
                     <ListView.View>
                         <GridView>
                             <GridView.Columns>
