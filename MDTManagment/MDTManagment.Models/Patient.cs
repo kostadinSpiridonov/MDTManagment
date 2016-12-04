@@ -23,5 +23,9 @@ namespace MDTManagment.Models
         public int Age { get; set; }
 
         public string Address { get; set; }
+
+        public string PtDentist { get; set; }
+
+        public Dentist DentistPt { get; set; }
     }
 }

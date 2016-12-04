@@ -4,43 +4,70 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
+      xmlns:ViewModels ="clr-namespace:MDTManagment.ViewModels" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="PatientsPage">
 
-    <StackPanel>
-        <ListView ItemsSource="{Binding Patients}" Height="50" IsSynchronizedWithCurrentItem="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding FirstName}">`</TextBlock>
-                        <TextBlock Text="{Binding Surname}">`</TextBlock>
-                        <TextBlock Text="{Binding Family}">`</TextBlock>
-                        <TextBlock Text="{Binding PhoneNumber}">`</TextBlock>
-                        <TextBlock Text="{Binding Age}">`</TextBlock>
-                        <TextBlock Text="{Binding Address}">`</TextBlock>
-                        <Button  Command="{Binding Path=DataContext.ViewPatientCommand, 
-                                    RelativeSource={RelativeSource Mode=FindAncestor,      
-                                    AncestorType={x:Type ItemsControl}} }"
-                                 CommandParameter="{Binding Id}">View</Button>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <DockPanel>
-            <StackPanel DockPanel.Dock="Right">
-                <StackPanel DataContext="{Binding NewPatient}">
-                    <TextBox Text="{Binding Path=FirstName}"/>
-                    <TextBox Text="{Binding Path=Surname}"/>
-                    <TextBox Text="{Binding Path=Family}"/>
-                    <TextBox Text="{Binding Path=Age}"/>
-                    <TextBox Text="{Binding Path=Address}"/>
-                    <TextBox Text="{Binding Path=PhoneNumber}"/>
-                </StackPanel>
-                <Button Content="AddPatient" Command="{Binding AddPatient}"/>
-                <Button Content="DeletePatient" Command="{Binding DeletePatient}"/>
-            </StackPanel>
-        </DockPanel>
+    <Grid>
+       
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MinWidth="220"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                <ListView ItemsSource="{Binding Patients}" IsSynchronizedWithCurrentItem="True">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding FirstName}"/>
+                                <GridViewColumn Header="Family" DisplayMemberBinding="{Binding Family}"/>
+                                <GridViewColumn Header="View">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <Button  Command="{Binding Path=DataContext.ViewPatientCommand, 
+                                                         RelativeSource={RelativeSource Mode=FindAncestor,      
+                                                         AncestorType={x:Type ItemsControl}} }"
+                                                         CommandParameter="{Binding Id}"> Explicit </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                
+                         
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                    </Grid>
 
 
-    </StackPanel>
+                    <Grid Grid.Column="1">
+                        
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Button  Command="{Binding NavigateToAddPatient}" Height="50" Width="50" VerticalAlignment="Bottom">
+                                    <TextBlock TextWrapping="Wrap" TextAlignment="Center">Add Patient</TextBlock>
+                                </Button>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Button  Command="{Binding DeletePatient}" Height="50" Width="50" VerticalAlignment="Top">
+                                    <TextBlock TextWrapping="Wrap" TextAlignment="Center">Delete Patient</TextBlock>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                       
+                    </Grid>
+
+
+                </Grid>
+
+    </Grid>
 </Page>

@@ -5,24 +5,74 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MDTManagment.Views"
       mc:Ignorable="d" 
+      xmlns:ViewModels ="clr-namespace:MDTManagment.ViewModels" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="DentistsPage">
+   
 
-    <StackPanel>
-        <ListView ItemsSource="{Binding Dentists}" Height="250">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}"></TextBlock>
-                        <TextBlock Text="{Binding Family}"></TextBlock>
-                        <TextBlock Text="{Binding PhoneNumber}"></TextBlock>
-                        <Button  Command="{Binding Path=DataContext.ViewDentistCommand, 
-                                    RelativeSource={RelativeSource Mode=FindAncestor,      
-                                    AncestorType={x:Type ItemsControl}} }"
-                                 CommandParameter="{Binding Id}">View</Button>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="220"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            
+            <ListView ItemsSource="{Binding Dentists}" IsSynchronizedWithCurrentItem="True">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding LastName}"/>
+                            <GridViewColumn Header="Information">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <Button  Command="{Binding Path=DataContext.ViewDentistCommand, 
+                                                     RelativeSource={RelativeSource Mode=FindAncestor,      
+                                                     AncestorType={x:Type ItemsControl}} }"
+                                                     CommandParameter="{Binding Id}">Additional</Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            
+        </Grid>
+
+        
+
+        <Grid Grid.Column="1">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Button  Command="{Binding NavigateToAddDentist}" Height="50" Width="50" VerticalAlignment="Bottom">
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center">Add Dentist</TextBlock>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Button  Command="{Binding DeleteDentist}" Height="50" Width="50" VerticalAlignment="Top">
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center">Delete Dentist</TextBlock>
+                    </Button>
+                </Grid>
+            </Grid>
+
+        </Grid>
+
+        
+        
+
+    </Grid>
+
+
+
+
 </Page>

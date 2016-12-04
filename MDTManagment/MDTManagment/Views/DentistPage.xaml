@@ -7,8 +7,18 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="DentistPage">
-    <StackPanel>
-        <TextBlock Text="{Binding Dentist.Name}"></TextBlock>
-        <TextBlock Text="{Binding Dentist.PhoneNumber}"></TextBlock>
-    </StackPanel>
+
+    <ListView ItemsSource="{Binding AdditionalDentist}" IsSynchronizedWithCurrentItem="True">
+        <ListView.View>
+            <GridView>
+                <GridView.Columns>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="MiddleName" DisplayMemberBinding="{Binding MiddleName}"/>
+                    <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Contact" DisplayMemberBinding="{Binding Contact}"/>
+                    <GridViewColumn Header="ProfessionalExperience" DisplayMemberBinding="{Binding ProfessionalExperience}"/>
+                </GridView.Columns>
+            </GridView>
+        </ListView.View>
+    </ListView>
 </Page>

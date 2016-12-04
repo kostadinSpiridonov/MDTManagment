@@ -7,10 +7,20 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="HomePage">
-    <StackPanel>
-        <TextBlock>Main Menu</TextBlock>
-        <Button Height="60" Width="120" Click="GoToOrdersPage_Cick">Orders</Button>
-        <Button Height="60" Width="120" Click="GoToDentistsPage_Cick">Dentists</Button>
-        <Button Height="60" Width="120" Click="GoToPatientPage_Cick">Patients</Button>
-    </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Button Height="60" Width="70" Click="GoToPatientPage_Cick">Patients</Button>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Button Height="60" Width="70" Click="GoToOrdersPage_Cick">Orders</Button>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Button Height="60" Width="70" Click="GoToDentistsPage_Cick">Dentists</Button>
+        </Grid>
+    </Grid>
 </Page>

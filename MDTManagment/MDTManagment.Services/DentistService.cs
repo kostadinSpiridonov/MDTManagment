@@ -17,6 +17,7 @@ namespace MDTManagment.Services
             this.database = new ApplicationDbContext();
         }
 
+
         public Dentist GetDentist(int dentistId)
         {
             var dentist = database.Dentists.First(x => x.Id == dentistId); 
@@ -27,6 +28,21 @@ namespace MDTManagment.Services
         {
             var dentists = database.Dentists;
             return dentists.ToList();
+        }
+
+        public void DbDeleteDentist(int dentistId)
+        {
+            Dentist dentist = database.Dentists.First(x => x.Id == dentistId);
+
+            database.Dentists.Remove(dentist);
+            database.SaveChanges();
+        }
+
+
+        public void DbAddDentist(Dentist dentist)
+        {
+            database.Dentists.Add(dentist);
+            database.SaveChanges();
         }
     }
 }

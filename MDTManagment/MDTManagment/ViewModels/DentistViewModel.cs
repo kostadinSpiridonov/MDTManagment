@@ -11,6 +11,9 @@ namespace MDTManagment.ViewModels
 {
     public class DentistViewModel
     {
+
+        public ObservableCollection<Dentist> AdditionalDentist { get; set; }
+
         public Dentist Dentist { get; set; }
 
         private DentistService dentistService;
@@ -20,6 +23,10 @@ namespace MDTManagment.ViewModels
             this.dentistService = new DentistService();
             var databaseDentist = dentistService.GetDentist(dentistId);
             this.Dentist = databaseDentist;
+
+            this.AdditionalDentist = new ObservableCollection<Dentist>();
+            this.AdditionalDentist.Insert(0, Dentist);
         }
+
     }
 }

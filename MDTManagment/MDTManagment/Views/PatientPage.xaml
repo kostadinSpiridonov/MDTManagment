@@ -7,12 +7,24 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="PatientPage">
 
-    <StackPanel>
-        <TextBlock Text="{Binding Patient.FirstName}"></TextBlock>
-        <TextBlock Text="{Binding Patient.Surname}"></TextBlock>
-        <TextBlock Text="{Binding Patient.Family}"></TextBlock>
-        <TextBlock Text="{Binding Patient.PhoneNumber}"></TextBlock>
-        <TextBlock Text="{Binding Patient.Age}"></TextBlock>
-        <TextBlock Text="{Binding Patient.Address}"></TextBlock>
-    </StackPanel>
+    <ListView ItemsSource="{Binding ExplicitPatient}">
+
+        <ListView.View>
+
+            <GridView>
+
+                <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding Path=FirstName}"/>
+                <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Surname}"/>
+                <GridViewColumn Header="Family" DisplayMemberBinding="{Binding Family}"/>
+                <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}"/>
+                <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}"/>
+                <GridViewColumn Header="PhoneNumber" DisplayMemberBinding="{Binding PhoneNumber}"/>
+                <GridViewColumn Header="DentistPt" DisplayMemberBinding="{Binding Path=DentistPt.Name}"/>
+
+            </GridView>
+
+        </ListView.View>
+
+    </ListView>
+
 </Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MDTManagment.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,12 @@ namespace MDTManagment.Views
     /// <summary>
     /// Interaction logic for AddPatient.xaml
     /// </summary>
-    public partial class AddPatient : Page
+    public partial class AddPatientPage : Page
     {
-        public AddPatient()
+        public AddPatientPage()
         {
             InitializeComponent();
+            this.DataContext = new PatientsViewModel();
         }
     }
 }
