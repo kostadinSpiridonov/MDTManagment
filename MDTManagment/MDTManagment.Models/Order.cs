@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MDTManagment.Models
 {
     public class Order
-    {
+    { 
         [Key]
         public int Id {  get; set; }
 
@@ -19,9 +19,9 @@ namespace MDTManagment.Models
         public DateTime DeadLine { get; set; }
 
         public double Price{ get; set; }
-        //public List<SpecialRequirement> SpecialRequirements { get; set; }      
-                                                                               
-        //public List<DeclaredIngredient> DeclaredIngredients { get; set; }      
+
+        //public List<SpecialRequirementsClass> SpecialRequirements { get; set; }       //Class SpecialRequirementsClass e deleted shot syzdavashe problemi :D
+        public List<DeclaredIngredientsClass> DeclaredIngredients { get; set; }       // CAN'T ENTER LISTS IN THE DATEBASE??????????????????????????????????????????????@!@?!@?!@
 
         public bool FacialArc { get; set; }
 

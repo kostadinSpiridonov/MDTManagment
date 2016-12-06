@@ -20,24 +20,32 @@ namespace MDTManagment.Views
     /// </summary>
     public partial class HomePage : Page
     {
+
+
         public HomePage()
         {
             InitializeComponent();
         }
+
+
 
         private void GoToOrdersPage_Cick(object sender, RoutedEventArgs e)
         {
             App.Navigation.Navigate(new OrdersPage());
         }
 
+
         private void GoToDentistsPage_Cick(object sender, RoutedEventArgs e)
         {
             App.Navigation.Navigate(new DentistsPage());
         }
+
+
         private void GoToPatientPage_Cick(object sender, RoutedEventArgs e)
         {
             App.Navigation.Navigate(new PatientsPage());
         }
+
 
 
     }

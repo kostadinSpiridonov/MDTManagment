@@ -18,7 +18,7 @@ namespace MDTManagment.Models
 
         public string Family { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         public int Age { get; set; }
 
