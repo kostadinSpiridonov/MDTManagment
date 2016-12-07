@@ -7,24 +7,21 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="PatientPage">
 
-    <ListView ItemsSource="{Binding ExplicitPatient}">
-
-        <ListView.View>
-
-            <GridView>
-
-                <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding Path=FirstName}"/>
-                <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Surname}"/>
-                <GridViewColumn Header="Family" DisplayMemberBinding="{Binding Family}"/>
-                <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}"/>
-                <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}"/>
-                <GridViewColumn Header="PhoneNumber" DisplayMemberBinding="{Binding PhoneNumber}"/>
-                <GridViewColumn Header="DentistPt" DisplayMemberBinding="{Binding Path=DentistPt.Name}"/>
-
-            </GridView>
-
-        </ListView.View>
-
-    </ListView>
-
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Text="{Binding Patient.FirstName}"/>
+        <TextBlock Grid.Column="1" Text="{Binding Patient.Surname}"/>
+        <TextBlock Grid.Column="2" Text="{Binding Patient.Family}"/>
+        <TextBlock Grid.Column="3" Text="{Binding Patient.Age}"/>
+        <TextBlock Grid.Column="4" Text="{Binding Patient.Address}"/>
+        <TextBlock Grid.Column="5" Text="{Binding Patient.PhoneNumber}"/>
+    </Grid>
+    
 </Page>

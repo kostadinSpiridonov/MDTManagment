@@ -86,8 +86,10 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\Dentists\DentistsViewModel.cs" />
     <Compile Include="ViewModels\Dentists\DentistViewModel.cs" />
+    <Compile Include="ViewModels\Patients\SelectDentistViewModel.cs" />
     <Compile Include="ViewModels\Orders\OrdersVeiwModel.cs" />
     <Compile Include="ViewModels\Orders\OrderViewModel.cs" />
+    <Compile Include="ViewModels\Patients\AddPatientViewModel.cs" />
     <Compile Include="ViewModels\Patients\PatientsViewModel.cs" />
     <Compile Include="ViewModels\Patients\PatientViewModel.cs" />
     <Compile Include="Views\Dentists\AddDentistPage.xaml.cs">

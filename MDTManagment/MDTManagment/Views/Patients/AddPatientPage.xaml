@@ -47,6 +47,9 @@
         <Grid Grid.Column="0" Grid.Row="5">
             <TextBlock TextAlignment="Center" VerticalAlignment="Center">PhoneNumber:</TextBlock>
         </Grid>
+        <Grid Grid.Column="0" Grid.Row="6">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Dentists of the Patient:</TextBlock>
+        </Grid>
 
 
         <Grid DataContext="{Binding NewPatient}" Grid.Column="1" Grid.Row="0">
@@ -67,9 +70,45 @@
         <Grid DataContext="{Binding NewPatient}" Grid.Column="1" Grid.Row="5">
             <TextBox Text="{Binding Path=PhoneNumber}" Height="20"></TextBox>
         </Grid>
+        
+        
+        
+        
+        
+        
+        <!--<Grid DataContext="{Binding NewPatient}" Grid.Column="1" Grid.Row="5">
+            <TextBox Text="{Binding Path=Dentist}" Height="20"></TextBox>
+            --><!--tva ne trqa da e textblock ami Listview bind-ato kym obser<select>Dentists --><!--
+        </Grid>-->
 
 
-        <Grid Grid.Column="2" Grid.Row="6">
+        <Grid Grid.Column="1" Grid.Row="6">          <!--DataContext="{Binding NewPatient}"-->  <!--TVA TUKA NE E TAKA ZA DC-->
+            <ListView ItemsSource="{Binding PtDentists}" IsSynchronizedWithCurrentItem="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                         <StackPanel Orientation="Horizontal">
+                                <CheckBox Tag="{Binding isSelected, Mode=TwoWay}"></CheckBox>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                                <!--<TextBlock Text="{Binding Dentist.LastName}"></TextBlock>-->
+                          </StackPanel>
+                    </DataTemplate> 
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<TextBox Text="{Binding Path=Dentist}" Height="20"></TextBox>-->
+            <!--tva ne trqa da e textblock ami Listview bind-ato kym obser<select>Dentists -->
+        </Grid>
+
+        <!--nz dali tuka trqa da se promeni dataContext v code-behinda
+        syshto trqbva da se promeni NewDentist na observable-la koito e v SelectViewModela-->
+
+
+        
+        
+        
+        
+        
+<!--Stariq ComboBox-->
+        <!--<Grid Grid.Column="2" Grid.Row="6">
             <Button Content="AddPatient" Command="{Binding AddPatient}" Height="20" Width="70"/>
     
         </Grid>
@@ -94,7 +133,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-        </Grid>
+        </Grid>-->
 
         
 
