@@ -1,6 +1,4 @@
-﻿using MahApps.Metro.Controls;
-using MDTManagment.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,20 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MDTManagment
+namespace MDTManagment.Views.Orders
 {
     /// <summary>
-    /// Interaction logic for StartupWindow.xaml
+    /// Interaction logic for TypeOfTheOrderPage.xaml
     /// </summary>
-    public partial class StartupWindow : MetroWindow
+    public partial class TypeOfTheOrderPage : Window
     {
-        public StartupWindow()
+        private int obj;
+
+        public TypeOfTheOrderPage()
         {
             InitializeComponent();
-            App.Navigation = this.MainFrame.NavigationService;
+        }
+
+        public TypeOfTheOrderPage(int obj)
+        {
+            this.obj = obj;
         }
     }
 }

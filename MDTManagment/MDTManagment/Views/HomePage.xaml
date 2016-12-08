@@ -1,4 +1,5 @@
 ﻿<Page x:Class="MDTManagment.Views.HomePage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,8 +10,8 @@
       Title="HomePage">
     <StackPanel>
         <TextBlock>Main Menu</TextBlock>
-        <Button Height="60" Width="120" Click="GoToOrdersPage_Cick">Orders</Button>
-        <Button Height="60" Width="120" Click="GoToDentistsPage_Cick">Dentists</Button>
-        <Button Height="60" Width="120" Click="GoToPatientPage_Cick">Patients</Button>
+        <Button Height="60" Width="120" Click="GoToOrdersPage_Cick" Style="{StaticResource AccentedSquareButtonStyle}">Orders</Button>
+        <Button Height="60" Width="120" Click="GoToDentistsPage_Cick" Style="{StaticResource AccentedSquareButtonStyle}">Dentists</Button>
+        <Button Height="60" Width="120" Click="GoToPatientPage_Cick" Style="{StaticResource AccentedSquareButtonStyle}">Patients</Button>
     </StackPanel>
 </Page>

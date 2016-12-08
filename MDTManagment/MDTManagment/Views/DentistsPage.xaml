@@ -16,7 +16,7 @@
                         <TextBlock Text="{Binding Name}"></TextBlock>
                         <TextBlock Text="{Binding Family}"></TextBlock>
                         <TextBlock Text="{Binding PhoneNumber}"></TextBlock>
-                        <Button  Command="{Binding Path=DataContext.ViewDentistCommand, 
+                        <Button  Command="{Binding Path=DataContext, 
                                     RelativeSource={RelativeSource Mode=FindAncestor,      
                                     AncestorType={x:Type ItemsControl}} }"
                                  CommandParameter="{Binding Id}">View</Button>

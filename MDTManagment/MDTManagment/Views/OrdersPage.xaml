@@ -12,7 +12,11 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Type of the order: "></TextBlock>
+                        <TextBlock Text=" Type of the order"></TextBlock>
+                        <Button  Command="{Binding Path=DataContext, 
+                                    RelativeSource={RelativeSource Mode=FindAncestor,      
+                                    AncestorType={x:Type ItemsControl}} }"
+                                 CommandParameter="{Binding Id}">View</Button>
                         <TextBlock Text="{Binding TypeOfTheOrder}"></TextBlock>
                         <TextBlock Text="; Date of receipt: "></TextBlock>
                         <TextBlock Text="{Binding DateОfReceipt}"></TextBlock>
