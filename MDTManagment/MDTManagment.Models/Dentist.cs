@@ -9,10 +9,13 @@ namespace MDTManagment.Models
 
         public string Name { get; set; }
 
-        public string Family { get; set; }
+        public string MiddleName { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public string LastName { get; set; }
 
-        
+        public string Contact { get; set; }
+
+        public int ProfessionalExperience { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MDTManagment.ViewModels;
+using MDTManagment.ViewModels.Dentists;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +15,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MDTManagment.Views
+namespace MDTManagment.Views.Dentists
 {
     /// <summary>
-    /// Interaction logic for OrdersPage.xaml
+    /// Interaction logic for DentistsPage.xaml
     /// </summary>
-    public partial class OrdersPage : Page
+    public partial class DentistsPage : Page
     {
-        public OrdersPage()
+        public DentistsPage()
         {
             InitializeComponent();
-            this.DataContext = new OrdersVeiwModel();
+            this.DataContext = new DentistsViewModel();
         }
     }
 }

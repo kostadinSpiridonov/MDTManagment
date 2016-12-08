@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MDTManagment.ViewModels;
+using MDTManagment.ViewModels.Patients;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,16 +15,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MDTManagment.Views
+namespace MDTManagment.Views.Patients
 {
     /// <summary>
     /// Interaction logic for AddPatient.xaml
     /// </summary>
-    public partial class AddPatient : Page
+    public partial class AddPatientPage : Page
     {
-        public AddPatient()
+        public AddPatientPage()
         {
             InitializeComponent();
+            this.DataContext = new PatientsViewModel();
         }
     }
 }

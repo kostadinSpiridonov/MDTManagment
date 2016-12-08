@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MDTManagment.Models
 {
-    public class DeclaredIngredientsClass
+    public class Ingredient
     {
         [Key]
-        public int IdDeclaredIngredients { get; set; }
+        public int Id { get; set; }
 
-        public string DeclaredIngredients { get; set; }
+        public string Description { get; set; }
     }
 }

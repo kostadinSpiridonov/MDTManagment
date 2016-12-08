@@ -13,7 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Navigation;
 
-namespace MDTManagment.ViewModels
+namespace MDTManagment.ViewModels.Orders
 {
     public class OrdersVeiwModel
     {

@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MDTManagment.ViewModels
+namespace MDTManagment.ViewModels.Orders
 {
+    //TODO; What is this. Reference = 0 
     public class OrderViewModel
     {
         public string Name { get; set; }

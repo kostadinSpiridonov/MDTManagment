@@ -21,9 +21,14 @@ namespace MDTManagment.Data
         public DbSet<Dentist> Dentists { get; set; }
 
         public DbSet<Patient> Patients { get; set; }
-        
+
+        public DbSet<Ingredient> Ingredient { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Patient>().HasMany(x => x.Dentists);
+            modelBuilder.Entity<Order>().HasMany(x => x.DeclaredIngredients);
+
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -9,10 +9,15 @@ namespace MDTManagment.Models
 {
     public class Order
     { 
+        public Order()
+        {
+            this.DeclaredIngredients = new HashSet<Ingredient>();
+        }
+
         [Key]
         public int Id {  get; set; }
 
-        public string TypeOfTheOrder { get; set; }
+        public string Type { get; set; }
 
         public DateTime DateОfReceipt{ get; set; }
 
@@ -21,7 +26,7 @@ namespace MDTManagment.Models
         public double Price{ get; set; }
 
         //public List<SpecialRequirementsClass> SpecialRequirements { get; set; }       //Class SpecialRequirementsClass e deleted shot syzdavashe problemi :D
-        public List<DeclaredIngredientsClass> DeclaredIngredients { get; set; }       // CAN'T ENTER LISTS IN THE DATEBASE??????????????????????????????????????????????@!@?!@?!@
+        public ICollection<Ingredient> DeclaredIngredients { get; set; }    
 
         public bool FacialArc { get; set; }
 
@@ -32,6 +37,5 @@ namespace MDTManagment.Models
         public bool CeramicTest { get; set; }
 
         public string TypeOfImpressionMaterial { get; set; }
-
     }
 }

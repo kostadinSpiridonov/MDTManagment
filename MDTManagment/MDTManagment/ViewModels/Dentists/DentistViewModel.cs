@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MDTManagment.ViewModels
+namespace MDTManagment.ViewModels.Dentists
 {
     public class DentistViewModel
     {
@@ -18,7 +18,7 @@ namespace MDTManagment.ViewModels
         public DentistViewModel(int dentistId)
         {
             this.dentistService = new DentistService();
-            var databaseDentist = dentistService.GetDentist(dentistId);
+            var databaseDentist = dentistService.GetDentistById(dentistId);
             this.Dentist = databaseDentist;
         }
     }
