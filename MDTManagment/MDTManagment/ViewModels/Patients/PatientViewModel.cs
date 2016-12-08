@@ -11,9 +11,6 @@ namespace MDTManagment.ViewModels.Patients
 {
     public class PatientViewModel 
     {
-        //TODO: Refactor that without list
-        public ObservableCollection<Patient> ExplicitPatient { get; set; }
-
         public Patient Patient { get; set; }
 
         private PatientService patientService;
@@ -23,9 +20,9 @@ namespace MDTManagment.ViewModels.Patients
             this.patientService = new PatientService();
             var databasePatient = patientService.GetPatientById(patientId);
             this.Patient = databasePatient;
-            
-            this.ExplicitPatient = new ObservableCollection<Patient>();
-            ExplicitPatient.Insert(0, Patient);
+
+          //  imam Id na izbranite v edin masiv
+          //  var izbranDentist = dentistService.getDentistById(Id ot otgore)
         }
     }
 }

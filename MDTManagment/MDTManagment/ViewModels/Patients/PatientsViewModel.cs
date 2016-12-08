@@ -24,7 +24,7 @@ namespace MDTManagment.ViewModels.Patients
     {
         public ObservableCollection<Patient> Patients { get; set; }
 
-        public Patient NewPatient { get; set; }
+        //public Patient NewPatient { get; set; }
 
         public Patient SelectedPatient { get; set; }
 
@@ -32,15 +32,15 @@ namespace MDTManagment.ViewModels.Patients
         
         public PatientsViewModel()
         {
-            this.patientService = new PatientService();
+            this.patientService = new PatientService(); //
 
             var databasePatients = this.patientService.GetAllPatients();
 
             this.Patients = new ObservableCollection<Patient>(databasePatients);
 
-            this.AddPatient = new RelayCommand(this.HandleAddPatient);
+            //this.AddPatient = new RelayCommand(this.HandleAddPatient);
 
-            this.NewPatient = new Patient();
+            //this.NewPatient = new Patient();
 
             this.DeletePatient = new RelayCommand(this.HandleDeletePatient);
             
@@ -62,7 +62,7 @@ namespace MDTManagment.ViewModels.Patients
             }
         }
         
-        public ICommand AddPatient { get; set; }
+        //public ICommand AddPatient { get; set; }
         
         public ICommand DeletePatient { get; set; }
         
@@ -73,13 +73,13 @@ namespace MDTManagment.ViewModels.Patients
             App.Navigation.Navigate(new PatientPage((int)obj));
         }
         
-        private void HandleAddPatient(object obj)
-        {
-            this.patientService.AddPatient(this.NewPatient);
-            this.Patients.Add(this.NewPatient);
-            this.OnPropertyChanged("Patients");
-            MessageBox.Show("New Patient Added.", "Patients Status", MessageBoxButton.OK);
-        }
+   //     private void HandleAddPatient(object obj)
+   //     {
+   //         this.patientService.AddPatient(this.NewPatient);
+   //         this.Patients.Add(this.NewPatient);
+   //         this.OnPropertyChanged("Patients");
+   //         MessageBox.Show("New Patient Added.", "Patients Status", MessageBoxButton.OK);
+   //     }
 
 
         private void HandleDeletePatient(object obj)

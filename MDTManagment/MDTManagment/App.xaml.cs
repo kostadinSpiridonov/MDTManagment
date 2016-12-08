@@ -1,7 +1,10 @@
-﻿using System;
+﻿using MDTManagment.Data;
+using MDTManagment.Data.Migrations;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,5 +18,13 @@ namespace MDTManagment
     public partial class App : Application
     {
         public static NavigationService Navigation { get; set; }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            Database.SetInitializer(
+                     new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>()
+                     );
+        }
     }
 }
