@@ -103,6 +103,9 @@
     <Compile Include="Views\Dentists\AddDentistPage.xaml.cs">
       <DependentUpon>AddDentistPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Orders\TypeOfTheOrderPage.xaml.cs">
+      <DependentUpon>TypeOfTheOrderPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Patients\AddPatientPage.xaml.cs">
       <DependentUpon>AddPatientPage.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Orders\TypeOfTheOrderPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Patients\AddPatientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,7 +163,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PatientPage.xaml">
+    <Page Include="Views\Patients\PatientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

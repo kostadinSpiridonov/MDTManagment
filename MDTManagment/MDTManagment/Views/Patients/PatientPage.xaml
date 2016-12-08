@@ -23,5 +23,5 @@
         <TextBlock Grid.Column="4" Text="{Binding Patient.Address}"/>
         <TextBlock Grid.Column="5" Text="{Binding Patient.PhoneNumber}"/>
     </Grid>
-    
+
 </Page>

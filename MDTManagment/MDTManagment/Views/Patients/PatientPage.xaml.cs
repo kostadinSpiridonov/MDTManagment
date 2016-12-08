@@ -1,5 +1,4 @@
-﻿using MDTManagment.ViewModels;
-using MDTManagment.ViewModels.Patients;
+﻿using MDTManagment.ViewModels.Patients;
 using System;
 using System.Collections.Generic;
 using System.Linq;
