@@ -26,7 +26,6 @@ namespace MDTManagment.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Patient>().HasMany(x => x.Dentists);
             modelBuilder.Entity<Order>().HasMany(x => x.DeclaredIngredients);
 
             base.OnModelCreating(modelBuilder);

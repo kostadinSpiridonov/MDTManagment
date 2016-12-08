@@ -20,9 +20,6 @@ namespace MDTManagment.ViewModels.Patients
             this.patientService = new PatientService();
             var databasePatient = patientService.GetPatientById(patientId);
             this.Patient = databasePatient;
-
-          //  imam Id na izbranite v edin masiv
-          //  var izbranDentist = dentistService.getDentistById(Id ot otgore)
         }
     }
 }

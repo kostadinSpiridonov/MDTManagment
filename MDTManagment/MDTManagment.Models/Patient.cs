@@ -9,11 +9,6 @@ namespace MDTManagment.Models
 {
     public class Patient
     {
-        public Patient()
-        {
-            this.Dentists = new HashSet<Dentist>();
-        }
-
         [Key]
         public int Id { get; set; }
 
@@ -29,6 +24,8 @@ namespace MDTManagment.Models
 
         public string Address { get; set; }
 
-        public virtual ICollection<Dentist> Dentists { get; set; }
+        public int DentistId { get; set; }
+
+        public Dentist Dentist { get; set; }
     }
 }
