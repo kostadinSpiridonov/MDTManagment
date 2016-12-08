@@ -1,10 +1,15 @@
-﻿<NavigationWindow x:Class="MDTManagment.StartupWindow"
+﻿<metro:MetroWindow x:Class="MDTManagment.StartupWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MDTManagment"
+        xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
         mc:Ignorable="d"
-        Source="Views/HomePage.xaml"
-        Title="StartupWindow" Height="300" Width="300">
-</NavigationWindow>
+        Title="MDTManagment"
+        ResizeMode="NoResize"
+        WindowState="Maximized">
+    <Frame Source="Views/HomePage.xaml" x:Name="MainFrame"></Frame>
+</metro:MetroWindow>

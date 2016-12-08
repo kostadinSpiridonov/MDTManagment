@@ -30,7 +30,7 @@ namespace MDTManagment.Models
 
         public bool FacialArc { get; set; }
 
-        public bool Articulator{ get; set; }
+        public bool Articulator { get; set; }
 
         public bool MetalTest { get; set; }
 

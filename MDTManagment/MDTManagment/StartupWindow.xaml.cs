@@ -1,4 +1,5 @@
-﻿using MDTManagment.Views;
+﻿using MahApps.Metro.Controls;
+using MDTManagment.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,12 @@ namespace MDTManagment
     /// <summary>
     /// Interaction logic for StartupWindow.xaml
     /// </summary>
-    public partial class StartupWindow : NavigationWindow
+    public partial class StartupWindow : MetroWindow
     {
         public StartupWindow()
         {
             InitializeComponent();
-            App.Navigation = this.NavigationService;
+            App.Navigation = this.MainFrame.NavigationService;
         }
     }
 }

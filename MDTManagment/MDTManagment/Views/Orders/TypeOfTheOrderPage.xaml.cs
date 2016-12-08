@@ -1,5 +1,4 @@
-﻿using MDTManagment.ViewModels.Patients;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,20 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MDTManagment.Views.Patients
+namespace MDTManagment.Views.Orders
 {
     /// <summary>
-    /// Interaction logic for PatientPage.xaml
+    /// Interaction logic for TypeOfTheOrderPage.xaml
     /// </summary>
-    public partial class PatientPage : Page
+    public partial class TypeOfTheOrderPage : Window
     {
-        public PatientPage(int patientId)
+        private int obj;
+
+        public TypeOfTheOrderPage()
         {
             InitializeComponent();
-            this.DataContext = new PatientViewModel(patientId);
+        }
+
+        public TypeOfTheOrderPage(int obj)
+        {
+            this.obj = obj;
         }
     }
 }
