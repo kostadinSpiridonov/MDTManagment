@@ -19,16 +19,16 @@ namespace MDTManagment.Views.Orders
     /// </summary>
     public partial class TypeOfTheOrderPage : Window
     {
-        private int obj;
+        private int orderId;
 
         public TypeOfTheOrderPage()
         {
             InitializeComponent();
         }
 
-        public TypeOfTheOrderPage(int obj)
+        public TypeOfTheOrderPage(int orderId)
         {
-            this.obj = obj;
+            this.orderId = orderId;
         }
     }
 }

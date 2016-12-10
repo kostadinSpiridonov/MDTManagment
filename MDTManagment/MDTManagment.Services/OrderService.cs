@@ -22,5 +22,15 @@ namespace MDTManagment.Services
             return orders.ToList();
         }
 
+        public List<Order> GetOrders(int count)
+        {
+            var orders = this.database
+                .Orders
+                .OrderBy(x => x.DeadLine)
+                .Take(count);
+
+            return orders.ToList();
+        }
+
     }
 }

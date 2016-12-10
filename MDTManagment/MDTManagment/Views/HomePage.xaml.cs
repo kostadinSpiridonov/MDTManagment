@@ -1,4 +1,5 @@
-﻿using MDTManagment.Views.Dentists;
+﻿using MDTManagment.ViewModels.Home;
+using MDTManagment.Views.Dentists;
 using MDTManagment.Views.Orders;
 using MDTManagment.Views.Patients;
 using System;
@@ -28,6 +29,7 @@ namespace MDTManagment.Views
         public HomePage()
         {
             InitializeComponent();
+            this.DataContext = new HomeViewModel();
         }
 
 

@@ -5,23 +5,54 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MDTManagment.Views"
+      xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="HomePage">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="550"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <Button Height="60" Width="70" Click="GoToPatientPage_Cick">Patients</Button>
-        </Grid>
-        <Grid Grid.Column="1">
-            <Button Height="60" Width="70" Click="GoToOrdersPage_Cick">Orders</Button>
-        </Grid>
-        <Grid Grid.Column="2">
-            <Button Height="60" Width="70" Click="GoToDentistsPage_Cick">Dentists</Button>
-        </Grid>
+        <StackPanel Grid.Column="0" Orientation="Horizontal">
+            <Button Height="30" Width="160" Margin="10" Click="GoToPatientPage_Cick">Patients</Button>
+            <Button Height="30" Width="160" Margin="10" Click="GoToOrdersPage_Cick">Orders</Button>
+            <Button Height="30" Width="160" Margin="10" Click="GoToDentistsPage_Cick">Dentists</Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Height="300" Orientation="Horizontal">
+            <TextBlock Text="MTDManagement" FontSize="30" Margin="550,10,10,10"></TextBlock>
+        </StackPanel>
+        <Image Source="/Resources/HomePageImage.png" Grid.Row="1" Width="600" Height="700" Grid.Column="1">
+            
+        </Image>
+        
+        <ListView ItemsSource="{Binding Orders}" Grid.Row="1">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Focusable" Value="False"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <controls:Tile Title="{Binding DeadLine}" Width="550"
+                                   Command="{Binding Path=DataContext.ViewOrderCommand, 
+                                                         RelativeSource={RelativeSource Mode=FindAncestor,      
+                                                         AncestorType={x:Type ItemsControl}} }"
+                                   CommandParameter="{Binding Id}"
+                                    Count="{Binding Dentist.Name}">
+                    </controls:Tile>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
