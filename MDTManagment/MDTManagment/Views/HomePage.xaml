@@ -9,19 +9,55 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="HomePage">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions> 
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <Button Height="60" Width="70" Click="GoToPatientPage_Cick">Patients</Button>
+        
+        <Grid Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom">
+            <StackPanel Height="80" Width="70">
+            <Button Height="60" Width="70" Click="GoToPatientPage_Cick" x:Name="PatientsButton">
+                <Button.Background>
+                    <ImageBrush x:Name="Avatar" ImageSource="avatar.png" Stretch="UniformToFill"/>
+                </Button.Background>
+
+                <Button.Template>
+                    <ControlTemplate>
+                            <Image Source="avatar.png" Stretch="UniformToFill"></Image>
+                    </ControlTemplate>
+                </Button.Template>
+                
+                <!--<ControlTemplate>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Transparent">
+                                --><!--<Setter.Value>
+                                    <ImageBrush ImageSource="avatar.png" Stretch="UniformToFill"/>
+                                </Setter.Value>--><!--
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>-->
+                
+            </Button>
+                <TextBlock Height="20" Text="Patients" TextAlignment="Center"></TextBlock>
+            </StackPanel>
         </Grid>
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom">
             <Button Height="60" Width="70" Click="GoToOrdersPage_Cick">Orders</Button>
         </Grid>
-        <Grid Grid.Column="2">
+        <Grid Grid.Column="2" Grid.Row="0" VerticalAlignment="Bottom">
             <Button Height="60" Width="70" Click="GoToDentistsPage_Cick">Dentists</Button>
         </Grid>
+        <Grid Grid.Column="0" Grid.Row="2" VerticalAlignment="Top">
+            <Button Height="60" Width="70" Click="GoToActivitiesPage_Cick">Activities</Button>
+        </Grid>
+
     </Grid>
 </Page>

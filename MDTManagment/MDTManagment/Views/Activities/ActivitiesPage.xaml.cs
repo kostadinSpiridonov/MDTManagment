@@ -1,5 +1,4 @@
-﻿using MDTManagment.ViewModels;
-using MDTManagment.ViewModels.Dentists;
+﻿using MDTManagment.ViewModels.Activities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,17 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MDTManagment.Views.Dentists
+namespace MDTManagment.Views.Activities
 {
     /// <summary>
-    /// Interaction logic for AddDentistPage.xaml
+    /// Interaction logic for ActivityPage.xaml
     /// </summary>
-    public partial class AddDentistPage : Page
+    public partial class ActivitiesPage : Page
     {
-        public AddDentistPage()
+        public ActivitiesPage()
         {
             InitializeComponent();
-            this.DataContext = new AddDentistViewModel();
+            this.DataContext = new ActivitiesViewModel();
         }
     }
 }

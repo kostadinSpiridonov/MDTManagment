@@ -53,14 +53,10 @@ namespace MDTManagment.ViewModels.Patients
         private void HandleAddPatient(object obj)
         {
             this.patientService.AddPatient(this.NewPatient);
-            //this.Patients.Add(this.NewPatient);                   //TODO: MH: Tva kak bez nego li
             this.OnPropertyChanged("Patients");
             MessageBox.Show("New Patient Added.", "Patients Status", MessageBoxButton.OK);
             App.Navigation.Navigate(new PatientsPage());
-
-
         }
-                                                    //obmisli nanovo otkyde zybolekyr, kak transformacii, kyde sh se vzima ot bazata
 
     }
 }

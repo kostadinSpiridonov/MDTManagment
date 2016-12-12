@@ -10,8 +10,6 @@ namespace MDTManagment.ViewModels.Patients
 {
     public class SelectDentistViewModel 
     {
-        private DentistService dentistService { get; set; }
-
         public int Id { get; set; }
 
         public string Name { get; set; }

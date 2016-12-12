@@ -19,13 +19,13 @@ namespace MDTManagment.ViewModels.Dentists
 {
     public class DentistsViewModel : BaseViewModel
     {
-        public ObservableCollection<Dentist> Dentists { get; set; }
+        private DentistService dentistService;
 
-        public Dentist NewDentist { get; set; }
+        public ObservableCollection<Dentist> Dentists { get; set; }
 
         public Dentist SelectedDentist { get; set; }
 
-        private DentistService dentistService;
+        
 
         public DentistsViewModel()
         {
@@ -35,11 +35,7 @@ namespace MDTManagment.ViewModels.Dentists
 
             this.Dentists = new ObservableCollection<Dentist>(databaseDentists);
 
-            this.NewDentist = new Dentist();
-
             this.SelectedDentist = new Dentist();
-
-            this.AddDentist = new RelayCommand(this.HandleAddDentist);
 
             this.DeleteDentist = new RelayCommand(this.HandleDeleteDentist);
 
@@ -63,9 +59,6 @@ namespace MDTManagment.ViewModels.Dentists
         }
 
 
-        public ICommand AddDentist { get; set; }
-
-
         public ICommand DeleteDentist { get; set; }
 
 
@@ -77,19 +70,9 @@ namespace MDTManagment.ViewModels.Dentists
         }
 
 
-        private void HandleAddDentist(object obj)
-        {
-            //TODO: test this
-            this.dentistService.AddDentist(this.NewDentist);
-            this.Dentists.Add(this.NewDentist);
-            this.OnPropertyChanged("Dentists");
-            MessageBox.Show("New Dentist Added.", "Dentists Status", MessageBoxButton.OK);
-        }
-
 
         private void HandleDeleteDentist(object obj)
         {
-            //TODO: test this
             this.dentistService.DeleteDentist(SelectedDentist.Id);
             this.Dentists.Remove(this.SelectedDentist);
             this.OnPropertyChanged("Dentists");

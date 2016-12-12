@@ -1,4 +1,5 @@
-﻿using MDTManagment.Views.Dentists;
+﻿using MDTManagment.Views.Activities;
+using MDTManagment.Views.Dentists;
 using MDTManagment.Views.Orders;
 using MDTManagment.Views.Patients;
 using System;
@@ -49,7 +50,9 @@ namespace MDTManagment.Views
             App.Navigation.Navigate(new PatientsPage());
         }
 
-
-
+        private void GoToActivitiesPage_Cick(object sender, RoutedEventArgs e)
+        {
+            App.Navigation.Navigate(new ActivitiesPage());
+        }
     }
 }

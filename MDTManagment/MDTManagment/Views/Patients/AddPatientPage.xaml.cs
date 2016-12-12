@@ -25,7 +25,6 @@ namespace MDTManagment.Views.Patients
         public AddPatientPage()
         {
             InitializeComponent();
-            //this.DataContext = new PatientsViewModel();
             this.DataContext = new AddPatientViewModel();
         }
     }

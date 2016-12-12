@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MDTManagment.Services
 {
-    public class DentistService:BaseService
+    public class DentistService : BaseService
     {
         public Dentist GetDentistById(int dentistId)
         {

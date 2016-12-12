@@ -91,7 +91,10 @@
     <Compile Include="StartupWindow.xaml.cs">
       <DependentUpon>StartupWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Activities\ActivitiesViewModel.cs" />
+    <Compile Include="ViewModels\Activities\AddActivityViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Dentists\AddDentistViewModel.cs" />
     <Compile Include="ViewModels\Dentists\DentistsViewModel.cs" />
     <Compile Include="ViewModels\Dentists\DentistViewModel.cs" />
     <Compile Include="ViewModels\Patients\SelectDentistViewModel.cs" />
@@ -100,6 +103,12 @@
     <Compile Include="ViewModels\Patients\AddPatientViewModel.cs" />
     <Compile Include="ViewModels\Patients\PatientsViewModel.cs" />
     <Compile Include="ViewModels\Patients\PatientViewModel.cs" />
+    <Compile Include="Views\Activities\ActivitiesPage.xaml.cs">
+      <DependentUpon>ActivitiesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Activities\AddActivityPage.xaml.cs">
+      <DependentUpon>AddActivityPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Dentists\AddDentistPage.xaml.cs">
       <DependentUpon>AddDentistPage.xaml</DependentUpon>
     </Compile>
@@ -132,6 +141,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="StartupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Activities\ActivitiesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Activities\AddActivityPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,6 +230,10 @@
       <Project>{4613c23a-8ca8-4705-88b9-bd66adc1a82f}</Project>
       <Name>MDTManagment.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Views\avatar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

@@ -22,6 +22,8 @@ namespace MDTManagment.Data
 
         public DbSet<Patient> Patients { get; set; }
 
+        public DbSet<Activity> Activities { get; set; }
+
         public DbSet<Ingredient> Ingredient { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
