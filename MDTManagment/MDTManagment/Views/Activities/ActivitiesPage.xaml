@@ -42,7 +42,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <Button  Command="{Binding NavigateToAddActivity}" Height="50" Width="50" VerticalAlignment="Bottom">
+                    <Button Command="{Binding NavigateToAddActivity}" Height="50" Width="50" VerticalAlignment="Bottom">
                         <TextBlock TextWrapping="Wrap" TextAlignment="Center">Add Activity</TextBlock>
                     </Button>
                 </Grid>

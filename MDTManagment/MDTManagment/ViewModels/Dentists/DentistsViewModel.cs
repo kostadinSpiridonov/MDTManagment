@@ -35,8 +35,6 @@ namespace MDTManagment.ViewModels.Dentists
 
             this.Dentists = new ObservableCollection<Dentist>(databaseDentists);
 
-            this.SelectedDentist = new Dentist();
-
             this.DeleteDentist = new RelayCommand(this.HandleDeleteDentist);
 
             this.NavigateToAddDentist = new RelayCommand(this.HandleNavigateToAddDentist);
@@ -73,10 +71,16 @@ namespace MDTManagment.ViewModels.Dentists
 
         private void HandleDeleteDentist(object obj)
         {
+            if (this.SelectedDentist == null)
+            {
+                MessageBox.Show("No dentist selected.", "Dentists status", MessageBoxButton.OK);
+                return;
+            }
+            else
             this.dentistService.DeleteDentist(SelectedDentist.Id);
             this.Dentists.Remove(this.SelectedDentist);
             this.OnPropertyChanged("Dentists");
-            MessageBox.Show("Dentist Deleted.", "Dentists Status", MessageBoxButton.OK);
+            MessageBox.Show("Dentist deleted.", "Dentists status", MessageBoxButton.OK);
         }
 
 

@@ -1,5 +1,8 @@
 ﻿using MDTManagment.ViewModels;
 using MDTManagment.ViewModels.Patients;
+using MDTManagment.Views.Activities;
+using MDTManagment.Views.Dentists;
+using MDTManagment.Views.Orders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +29,17 @@ namespace MDTManagment.Views.Patients
         {
             InitializeComponent();
             this.DataContext = new PatientsViewModel();
+        }
+
+
+        private void ExpandMenu_Click(object sender, RoutedEventArgs e)
+        {
+            double wid = this.MenuColumn.MaxWidth;
+            if (wid == 0)
+            { this.MenuColumn.MaxWidth = 170; }
+            else
+            { this.MenuColumn.MaxWidth = 0; }
+
         }
     }
 }

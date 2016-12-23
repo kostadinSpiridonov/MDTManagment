@@ -27,6 +27,8 @@ namespace MDTManagment.ViewModels.Dentists
 
             this.AddDentist = new RelayCommand(this.HandleAddDentist);
 
+            this.NavigateToDentists = new RelayCommand(this.HandleNavigateToDentists);
+
             this.NewDentist = new Dentist();
         }
 
@@ -34,15 +36,30 @@ namespace MDTManagment.ViewModels.Dentists
 
         public ICommand AddDentist { get; set; }
 
+        public ICommand NavigateToDentists { get; set; }
+
 
         private void HandleAddDentist(object obj)
         {
+            if (this.NewDentist.Name == null    ||
+                this.NewDentist.MiddleName == null      ||
+                this.NewDentist.LastName==null      ||
+                this.NewDentist.Contact == null     ||
+                this.NewDentist.ProfessionalExperience < 0 || this.NewDentist.ProfessionalExperience > 140)
+            {
+                MessageBox.Show("Invalid input.", "Dentists status", MessageBoxButton.OK);
+                return;
+            }
             this.dentistService.AddDentist(this.NewDentist);
-            MessageBox.Show("New Dentist Added.", "Dentists Status", MessageBoxButton.OK);
+            MessageBox.Show("New dentist added.", "Dentists status", MessageBoxButton.OK);
             App.Navigation.Navigate(new DentistsPage());
         }
 
 
+        private void HandleNavigateToDentists(object obj)
+        {
+            App.Navigation.Navigate(new DentistsPage());
+        }
 
     }
 }

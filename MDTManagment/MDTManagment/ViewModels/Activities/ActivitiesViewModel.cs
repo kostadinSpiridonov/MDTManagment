@@ -45,10 +45,15 @@ namespace MDTManagment.ViewModels.Activities
 
         private void HandleDeleteActivity(object obj)
         {
+            if (this.SelectedActivity == null)
+            {
+                MessageBox.Show("No activity selected.", "Activities status", MessageBoxButton.OK);
+                return;
+            }
             this.activityService.DeleteActivity(this.SelectedActivity.Id);
             this.Activities.Remove(this.SelectedActivity);
             this.OnPropertyChanged("Activities");
-            MessageBox.Show("Activity Deleted.", "Activities Status", MessageBoxButton.OK);
+            MessageBox.Show("Activity deleted.", "Activities status", MessageBoxButton.OK);
         }
 
 

@@ -25,11 +25,6 @@ namespace MDTManagment.Services
         public void DeleteDentist(int dentistId)
         {
             var dentist = this.database.Dentists.First(x => x.Id == dentistId);
-            if(dentist==null)
-            {
-                return;
-            }
-
             this.database.Dentists.Remove(dentist);
             this.database.SaveChanges();
         }

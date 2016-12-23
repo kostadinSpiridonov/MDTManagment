@@ -33,6 +33,8 @@ namespace MDTManagment.ViewModels.Patients
 
             this.AddPatient = new RelayCommand(this.HandleAddPatient);
 
+            this.NavigateToPatientsPage = new RelayCommand(this.HandleNavigateToPatientsPage);
+
             var databaseDentists = this.dentistService.GetAllDentists();
 
             var mappedDentists = databaseDentists.Select(x => new SelectDentistViewModel()
@@ -44,17 +46,34 @@ namespace MDTManagment.ViewModels.Patients
             this.Dentists = new ObservableCollection<SelectDentistViewModel>(mappedDentists);
         }
 
-
+       
 
         public ICommand AddPatient { get; set; }
+
+        public ICommand NavigateToPatientsPage { get; set; }
 
 
 
         private void HandleAddPatient(object obj)
         {
+            if (this.NewPatient.FirstName == null   ||
+                this.NewPatient.Surname == null     ||
+                this.NewPatient.Family == null      ||
+                this.NewPatient.Age <= 0 || this.NewPatient.Age > 140       ||
+                this.NewPatient.PhoneNumber == null     ||
+                this.NewPatient.Address == null)
+            {
+                MessageBox.Show("Invalid input.", "Patients status", MessageBoxButton.OK);
+                return;
+            }
             this.patientService.AddPatient(this.NewPatient);
             this.OnPropertyChanged("Patients");
-            MessageBox.Show("New Patient Added.", "Patients Status", MessageBoxButton.OK);
+            MessageBox.Show("New patient added.", "Patients status", MessageBoxButton.OK);
+            App.Navigation.Navigate(new PatientsPage());
+        }
+
+        private void HandleNavigateToPatientsPage(object obj)
+        {
             App.Navigation.Navigate(new PatientsPage());
         }
 

@@ -30,10 +30,15 @@ namespace MDTManagment.Views
         public HomePage()
         {
             InitializeComponent();
-            this.DataContext = new HomeViewModel();
+            //this.DataContext = new HomeViewModel();
         }
 
 
+
+        private void GoToHomePage_Cick(object sender, RoutedEventArgs e)
+        {
+            App.Navigation.Navigate(new HomePage());
+        }
 
         private void GoToOrdersPage_Cick(object sender, RoutedEventArgs e)
         {
@@ -47,7 +52,7 @@ namespace MDTManagment.Views
         }
 
 
-        private void GoToPatientPage_Cick(object sender, RoutedEventArgs e)
+        private void GoToPatientsPage_Cick(object sender, RoutedEventArgs e)
         {
             App.Navigation.Navigate(new PatientsPage());
         }
@@ -55,6 +60,16 @@ namespace MDTManagment.Views
         private void GoToActivitiesPage_Cick(object sender, RoutedEventArgs e)
         {
             App.Navigation.Navigate(new ActivitiesPage());
+        }
+
+        private void ExpandMenu_Click(object sender, RoutedEventArgs e)
+        {
+            double wid = this.MenuColumn.MaxWidth;
+            if (wid == 0)
+            { this.MenuColumn.MaxWidth = 170; }
+            else
+            { this.MenuColumn.MaxWidth = 0; }
+
         }
     }
 }

@@ -9,7 +9,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="HomePage">
-    <Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -54,5 +54,227 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </Grid>
+    </Grid>-->
+
+    <StackPanel>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0">
+                <!--<Button Width="40" Height="40" FontSize="15" Background="Transparent" BorderBrush="Transparent" Click="ExpandMenu_Click" RenderTransformOrigin="0.5,0.5">-->
+                <Button Click="ExpandMenu_Click" Margin="0,-3,1,0">
+
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template>
+
+                        <ControlTemplate>
+                            <!--Content="|||"-->
+
+                            <ContentControl>
+                                <Border x:Name="ButtonBorder1" CornerRadius="0,0,0,0" BorderBrush="DeepSkyBlue" BorderThickness="3">
+                                    <StackPanel>
+                                        <TextBlock Height="30" Width="30" ><TextBlock Margin="7.8,3.2,0,0" FontSize="15" Text="|||" ></TextBlock></TextBlock>
+                                    </StackPanel>
+                                </Border>
+
+
+                            </ContentControl>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsPressed" Value="True">
+                                    <Setter TargetName="ButtonBorder1" Property="BorderBrush" Value="DeepSkyBlue"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+        </Grid>
+
+        <Grid>
+            <GridSplitter Height="3" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MaxWidth="0" x:Name="MenuColumn"></ColumnDefinition>
+                <ColumnDefinition Width="3"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <Button Click="GoToHomePage_Cick" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/avatar.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Home</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Click="GoToPatientsPage_Cick" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/avatar.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Patients</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Click="GoToDentistsPage_Cick" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/avatar.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Dentists</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Click="GoToOrdersPage_Cick" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/avatar.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Orders</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Click="GoToActivitiesPage_Cick" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/try.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Activities</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+            </Grid>
+
+
+            <GridSplitter x:Name="GridSplitter1" Grid.Column="1" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
+
+
+
+
+
+            <Grid Grid.Column="2">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="550"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Button Height="30" Width="160" Margin="10" Click="GoToPatientsPage_Cick">Patients</Button>
+                    <Button Height="30" Width="160" Margin="10" Click="GoToOrdersPage_Cick">Orders</Button>
+                    <Button Height="30" Width="160" Margin="10" Click="GoToDentistsPage_Cick">Dentists</Button>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Height="300" Orientation="Horizontal">
+                    <TextBlock Text="MTDManagement" FontSize="30" Margin="550,10,10,10"></TextBlock>
+                </StackPanel>
+                <Image Source="/Resources/HomePageImage.png" Grid.Row="1" Width="600" Height="700" Grid.Column="1">
+
+                </Image>
+
+                <ListView ItemsSource="{Binding Orders}" Grid.Row="1">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Focusable" Value="False"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <controls:Tile Title="{Binding DeadLine}" Width="550"
+                                   Command="{Binding Path=DataContext.ViewOrderCommand, 
+                                                         RelativeSource={RelativeSource Mode=FindAncestor,      
+                                                         AncestorType={x:Type ItemsControl}} }"
+                                   CommandParameter="{Binding Id}"
+                                    Count="{Binding Dentist.Name}">
+                            </controls:Tile>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+            </Grid>
+
+
+
+        </Grid>
+
+
+    </StackPanel>
+
+
 </Page>
+
+
+
+
+
+
+
+<!--<Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>-->
+
+                <!--<Grid Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom">
+                    <StackPanel Height="80" Width="70">
+                        <Button Height="60" Width="70" Click="GoToPatientsPage_Cick" x:Name="PatientsButton">-->
+                            <!--<Button.Background>
+                            <ImageBrush x:Name="Avatar" ImageSource="avatar.png" Stretch="UniformToFill"/>
+                        </Button.Background>-->
+
+                            <!--<Button.Template>
+                                <ControlTemplate>
+                                    <Image Source="/avatar.png" Stretch="UniformToFill"></Image>
+                                </ControlTemplate>
+                            </Button.Template>-->
+
+                            <!--<ControlTemplate>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Transparent">
+                                -->
+                            <!--<Setter.Value>
+                                    <ImageBrush ImageSource="avatar.png" Stretch="UniformToFill"/>
+                                </Setter.Value>-->
+                            <!--
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>-->
+
+                        <!--</Button>
+                        <TextBlock Height="20" Text="Patients" TextAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Grid>-->
+                
+                
+                <!--<Grid Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom">
+                    <Button Height="60" Width="70" Click="GoToOrdersPage_Cick">Orders</Button>
+                </Grid>
+                <Grid Grid.Column="2" Grid.Row="0" VerticalAlignment="Bottom">
+                    <Button Height="60" Width="70" Click="GoToDentistsPage_Cick">Dentists</Button>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="2" VerticalAlignment="Top">
+                    <Button Height="60" Width="70" Click="GoToActivitiesPage_Cick">Activities</Button>
+                </Grid> Grid Grid stackPanel Page-->
+
+

@@ -18,7 +18,8 @@
 
         <Grid Grid.Column="0">
             
-            <ListView ItemsSource="{Binding Dentists}" IsSynchronizedWithCurrentItem="True" 
+            <ListView ItemsSource="{Binding Dentists}"
+                      IsSynchronizedWithCurrentItem="True"
                       SelectedItem="{Binding SelectedDentist, Mode=TwoWay}">
                 <ListView.View>
                     <GridView>

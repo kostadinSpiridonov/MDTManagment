@@ -34,7 +34,6 @@ namespace MDTManagment.Services
         }
 
 
-        //TODO: Validation. = in the moment it thows exception .. it should just type in red above the textbox of EstimatedDate - "Invalid insert."
         public void AddActivity(Activity activity)
         {
             this.database.Activities.Add(activity);
