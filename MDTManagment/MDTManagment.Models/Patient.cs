@@ -27,5 +27,7 @@ namespace MDTManagment.Models
         public int DentistId { get; set; }
 
         public Dentist Dentist { get; set; }
+
+        //public string PortraitPicPath { get; set; }
     }
 }
