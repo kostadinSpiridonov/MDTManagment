@@ -22,10 +22,16 @@ namespace MDTManagment.Views.Orders
     /// </summary>
     public partial class OrdersPage : Page
     {
+        public int obj;
+
         public OrdersPage()
         {
             InitializeComponent();
             this.DataContext = new OrdersVeiwModel();
+        }
+        public OrdersPage(int obj)
+        {
+            this.obj = obj;
         }
     }
 }
