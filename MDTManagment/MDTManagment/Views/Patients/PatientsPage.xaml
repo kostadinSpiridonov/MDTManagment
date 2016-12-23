@@ -58,13 +58,13 @@
                 <StackPanel Orientation="Horizontal" Margin="130,0,0,0">
                     <Button Height="30" Command="{Binding NavigateToAddPatient}" Background="Transparent" BorderBrush="Transparent">
                         <StackPanel Orientation="Horizontal" Margin="10,0,15,0">
-                            <Image Height="30" VerticalAlignment="Center" Source="/Resources/avatar.png"></Image>
+                            <Image Height="20" VerticalAlignment="Center" Source="/Resources/add.png"></Image>
                             <TextBlock FontSize="11.5" Text="Add Patient" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Height="30" Command="{Binding DeletePatient}" Background="Transparent" BorderBrush="Transparent">
                         <StackPanel Orientation="Horizontal" Margin="10,0,15,0">
-                            <Image Height="30" VerticalAlignment="Center" Source="/Resources/try.png"></Image>
+                            <Image Height="20" VerticalAlignment="Center" Source="/Resources/delete.png"></Image>
                             <TextBlock FontSize="11.5" Text="Delete Patient" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
                         </StackPanel>
                     </Button>
@@ -92,31 +92,31 @@
                 <StackPanel>
                     <Button Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/avatar.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/0.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Home</TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/avatar.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/1.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Patients</TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/avatar.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/2.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Dentists</TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/avatar.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Orders</TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Command="{Binding NavToActivities}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/try.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Activities</TextBlock>
                         </StackPanel>
                     </Button>
@@ -171,7 +171,7 @@
                             <RowDefinition MinHeight="800" Height="2*" AllowDrop="False"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <Image Margin="10" Source="/Resources/try.png" ></Image>
+                            <Image Height="400" Margin="10" Source="/Resources/1.png" ></Image>  <!--Source="{Binding SelectedPatient.PortraitPicPath}"--> 
                         </Grid>
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
@@ -186,7 +186,7 @@
                                     <TextBlock HorizontalAlignment="Right" Text="Възраст:"></TextBlock>
                                     <TextBlock HorizontalAlignment="Right" Text="Адрес:"></TextBlock>
                                     <TextBlock HorizontalAlignment="Right" Text="Контакт:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Зъботехник:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Зъболекар:"></TextBlock>
                                     <TextBlock Text="---"></TextBlock>
                                     <Button  Margin="0,0,10,0" HorizontalAlignment="Right" Content="Виж свързани поръчки:"></Button>
                                 </StackPanel>
