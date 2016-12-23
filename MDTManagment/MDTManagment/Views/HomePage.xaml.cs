@@ -30,7 +30,7 @@ namespace MDTManagment.Views
         public HomePage()
         {
             InitializeComponent();
-            //this.DataContext = new HomeViewModel();
+            this.DataContext = new HomeViewModel();
         }
 
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MDTManagment.Views.Orders"
         mc:Ignorable="d"
         Title="TypeOfTheOrderPage" Height="300" Width="300">
-    <StackPanel>
-        <TextBlock Text="{Binding Order.TypeOfTheOrder}"></TextBlock>
-    </StackPanel>
+    <Grid>
+        <TextBlock Text="{Binding Order.TypeOfTheOrder}"/>
+    </Grid>
 </Window>
