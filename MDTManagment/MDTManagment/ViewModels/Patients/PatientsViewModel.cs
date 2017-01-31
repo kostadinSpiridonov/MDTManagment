@@ -27,16 +27,7 @@ namespace MDTManagment.ViewModels.Patients
         public ObservableCollection<Patient> Patients { get; set; }
 
         public Patient SelectedPatient { get; set; }
-        //  {
-        //      get
-        //      {
-        //          return this.SelectedPatient;
-        //      }
-        //      set
-        //      {
-        //          OnPropertyChanged("SelectedPatient");
-        //      }
-        //  }
+    
 
         private PatientService patientService;
         

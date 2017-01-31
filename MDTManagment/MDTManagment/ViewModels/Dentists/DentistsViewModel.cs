@@ -88,5 +88,6 @@ namespace MDTManagment.ViewModels.Dentists
         {
             App.Navigation.Navigate(new AddDentistPage());
         }
+     
     }
 }

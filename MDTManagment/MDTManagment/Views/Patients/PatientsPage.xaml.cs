@@ -1,10 +1,14 @@
-﻿using MDTManagment.ViewModels;
+﻿using MDTManagment.Commands;
+using MDTManagment.Models;
+using MDTManagment.Services;
+using MDTManagment.ViewModels;
 using MDTManagment.ViewModels.Patients;
 using MDTManagment.Views.Activities;
 using MDTManagment.Views.Dentists;
 using MDTManagment.Views.Orders;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,12 +29,17 @@ namespace MDTManagment.Views.Patients
     /// </summary>
     public partial class PatientsPage : Page
     {
+        public int obj;
+
         public PatientsPage()
         {
             InitializeComponent();
             this.DataContext = new PatientsViewModel();
         }
-
+        public PatientsPage(int obj)
+        {
+            this.obj = obj;
+        }
 
         private void ExpandMenu_Click(object sender, RoutedEventArgs e)
         {
