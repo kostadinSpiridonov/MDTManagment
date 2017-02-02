@@ -7,8 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="OrdersPage">
-    <StackPanel>
-        <ListView ItemsSource="{Binding Orders}" Height="250">
+    <!--<StackPanel>
+        <ListView ItemsSource="{Binding Orders}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -42,5 +42,55 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+    </StackPanel>-->
+
+    <StackPanel>
+        <!--<Grid Grid.Column="2">-->
+        <Button Command="{Binding NavigateToAddOrder}" Content="Add Order"></Button>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <!--<ColumnDefinition></ColumnDefinition>-->
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <ListView ItemsSource="{Binding Orders}" > <!-- * TODO: * IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedPatient, Mode=TwoWay}">-->
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="Type of the order" DisplayMemberBinding="{Binding Type}"/>
+                                <GridViewColumn Header="Date of receipt" DisplayMemberBinding="{Binding DateОfReceipt}"/>
+                                <GridViewColumn Header="Deadline" DisplayMemberBinding="{Binding DeadLine}"/>
+                                <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}"/>
+                                <GridViewColumn Header="Special Requirements" DisplayMemberBinding="{Binding SpecialRequirements}"/>
+                                <GridViewColumn Header="Declared Ingredients" DisplayMemberBinding="{Binding DeclaredIngredients}"/>
+                                <GridViewColumn Header="Facial Arc" DisplayMemberBinding="{Binding FacialArc}"/>
+                                <GridViewColumn Header="Articulator" DisplayMemberBinding="{Binding Articulator}"/>
+                                <GridViewColumn Header="Metal Test" DisplayMemberBinding="{Binding MetalTest}"/>
+                                <GridViewColumn Header="Ceramic Test" DisplayMemberBinding="{Binding CeramicTest}"/>
+                                <GridViewColumn Header="Type of Impression Material" DisplayMemberBinding="{Binding TypeOfImpressionMaterial}"/>
+
+
+                                <!-- NQMA BUTTON SHTOTO NQMA otdelen ordeR PAGE-->
+                                <!--<GridViewColumn Header="View">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <Button  Command="{Binding Path=DataContext.ViewPatientCommand,
+                                                         RelativeSource={RelativeSource Mode=FindAncestor,      
+                                                         AncestorType={x:Type ItemsControl}} }"
+                                                         CommandParameter="{Binding Id}">View</Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>-->
+
+
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+         </Grid>
     </StackPanel>
 </Page>

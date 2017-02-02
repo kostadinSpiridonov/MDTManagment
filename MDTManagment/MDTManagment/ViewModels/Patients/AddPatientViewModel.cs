@@ -56,12 +56,14 @@ namespace MDTManagment.ViewModels.Patients
 
         private void HandleAddPatient(object obj)
         {
-            if (this.NewPatient.FirstName == null   ||
-                this.NewPatient.Surname == null     ||
-                this.NewPatient.Family == null      ||
-                this.NewPatient.Age <= 0 || this.NewPatient.Age > 140       ||
-                this.NewPatient.PhoneNumber == null     ||
-                this.NewPatient.Address == null)
+            int checkId = new int();
+            if (this.NewPatient.FirstName == null ||
+                this.NewPatient.Surname == null ||
+                this.NewPatient.Family == null ||
+                this.NewPatient.Age <= 0 || this.NewPatient.Age > 140 ||
+                this.NewPatient.PhoneNumber == null ||
+                this.NewPatient.Address == null ||
+                this.NewPatient.DentistId == checkId)
             {
                 MessageBox.Show("Invalid input.", "Patients status", MessageBoxButton.OK);
                 return;

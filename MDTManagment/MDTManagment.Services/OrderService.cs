@@ -10,6 +10,15 @@ namespace MDTManagment.Services
 {
     public class OrderService : BaseService
     {
+        public void AddOrder(Order order)
+        {
+            this.database.Orders.Add(order);
+            this.database.SaveChanges();
+        }
+
+
+
+
         public Order GetOrder()
         {
             var order = this.database.Orders.First();

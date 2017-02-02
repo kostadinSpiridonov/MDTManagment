@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      xmlns:ViewModels ="clr-namespace:MDTManagment.ViewModels" 
+      xmlns:ViewModels ="clr-namespace:MDTManagment.ViewModels"
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="PatientsPage">
 
@@ -55,20 +55,20 @@
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="0" Height="30">
-                <StackPanel Orientation="Horizontal" Margin="130,0,0,0">
+                <!--<StackPanel Orientation="Horizontal" Margin="130,0,0,0">-->
                     <Button Height="30" Command="{Binding NavigateToAddPatient}" Background="Transparent" BorderBrush="Transparent">
-                        <StackPanel Orientation="Horizontal" Margin="10,0,15,0">
+                    <StackPanel Orientation="Horizontal"> <!--Margin="10,0,15,0">-->
                             <Image Height="20" VerticalAlignment="Center" Source="/Resources/add.png"></Image>
                             <TextBlock FontSize="11.5" Text="Add Patient" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Height="30" Command="{Binding DeletePatient}" Background="Transparent" BorderBrush="Transparent">
+                    <!--<Button Height="30" Command="{Binding DeletePatient}" Background="Transparent" BorderBrush="Transparent">
                         <StackPanel Orientation="Horizontal" Margin="10,0,15,0">
                             <Image Height="20" VerticalAlignment="Center" Source="/Resources/delete.png"></Image>
                             <TextBlock FontSize="11.5" Text="Delete Patient" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
                         </StackPanel>
-                    </Button>
-                </StackPanel>
+                    </Button>-->
+                <!--</StackPanel>-->
             </Grid>
             
             
@@ -138,30 +138,40 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
-                    <ListView ItemsSource="{Binding Patients}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedPatient, Mode=TwoWay}">
+                    <StackPanel>
+
+                        <Button Command="{Binding DisplayPatient}" Margin="5,0,3,0" Content="Покажи данни за избрания пациент"></Button>
+
+                        <ListView ItemsSource="{Binding Patients}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedPatient, Mode=TwoWay}">
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
                                         <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding FirstName}"/>
+                                        <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Surname}"/>
                                         <GridViewColumn Header="Family" DisplayMemberBinding="{Binding Family}"/>
-                                        <GridViewColumn Header="View">
+                                        
+                                        <!--DA SE IZTRIE PATIENT PAGE ZASHTOTO E NENUJEN-->
+                                        <!--<GridViewColumn Header="View">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <StackPanel>
-                                                        <Button  Command="{Binding Path=DataContext.ViewPatientCommand, 
+                                                    --><!--<Button  Command="{Binding Path=DataContext.ViewPatientCommand, 
                                                          RelativeSource={RelativeSource Mode=FindAncestor,      
                                                          AncestorType={x:Type ItemsControl}} }"
-                                                         CommandParameter="{Binding Id}">Explicit</Button>
+                                                         CommandParameter="{Binding Id}">Explicit</Button>--><!--
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
-                                        </GridViewColumn>
+                                        </GridViewColumn>-->
 
 
                                     </GridView.Columns>
                                 </GridView>
                             </ListView.View>
                         </ListView>
+
+                    </StackPanel>
+
                 </Grid>
 
                 <Grid Grid.Column="1">
@@ -171,7 +181,12 @@
                             <RowDefinition MinHeight="800" Height="2*" AllowDrop="False"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <Image Height="400" Margin="10" Source="/Resources/1.png" ></Image>  <!--Source="{Binding SelectedPatient.PortraitPicPath}"--> 
+                            <StackPanel>
+                                <Button Command="{Binding DeletePatient}" Margin="2,0,5,0" Content="Изтрий избрания пациент"></Button>
+
+                                <Image Height="400" Margin="10" Source="/Resources/1.png" ></Image> <!--Source="{Binding SelectedPatient.PortraitPicPath}"-->
+
+                            </StackPanel>
                         </Grid>
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
@@ -187,22 +202,23 @@
                                     <TextBlock HorizontalAlignment="Right" Text="Адрес:"></TextBlock>
                                     <TextBlock HorizontalAlignment="Right" Text="Контакт:"></TextBlock>
                                     <TextBlock HorizontalAlignment="Right" Text="Зъболекар:"></TextBlock>
-                                    <TextBlock Text="---"></TextBlock>
-                                    <Button  Margin="0,0,10,0" HorizontalAlignment="Right" Content="Виж свързани поръчки:"></Button>
+                                    <!--<TextBlock Text="___"></TextBlock>
+                                    <Button  Margin="0,0,10,0" HorizontalAlignment="Right" Content="Виж свързани поръчки:"></Button>-->
                                 </StackPanel>
                             </Grid>
-                            <!--This grid grid.column1 is not workin a.k.a. the bindings arent displaying the SelectedPatient.neshtoSi :( .. -->
                             <Grid Grid.Column="1">
-                                <StackPanel> <!--DataContext="{Binding SelectedPatient}"-->
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding SelectedPatient.FirstName}">zashto we</TextBlock>
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding SelectedPatient.Surname, Mode=TwoWay}"></TextBlock>
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding SelectedPatient.Family, Mode=TwoWay}"></TextBlock>
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding SelectedPatient.Age, Mode=TwoWay}"></TextBlock>
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding SelectedPatient.Address, Mode=TwoWay}"></TextBlock>
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding SelectedPatient.PhoneNumber, Mode=TwoWay}"></TextBlock>
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding SelectedPatient.Dentist.Name, Mode=TwoWay}"></TextBlock>
-                                    <TextBlock Text="---"></TextBlock>
-                                    <Button Margin="30,0,0,0" HorizontalAlignment="Left" Content="Изтрий пациент:"></Button>
+                                <StackPanel DataContext="{Binding SelectedPatient}">
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=FirstName}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=Surname, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=Family, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=Age, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=Address, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=PhoneNumber, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=DentistForDisplaying , Mode=TwoWay}">
+                                        <TextBox Text="{Binding Path=Name}"></TextBox>
+                                    </TextBlock>
+                                    <!--<TextBlock Text="___"></TextBlock>-->
+                                    <!--<Button Margin="30,0,0,0" HorizontalAlignment="Left" Content="Изтрий избрания пациент"></Button>-->
                                 </StackPanel>
                             </Grid>
                         </Grid>

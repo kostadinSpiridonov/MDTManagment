@@ -98,6 +98,7 @@
     <Compile Include="ViewModels\Dentists\DentistsViewModel.cs" />
     <Compile Include="ViewModels\Dentists\DentistViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
+    <Compile Include="ViewModels\Orders\AddOrderViewModel.cs" />
     <Compile Include="ViewModels\Patients\SelectDentistViewModel.cs" />
     <Compile Include="ViewModels\Orders\OrdersVeiwModel.cs" />
     <Compile Include="ViewModels\Orders\OrderViewModel.cs" />
@@ -112,6 +113,9 @@
     </Compile>
     <Compile Include="Views\Dentists\AddDentistPage.xaml.cs">
       <DependentUpon>AddDentistPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\AddOrderPage.xaml.cs">
+      <DependentUpon>AddOrderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Orders\TypeOfTheOrderPage.xaml.cs">
       <DependentUpon>TypeOfTheOrderPage.xaml</DependentUpon>
@@ -154,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Dentists\AddDentistPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Orders\AddOrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

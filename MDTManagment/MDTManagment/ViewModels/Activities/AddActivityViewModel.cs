@@ -40,7 +40,7 @@ namespace MDTManagment.ViewModels.Activities
         private void HandleAddActivity(object obj)
         {
             if (this.NewActivity.Description == null    ||
-                this.NewActivity.Price <= 0     ||
+                this.NewActivity.Price < 0     ||
                 this.NewActivity.EstimatedDate.Year < DateTime.Today.Year || 
                 this.NewActivity.EstimatedDate.Month < DateTime.Today.Month ||
                 this.NewActivity.EstimatedDate.Date < DateTime.Today.Date)

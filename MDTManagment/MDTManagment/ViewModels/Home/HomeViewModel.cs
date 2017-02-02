@@ -45,7 +45,7 @@ namespace MDTManagment.ViewModels.Home
         {
             var id = (int)obj;
             //Navigate to one order view
-            App.Navigation.Navigate(new DentistsPage());
+            App.Navigation.Navigate(new OrdersPage());
         }
 
     }

@@ -183,7 +183,7 @@
                                                          RelativeSource={RelativeSource Mode=FindAncestor,      
                                                          AncestorType={x:Type ItemsControl}} }"
                                    CommandParameter="{Binding Id}"
-                                    Count="{Binding Dentist.Name}">
+                                    Count="{Binding Orders.Type}">
                             </controls:Tile>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -198,7 +198,7 @@
 
                     <!--</Grid>-->
                     <!--<Grid Grid.Row="1">-->
-                    <TextBlock FontFamily="Forte" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DeepSkyBlue" Text="MDT Management" FontSize="30"></TextBlock>
+                    <TextBlock FontFamily="Forte" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DeepSkyBlue" Text="MDT Managment" FontSize="30"></TextBlock>
 
                     <!--</Grid>-->
                     

@@ -24,7 +24,26 @@ namespace MDTManagment.ViewModels.Orders
             var ordersService = new OrderService();
             var databaseOrders = ordersService.GetOrders();
             this.Orders = new ObservableCollection<Order>(databaseOrders);
+
+            this.NavigateToAddOrder = new RelayCommand(this.HandleNavigateToAddOrder);
         }
+
+       
+
+        public ICommand NavigateToAddOrder { get; set; }
+
+
+
+        private void HandleNavigateToAddOrder(object obj)
+        {
+            App.Navigation.Navigate(new AddOrderPage());
+        }
+
+
+
+
+        //TODO: everything down is not used
+
         private ICommand viewOrderCommand;
 
         public ICommand ViewOrderCommand
