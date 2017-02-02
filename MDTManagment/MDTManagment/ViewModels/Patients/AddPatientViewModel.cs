@@ -77,7 +77,7 @@ namespace MDTManagment.ViewModels.Patients
         private void HandleNavigateToPatientsPage(object obj)
         {
             App.Navigation.Navigate(new PatientsPage());
-        }
+        }           
 
     }
 }

@@ -47,6 +47,5 @@ namespace MDTManagment.ViewModels.Home
             //Navigate to one order view
             App.Navigation.Navigate(new OrdersPage());
         }
-
     }
 }

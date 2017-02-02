@@ -19,6 +19,8 @@ namespace MDTManagment.Models
 
         public string Type { get; set; }
 
+        public string ToothColour { get; set; }
+
         public DateTime DateОfReceipt { get; set; }
                    
         public DateTime DeadLine { get; set; }

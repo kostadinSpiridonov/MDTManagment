@@ -34,6 +34,11 @@ namespace MDTManagment.Services
             this.database.Dentists.Add(dentist);
             this.database.SaveChanges();
         }
+
+        public void GetOrders(Dentist dentist)
+        {
+
+        }
     }
 }
     
