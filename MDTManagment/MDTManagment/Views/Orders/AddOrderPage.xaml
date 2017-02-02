@@ -1,12 +1,16 @@
-﻿<Window x:Class="MDTManagment.Views.Orders.AddOrderPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MDTManagment.Views.Orders"
-        mc:Ignorable="d"
-        Title="AddOrderPage" Height="300" Width="300">
+﻿<Page x:Class="MDTManagment.Views.Orders.AddOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MDTManagment.Views.Orders"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="AddOrderPage">
+
     <Grid>
+
+
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -19,61 +23,54 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-       
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Type: </TextBlock>
-        </Grid>
 
-        <Grid Grid.Row="1" Grid.Column="0">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Date of receipt:</TextBlock>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Type:</TextBlock>
         </Grid>
-
-        <Grid Grid.Row="2" Grid.Column="0">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Deadline:</TextBlock>
+        <Grid Grid.Column="0" Grid.Row="1">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">DateОfReceipt:</TextBlock>
         </Grid>
-
-        <Grid Grid.Row="3" Grid.Column="0">
+        <Grid Grid.Column="0" Grid.Row="2">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">DeadLine:</TextBlock>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="3">
             <TextBlock TextAlignment="Center" VerticalAlignment="Center">Price:</TextBlock>
         </Grid>
-
-        <Grid Grid.Row="4" Grid.Column="0">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Tooth Colour:</TextBlock>
+        <Grid Grid.Column="0" Grid.Row="4">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">FacialArc:</TextBlock>
         </Grid>
-
-        <Grid Grid.Row="5" Grid.Column="0">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Facial Arc:</TextBlock>
-        </Grid>
-
-        <Grid Grid.Row="6" Grid.Column="0">
+        <Grid Grid.Column="0" Grid.Row="5">
             <TextBlock TextAlignment="Center" VerticalAlignment="Center">Articulator:</TextBlock>
         </Grid>
-
-        <Grid Grid.Row="7" Grid.Column="0">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Metal test:</TextBlock>
+        <!--<Grid Grid.Column="0" Grid.Row="6">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Dentist of the Patient:</TextBlock>
+        </Grid>-->
+        <Grid Grid.Column="0" Grid.Row="6">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">MetalTest:</TextBlock>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="7">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">CeramicTest:</TextBlock>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="8">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">SpecialRequirements:</TextBlock>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="9">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">DeclaredIngredients:</TextBlock>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="10">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">TypeOfImpressionMaterial:</TextBlock>
         </Grid>
 
-        <Grid Grid.Row="8" Grid.Column="0">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Ceramic test:</TextBlock>
-        </Grid>
 
-        <Grid Grid.Row="9" Grid.Column="0">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Type of impression material:</TextBlock>
-        </Grid>
-
-        <Grid Grid.Row="10" Grid.Column="0">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Dentist</TextBlock>
-        </Grid>
-        
-        
         <Grid Grid.Column="1" Grid.Row="0">
             <TextBox Text="{Binding NewOrder.Type}" Height="20" Margin="1,0,-1,-1"></TextBox>
         </Grid>
@@ -87,41 +84,43 @@
             <TextBox Text="{Binding NewOrder.Price}" Height="20"></TextBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="4">
-            <TextBox Text="{Binding NewOrder.ToothColour}" Height="20"></TextBox>
-        </Grid>
-        <Grid Grid.Column="1" Grid.Row="5">
             <TextBox Text="{Binding NewOrder.FacialArc}" Height="20"></TextBox>
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="6">
+        <Grid Grid.Column="1" Grid.Row="5">
             <TextBox Text="{Binding NewOrder.Articulator}" Height="20"></TextBox>
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="7">
+        <Grid Grid.Column="1" Grid.Row="6">
             <TextBox Text="{Binding NewOrder.MetalTest}" Height="20"></TextBox>
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="8">
+        <Grid Grid.Column="1" Grid.Row="7">
             <TextBox Text="{Binding NewOrder.CeramicTest}" Height="20"></TextBox>
         </Grid>
+        <Grid Grid.Column="1" Grid.Row="8">
+            <TextBox Text="{Binding NewOrder.SpecialRequirements}" Height="20"></TextBox>
+        </Grid>
         <Grid Grid.Column="1" Grid.Row="9">
-            <TextBox Text="{Binding NewOrder.TypeOfImpressionMaterial}" Height="20"></TextBox>
+            <TextBox Text="{Binding NewOrder.DeclaredIngredients}" Height="20"></TextBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="10">
-            <TextBox Text="{Binding NewOrder.Dentist}" Height="20"></TextBox>
+            <TextBox Text="{Binding NewOrder.TypeOfImpressionMaterial}" Height="20"></TextBox>
+        </Grid>
+        
+        <!--<Grid Grid.Column="1" Grid.Row="6" >
             <ComboBox
                 Height="20"
                 ItemsSource="{Binding Dentists}" 
-                SelectedValue="{Binding NewOrder.DentistId}"
+                SelectedValue="{Binding NewPatient.DentistId}"
                 SelectedValuePath="Id"
                 DisplayMemberPath="Name">
             </ComboBox>
-        </Grid>
+        </Grid>-->
 
-        <Grid Grid.Column="2" Grid.Row="10">
+        <Grid Grid.Column="2" Grid.Row="13">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Add Patient" Command="{Binding NavigateToAddOrder}" Height="20" Width="90"/>
-                <Button Content="Abandon" Command="{Binding NavigateToOrdersPage}" Height="20" Width="90" Margin="20,0,0,0"/>
+                <Button Content="Add Order" Command="{Binding AddOrder}" Height="20" Width="90"/>
+                <Button Content="Cancel" Command="{Binding NavigateToOrdersPage}" Height="20" Width="90" Margin="20,0,0,0"/>
             </StackPanel>
         </Grid>
 
-
     </Grid>
-</Window>
+</Page>

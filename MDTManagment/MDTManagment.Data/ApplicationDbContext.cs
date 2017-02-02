@@ -26,11 +26,11 @@ namespace MDTManagment.Data
 
         public DbSet<Ingredient> Ingredient { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Order>().HasMany(x => x.DeclaredIngredients);
-
-            base.OnModelCreating(modelBuilder);
-        }
+//        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+//        {
+//            modelBuilder.Entity<Order>().HasMany(x => x.DeclaredIngredients);
+//
+//            base.OnModelCreating(modelBuilder);
+//        }
     }
 }

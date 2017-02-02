@@ -12,4 +12,5 @@
         ResizeMode="NoResize"
         WindowState="Maximized">
     <Frame Source="Views/HomePage.xaml" x:Name="MainFrame"></Frame>
+    <!--NavigationUIVisibility="Hidden"-->
 </metro:MetroWindow>

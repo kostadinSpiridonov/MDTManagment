@@ -26,7 +26,9 @@ namespace MDTManagment.Models
 
         public int DentistId { get; set; }
 
-        public Dentist Dentist { get; set; }
+        public string DentistForDisplaying { get; set; }
+
+        //public Dentist Dentist { get; set; }  //TODO: NE BACHKA OSHTE VYV ..ADD PATIENT V M.. 
 
         //public string PortraitPicPath { get; set; }
     }

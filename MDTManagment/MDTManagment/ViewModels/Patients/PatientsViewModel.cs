@@ -24,10 +24,15 @@ namespace MDTManagment.ViewModels.Patients
 {
     public class PatientsViewModel : BaseViewModel
     {
+
+        private DentistService dentistService { get; set; }
+
+
+
+
         public ObservableCollection<Patient> Patients { get; set; }
 
         public Patient SelectedPatient { get; set; }
-    
 
         private PatientService patientService;
         
@@ -48,9 +53,11 @@ namespace MDTManagment.ViewModels.Patients
             this.NavToDentists = new RelayCommand(this.HandleNavToDentists);
             this.NavToOrders = new RelayCommand(this.HandleNavToOrders);
             this.NavToActivities = new RelayCommand(this.HandleNavToActivities);
+
+            this.DisplayPatient = new RelayCommand(this.HandleDisplayPatient);
         }
 
-        
+   
 
         private ICommand viewPatientCommand;
         
@@ -76,6 +83,8 @@ namespace MDTManagment.ViewModels.Patients
         public ICommand NavToDentists { get; set; }
         public ICommand NavToOrders { get; set; }
         public ICommand NavToActivities { get; set; }
+
+        public ICommand DisplayPatient { get; set; }
 
         public void ViewPatient(object obj)
         {
@@ -123,6 +132,21 @@ namespace MDTManagment.ViewModels.Patients
             App.Navigation.Navigate(new HomePage());
         }
 
+
+        private void HandleDisplayPatient(object obj)
+        {
+            if (this.SelectedPatient == null)
+            {
+                MessageBox.Show("No patient selected.", "Patients status", MessageBoxButton.OK);
+                return;
+            }
+            
+            this.dentistService = new DentistService();
+            var databaseDentist = dentistService.GetDentistById(this.SelectedPatient.DentistId);
+            this.SelectedPatient.DentistForDisplaying = databaseDentist.Name + " " + databaseDentist.MiddleName + " " + databaseDentist.LastName;
+
+            OnPropertyChanged("SelectedPatient");
+        }
 
     }
 }

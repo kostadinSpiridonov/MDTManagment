@@ -98,7 +98,7 @@
     <Compile Include="ViewModels\Dentists\DentistsViewModel.cs" />
     <Compile Include="ViewModels\Dentists\DentistViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
-    <Compile Include="ViewModels\Orders\AddOrderVeiwModel.cs" />
+    <Compile Include="ViewModels\Orders\AddOrderViewModel.cs" />
     <Compile Include="ViewModels\Patients\SelectDentistViewModel.cs" />
     <Compile Include="ViewModels\Orders\OrdersVeiwModel.cs" />
     <Compile Include="ViewModels\Orders\OrderViewModel.cs" />

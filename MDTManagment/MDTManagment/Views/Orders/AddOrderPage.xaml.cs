@@ -1,5 +1,4 @@
-﻿using MDTManagment.ViewModels;
-using MDTManagment.ViewModels.Orders;
+﻿using MDTManagment.ViewModels.Orders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +19,12 @@ namespace MDTManagment.Views.Orders
     /// <summary>
     /// Interaction logic for AddOrderPage.xaml
     /// </summary>
-  //public partial class AddOrderPage : Page
-  //{
-  //    public AddOrderPage()
-  //    {
-  //        InitializeComponent();
-  //        this.DataContext = new AddOrderVeiwModel();
-  //    }
-  //}
+    public partial class AddOrderPage : Page
+    {
+        public AddOrderPage()
+        {
+            InitializeComponent();
+            this.DataContext = new AddOrderViewModel();
+        }
+    }
 }
