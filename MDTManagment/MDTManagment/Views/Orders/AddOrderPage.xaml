@@ -76,7 +76,7 @@
 
 
         <Grid Grid.Column="1" Grid.Row="0">
-            <TextBox Text="{Binding NewOrder.Type}" Height="20"></TextBox>
+            <TextBox Text="{Binding NewOrder.Type}" Height="20" Margin="1,0,-1,-1"></TextBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1" >
             <TextBox Text="{Binding NewOrder.DateОfReceipt}" Height="20"></TextBox>
