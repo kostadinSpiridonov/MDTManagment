@@ -33,15 +33,15 @@ namespace MDTManagment.Views.Orders
         {
             this.obj = obj;
         }
-
-        private void ExpandMenu_Click(object sender, RoutedEventArgs e)
-        {
-            double wid = this.MenuColumn.MaxWidth;
-            if (wid == 0)
-            { this.MenuColumn.MaxWidth = 170; }
-            else
-            { this.MenuColumn.MaxWidth = 0; }
-
-        }
+//TODO: Do a menu in orders
+    //    private void ExpandMenu_Click(object sender, RoutedEventArgs e)
+    //    {
+    //        double wid = this.MenuColumn.MaxWidth;
+    //        if (wid == 0)
+    //        { this.MenuColumn.MaxWidth = 170; }
+    //        else
+    //        { this.MenuColumn.MaxWidth = 0; }
+    //
+    //    }
     }
 }

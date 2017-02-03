@@ -35,6 +35,7 @@ namespace MDTManagment.Services
             this.database.SaveChanges();
         }
 
+        //TODO: Delete this
         public void GetOrders(Dentist dentist)
         {
 

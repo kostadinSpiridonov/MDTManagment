@@ -1,9 +1,11 @@
 ﻿using MDTManagment.Commands;
 using MDTManagment.Models;
 using MDTManagment.Services;
+using MDTManagment.ViewModels.Patients;
 using MDTManagment.Views.Orders;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +24,7 @@ namespace MDTManagment.ViewModels.Orders
 
         private PatientService patientService { get; set; }
 
-        //public ObservableCollection<SelectDentistViewModel> Dentists { get; set; }
+        public ObservableCollection<SelectDentistViewModel> Dentists { get; set; }
 
        
 
@@ -40,15 +42,15 @@ namespace MDTManagment.ViewModels.Orders
 
             this.NavigateToOrdersPage = new RelayCommand(this.HandleNavigateToOrdersPage);
 
-//            var databaseDentists = this.dentistService.GetAllDentists();
+            var databaseDentists = this.dentistService.GetAllDentists();
 
-//            var mappedDentists = databaseDentists.Select(x => new SelectDentistViewModel()
-//            {
-//                Id = x.Id,
-//                Name = x.Name
-//            });
+            var mappedDentists = databaseDentists.Select(x => new SelectDentistViewModel()
+            {
+                Id = x.Id,
+                Name = x.Name
+            });
 
-//            this.Dentists = new ObservableCollection<SelectDentistViewModel>(mappedDentists);
+            this.Dentists = new ObservableCollection<SelectDentistViewModel>(mappedDentists);
         }
 
        
@@ -68,12 +70,13 @@ namespace MDTManagment.ViewModels.Orders
         //CeramicTest
         private void HandleAddOrder(object obj)
         {
-            //int checkId = new int();
-               if (this.NewOrder.Type == null ||
-               this.NewOrder.Price < 0 ||
-               this.NewOrder.SpecialRequirements == null ||
-               this.NewOrder.DeclaredIngredients == null ||
-               this.NewOrder.TypeOfImpressionMaterial == null ||
+            int checkId = new int();
+            if (this.NewOrder.Type == null ||
+                this.NewOrder.Price <= 0 ||
+                this.NewOrder.SpecialRequirements == null ||
+                this.NewOrder.DeclaredIngredients == null ||
+                this.NewOrder.TypeOfImpressionMaterial == null || 
+                this.NewOrder.ToothColour == null ||
 
                 this.NewOrder.DateОfReceipt.Year < DateTime.Today.Year ||
                 this.NewOrder.DateОfReceipt.Month < DateTime.Today.Month ||
@@ -81,12 +84,12 @@ namespace MDTManagment.ViewModels.Orders
 
                 this.NewOrder.DeadLine.Year < DateTime.Today.Year ||
                 this.NewOrder.DeadLine.Month < DateTime.Today.Month ||
-                this.NewOrder.DeadLine.Date < DateTime.Today.Date ) //||
-            // this.NewOrder.DentistId == checkId)
-                   {
-                       MessageBox.Show("Invalid input.", "Orders status", MessageBoxButton.OK);
-                       return;
-                   }
+                this.NewOrder.DeadLine.Date < DateTime.Today.Date  ||
+                this.NewOrder.DentistId == checkId)
+            {
+                MessageBox.Show("Invalid input.", "Orders status", MessageBoxButton.OK);
+                return;
+            }
             this.orderService.AddOrder(this.NewOrder);
             this.OnPropertyChanged("Orders");
             MessageBox.Show("New order added.", "Orders status", MessageBoxButton.OK);

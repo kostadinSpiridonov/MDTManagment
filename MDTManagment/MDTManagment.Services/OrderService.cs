@@ -16,6 +16,13 @@ namespace MDTManagment.Services
             this.database.SaveChanges();
         }
 
+        public void DeleteOrder(int orderId)
+        {
+            var order = this.database.Orders.First(x => x.Id == orderId);
+            this.database.Orders.Remove(order);
+            this.database.SaveChanges();
+        }
+
 
 
 
@@ -39,19 +46,6 @@ namespace MDTManagment.Services
                 .Take(count);
 
             return orders.ToList();
-        }
-
-        public void AddOrder(Order order)
-        {
-            this.database.Orders.Add(order);
-            this.database.SaveChanges();
-        }
-
-        public void DeleteOrder(int orderId)
-        {
-            var order = this.database.Orders.First(x => x.Id == orderId);
-            this.database.Orders.Remove(order);
-            this.database.SaveChanges();
         }
 
     }

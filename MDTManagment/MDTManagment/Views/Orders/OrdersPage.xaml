@@ -46,7 +46,14 @@
 
     <StackPanel>
         <!--<Grid Grid.Column="2">-->
-        <Button Command="{Binding NavigateToAddOrder}" Content="Add Order"></Button>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="3" Command="{Binding NavigateToAddOrder}" Content="Add Order"></Button>
+            <Button Grid.Column="1" Margin="3" Command="{Binding DeleteOrder}" Content="Delete Order"></Button>
+        </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -54,7 +61,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <ListView ItemsSource="{Binding Orders}" > <!-- * TODO: * IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedPatient, Mode=TwoWay}">-->
+                <ListView ItemsSource="{Binding Orders}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedOrder, Mode=TwoWay}">
                     <ListView.View>
                         <GridView>
                             <GridView.Columns>

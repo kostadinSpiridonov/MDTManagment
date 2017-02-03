@@ -25,6 +25,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -51,9 +52,6 @@
         <Grid Grid.Column="0" Grid.Row="5">
             <TextBlock TextAlignment="Center" VerticalAlignment="Center">Articulator:</TextBlock>
         </Grid>
-        <!--<Grid Grid.Column="0" Grid.Row="6">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Dentist of the Patient:</TextBlock>
-        </Grid>-->
         <Grid Grid.Column="0" Grid.Row="6">
             <TextBlock TextAlignment="Center" VerticalAlignment="Center">MetalTest:</TextBlock>
         </Grid>
@@ -61,13 +59,19 @@
             <TextBlock TextAlignment="Center" VerticalAlignment="Center">CeramicTest:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="8">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">SpecialRequirements:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">ToothColour:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="9">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">DeclaredIngredients:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">SpecialRequirements:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="10">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">DeclaredIngredients:</TextBlock>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="11">
             <TextBlock TextAlignment="Center" VerticalAlignment="Center">TypeOfImpressionMaterial:</TextBlock>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="12">
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Dentist:</TextBlock>
         </Grid>
 
 
@@ -96,24 +100,27 @@
             <TextBox Text="{Binding NewOrder.CeramicTest}" Height="20"></TextBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="8">
-            <TextBox Text="{Binding NewOrder.SpecialRequirements}" Height="20"></TextBox>
+            <TextBox Text="{Binding NewOrder.ToothColour}" Height="20"></TextBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="9">
-            <TextBox Text="{Binding NewOrder.DeclaredIngredients}" Height="20"></TextBox>
+            <TextBox Text="{Binding NewOrder.SpecialRequirements}" Height="20"></TextBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="10">
+            <TextBox Text="{Binding NewOrder.DeclaredIngredients}" Height="20"></TextBox>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="11">
             <TextBox Text="{Binding NewOrder.TypeOfImpressionMaterial}" Height="20"></TextBox>
         </Grid>
         
-        <!--<Grid Grid.Column="1" Grid.Row="6" >
+        <Grid Grid.Column="1" Grid.Row="12" >
             <ComboBox
                 Height="20"
                 ItemsSource="{Binding Dentists}" 
-                SelectedValue="{Binding NewPatient.DentistId}"
+                SelectedValue="{Binding NewOrder.DentistId}"
                 SelectedValuePath="Id"
                 DisplayMemberPath="Name">
             </ComboBox>
-        </Grid>-->
+        </Grid>
 
         <Grid Grid.Column="2" Grid.Row="13">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
