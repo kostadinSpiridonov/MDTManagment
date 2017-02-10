@@ -156,18 +156,18 @@
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
-                                        <GridViewColumn Header="Type of the order Вид поръчка" DisplayMemberBinding="{Binding Type}"/>
-                                        <GridViewColumn Header="Date of receipt Дата?" DisplayMemberBinding="{Binding DateОfReceipt}"/>
-                                        <GridViewColumn Header="Deadline Краен срок" DisplayMemberBinding="{Binding DeadLine}"/>
-                                        <GridViewColumn Header="Price Цена" DisplayMemberBinding="{Binding Price}"/>
+                                        <GridViewColumn Header="Вид поръчка" DisplayMemberBinding="{Binding Type}"/>
+                                        <GridViewColumn Header="Дата на постъпване" DisplayMemberBinding="{Binding DateОfReceipt}"/>
+                                        <GridViewColumn Header="Краен срок" DisplayMemberBinding="{Binding DeadLine}"/>
+                                        <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Price}"/>
                                         <!--<GridViewColumn Header="Dentist:" DisplayMemberBinding="{Binding DisplayingDentist}"/>-->
-                                        <GridViewColumn Header="Facial Arc?" DisplayMemberBinding="{Binding FacialArc}"/>
-                                        <GridViewColumn Header="Articulator?" DisplayMemberBinding="{Binding Articulator}"/>
-                                        <GridViewColumn Header="Metal Test?" DisplayMemberBinding="{Binding MetalTest}"/>
-                                        <GridViewColumn Header="Ceramic Test?" DisplayMemberBinding="{Binding CeramicTest}"/>
-                                        <GridViewColumn Header="Special Requirements Специални изисквания" DisplayMemberBinding="{Binding SpecialRequirements}"/>
-                                            <GridViewColumn Header="Declared Ingredients Използвани съставки (материали) ?" DisplayMemberBinding="{Binding DeclaredIngredients}"/>
-                                        <GridViewColumn Header="Type of Impression Material?" DisplayMemberBinding="{Binding TypeOfImpressionMaterial}"/>
+                                        <GridViewColumn Header="Лицева дъга" DisplayMemberBinding="{Binding FacialArc}"/>
+                                        <GridViewColumn Header="Артикулатор" DisplayMemberBinding="{Binding Articulator}"/>
+                                        <GridViewColumn Header="Метална проба" DisplayMemberBinding="{Binding MetalTest}"/>
+                                        <GridViewColumn Header="Керамична проба" DisplayMemberBinding="{Binding CeramicTest}"/>
+                                        <GridViewColumn Header="Специални изисквания" DisplayMemberBinding="{Binding SpecialRequirements}"/>
+                                            <GridViewColumn Header="Заявени съставки" DisplayMemberBinding="{Binding DeclaredIngredients}"/>
+                                        <GridViewColumn Header="Отпечатъчен материал" DisplayMemberBinding="{Binding TypeOfImpressionMaterial}"/>
 
                                         <!-- NQMA BUTTON SHTOTO NQMA otdelen ordeR PAGE-->
                                         <!--<GridViewColumn Header="View">
