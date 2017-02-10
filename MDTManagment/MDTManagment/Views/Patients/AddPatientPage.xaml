@@ -31,25 +31,25 @@
 
 
         <Grid Grid.Column="0" Grid.Row="0">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">FirstName:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Име:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Surname:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Презиме:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="2">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Family:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Фамилия:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="3">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Age:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Възраст:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="4">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Address:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Адрес:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="5">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">PhoneNumber:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Контакт:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="6">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Dentist of the Patient:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Зъболекар на пациента:</TextBlock>
         </Grid>
 
 
@@ -83,8 +83,8 @@
 
         <Grid Grid.Column="2" Grid.Row="7">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Add Patient" Command="{Binding AddPatient}" Height="20" Width="90"/>
-                <Button Content="Cancel" Command="{Binding NavigateToPatientsPage}" Height="20" Width="90" Margin="20,0,0,0"/>
+                <Button Content="Добави" Command="{Binding AddPatient}" Height="20" Width="90"/>
+                <Button Content="Отказ" Command="{Binding NavigateToPatientsPage}" Height="20" Width="90" Margin="20,0,0,0"/>
             </StackPanel>
         </Grid>
 

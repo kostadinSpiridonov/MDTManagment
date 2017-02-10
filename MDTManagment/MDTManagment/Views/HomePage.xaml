@@ -9,52 +9,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="HomePage">
-    <!--<Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="550"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Orientation="Horizontal">
-            <Button Height="30" Width="160" Margin="10" Click="GoToPatientPage_Cick">Patients</Button>
-            <Button Height="30" Width="160" Margin="10" Click="GoToOrdersPage_Cick">Orders</Button>
-            <Button Height="30" Width="160" Margin="10" Click="GoToDentistsPage_Cick">Dentists</Button>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Height="300" Orientation="Horizontal">
-            <TextBlock Text="MTDManagement" FontSize="30" Margin="550,10,10,10"></TextBlock>
-        </StackPanel>
-        <Image Source="/Resources/HomePageImage.png" Grid.Row="1" Width="600" Height="700" Grid.Column="1">
-            
-        </Image>
-        
-        <ListView ItemsSource="{Binding Orders}" Grid.Row="1">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Focusable" Value="False"/>
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Vertical"></StackPanel>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <controls:Tile Title="{Binding DeadLine}" Width="550"
-                                   Command="{Binding Path=DataContext.ViewOrderCommand, 
-                                                         RelativeSource={RelativeSource Mode=FindAncestor,      
-                                                         AncestorType={x:Type ItemsControl}} }"
-                                   CommandParameter="{Binding Id}"
-                                    Count="{Binding Dentist.Name}">
-                    </controls:Tile>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </Grid>-->
 
     <StackPanel>
 
@@ -112,38 +66,39 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="0" x:Name="MenuColumn"></ColumnDefinition>
                 <ColumnDefinition Width="3"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            
             <Grid Grid.Column="0">
                 <StackPanel>
-                    <Button Click="GoToHomePage_Cick" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/0.png"></Image>
-                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Home</TextBlock>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Начало</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Click="GoToPatientsPage_Cick" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/1.png"></Image>
-                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Patients</TextBlock>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Пациенти</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Click="GoToDentistsPage_Cick" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/2.png"></Image>
-                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Dentists</TextBlock>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Зъболекари</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Click="GoToOrdersPage_Cick" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                    <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
-                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Orders</TextBlock>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Click="GoToActivitiesPage_Cick" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                    <Button Command="{Binding NavToActivities}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
-                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Activities</TextBlock>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Дейности</TextBlock>
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -151,7 +106,7 @@
             </Grid>
 
 
-            <GridSplitter x:Name="GridSplitter1" Grid.Column="1" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
+            <GridSplitter x:Name="GridSplitter1" Grid.Column="1" Height="900" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
 
 
 
@@ -163,8 +118,10 @@
                     <ColumnDefinition Width="550"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                
-                <ListView ItemsSource="{Binding Orders}" Grid.Column="0">
+
+
+                <Grid Grid.Column="0">
+                <ListView ItemsSource="{Binding Orders}">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="Focusable" Value="False"/>
@@ -179,30 +136,31 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <controls:Tile Title="{Binding DeadLine}" Width="540"
-                                   Command="{Binding Path=DataContext.ViewOrderCommand, 
-                                                         RelativeSource={RelativeSource Mode=FindAncestor,      
-                                                         AncestorType={x:Type ItemsControl}} }"
-                                   CommandParameter="{Binding Id}"
-                                    Count="{Binding Orders.Type}">
+                                           Command="{Binding Path=DataContext.ViewOrderCommand, 
+                                                     RelativeSource={RelativeSource Mode=FindAncestor,      
+                                                     AncestorType={x:Type ItemsControl}} }"
+                                           Count="{Binding Type}">
                             </controls:Tile>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                </Grid>
+                
                 <Grid Grid.Column="1">
-                    <!--<Grid.RowDefinitions>
+                    
+                    <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>-->
-                    <!--<Grid Grid.Row="0">-->
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="0,50,0,0">
                     <Image Source="/Resources/99logo.jpg" Height="500"></Image>
-
-                    <!--</Grid>-->
-                    <!--<Grid Grid.Row="1">-->
                     <TextBlock FontFamily="Forte" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DeepSkyBlue" Text="MDT Managment" FontSize="30"></TextBlock>
 
-                    <!--</Grid>-->
+                    </Grid>
+                   
                     
                 </Grid>
+
 
             </Grid>
 
@@ -219,7 +177,7 @@
 
 
 
-
+<!--TODO: DDDDDDDDDelete this-->
 
 
 <!--<Grid.RowDefinitions>

@@ -51,23 +51,46 @@ namespace MDTManagment.ViewModels.Orders
             });
 
             this.Dentists = new ObservableCollection<SelectDentistViewModel>(mappedDentists);
+
+
+
+            this.FacialArcIsTrue = new RelayCommand(this.HandleFacialArcIsTrue);
+            this.FacialArcIsFalse = new RelayCommand(this.HandleFacialArcIsFalse);
+
+            this.ArticulatorIsTrue = new RelayCommand(this.HandleArticulatorIsTrue);
+            this.ArticulatorIsFalse = new RelayCommand(this.HandleArticulatorIsFalse);
+
+            this.MetalTestIsTrue = new RelayCommand(this.HandleMetalTestIsTrue);
+            this.MetalTestIsFalse = new RelayCommand(this.HandleMetalTestIsFalse);
+
+            this.CeramicTestIsTrue = new RelayCommand(this.HandleCeramicTestIsTrue);
+            this.CeramicTestIsFalse = new RelayCommand(this.HandleCeramicTestIsFalse);
+
         }
 
-       
+      
 
         public ICommand AddOrder { get; set; }
 
         public ICommand NavigateToOrdersPage { get; set; }
 
 
+        public ICommand FacialArcIsTrue { get; set; }
+        public ICommand FacialArcIsFalse { get; set; }
+
+        public ICommand ArticulatorIsTrue { get; set; }
+        public ICommand ArticulatorIsFalse { get; set; }
+
+        public ICommand MetalTestIsTrue { get; set; }
+        public ICommand MetalTestIsFalse { get; set; }
+
+        public ICommand CeramicTestIsTrue { get; set; }
+        public ICommand CeramicTestIsFalse { get; set; }
+
+
+
+
     
-        //TODO:
-        //DateОfReceipt
-        //DeadLine
-        //FacialArc
-        //Articulator
-        //MetalTest
-        //CeramicTest
         private void HandleAddOrder(object obj)
         {
             int checkId = new int();
@@ -79,17 +102,29 @@ namespace MDTManagment.ViewModels.Orders
                 this.NewOrder.ToothColour == null ||
 
                 this.NewOrder.DateОfReceipt.Year < DateTime.Today.Year ||
-                this.NewOrder.DateОfReceipt.Month < DateTime.Today.Month ||
-                this.NewOrder.DateОfReceipt.Date < DateTime.Today.Date ||
-
                 this.NewOrder.DeadLine.Year < DateTime.Today.Year ||
-                this.NewOrder.DeadLine.Month < DateTime.Today.Month ||
-                this.NewOrder.DeadLine.Date < DateTime.Today.Date  ||
-                this.NewOrder.DentistId == checkId)
+
+                this.NewOrder.DentistId == checkId )
             {
                 MessageBox.Show("Invalid input.", "Orders status", MessageBoxButton.OK);
                 return;
             }
+
+            if (this.NewOrder.DeadLine.Month < DateTime.Today.Month ||
+                this.NewOrder.DateОfReceipt.Month < DateTime.Today.Month )
+            {
+                MessageBox.Show("Invalid input.", "Orders status", MessageBoxButton.OK);
+                return;
+            }
+
+            if (this.NewOrder.DateОfReceipt.Date < DateTime.Today.Date ||
+                this.NewOrder.DeadLine.Date < DateTime.Today.Date )
+            {
+                MessageBox.Show("Invalid input.", "Orders status", MessageBoxButton.OK);
+                return;
+            }
+
+
             this.orderService.AddOrder(this.NewOrder);
             this.OnPropertyChanged("Orders");
             MessageBox.Show("New order added.", "Orders status", MessageBoxButton.OK);
@@ -100,5 +135,48 @@ namespace MDTManagment.ViewModels.Orders
         {
             App.Navigation.Navigate(new OrdersPage());
         }
+
+
+
+
+
+
+        private void HandleFacialArcIsTrue(object obj)
+        {
+            this.NewOrder.FacialArc = true;
+        }
+        private void HandleFacialArcIsFalse(object obj)
+        {
+              this.NewOrder.FacialArc = false;
+        }
+
+        private void HandleArticulatorIsTrue(object obj)
+        {
+            this.NewOrder.Articulator = true;
+        }
+        private void HandleArticulatorIsFalse(object obj)
+        {
+            this.NewOrder.Articulator = false; 
+        }
+
+        private void HandleMetalTestIsTrue(object obj)
+        {
+            this.NewOrder.MetalTest = true;
+        }
+        private void HandleMetalTestIsFalse(object obj)
+        {
+            this.NewOrder.MetalTest = false; 
+        }
+
+        private void HandleCeramicTestIsTrue(object obj)
+        {
+            this.NewOrder.CeramicTest = true;
+        }
+        private void HandleCeramicTestIsFalse(object obj)
+        {
+            this.NewOrder.CeramicTest = false; 
+        }
+
+
     }
 }

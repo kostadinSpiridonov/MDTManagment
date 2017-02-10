@@ -7,79 +7,170 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="OrdersPage">
-    <!--<StackPanel>
-        <ListView ItemsSource="{Binding Orders}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text=" Type of the order"></TextBlock>
-                        <Button  Command="{Binding Path=DataContext, 
-                                    RelativeSource={RelativeSource Mode=FindAncestor,      
-                                    AncestorType={x:Type ItemsControl}} }"
-                                 CommandParameter="{Binding Id}">View</Button>
-                        <TextBlock Text="{Binding TypeOfTheOrder}"></TextBlock>
-                        <TextBlock Text="; Date of receipt: "></TextBlock>
-                        <TextBlock Text="{Binding DateОfReceipt}"></TextBlock>
-                        <TextBlock Text="; Deadline: "></TextBlock>
-                        <TextBlock Text="{Binding DeadLine}"></TextBlock>
-                        <TextBlock Text="; Price: "></TextBlock>
-                        <TextBlock Text="{Binding Price}"></TextBlock>
-                        <TextBlock Text="; Special Requirements: "></TextBlock>
-                        <TextBlock Text="{Binding SpecialRequirements}"></TextBlock>
-                        <TextBlock Text="; Declared Ingredients: "></TextBlock>
-                        <TextBlock Text="{Binding DeclaredIngredients}"></TextBlock>
-                        <TextBlock Text="; Facial Arc: "></TextBlock>
-                        <TextBlock Text="{Binding FacialArc}"></TextBlock>
-                        <TextBlock Text="; Articulator: "></TextBlock>
-                        <TextBlock Text="{Binding Articulator}"></TextBlock>
-                        <TextBlock Text="; Metal Test: "></TextBlock>
-                        <TextBlock Text="{Binding MetalTest}"></TextBlock>
-                        <TextBlock Text="; Ceramic Test: "></TextBlock>
-                        <TextBlock Text="{Binding CeramicTest}"></TextBlock>
-                        <TextBlock Text="; Type of Impression Material: "></TextBlock>
-                        <TextBlock Text="{Binding TypeOfImpressionMaterial}"></TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackPanel>-->
-
+   
     <StackPanel>
-        <!--<Grid Grid.Column="2">-->
+
+
+
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="40"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Margin="3" Command="{Binding NavigateToAddOrder}" Content="Add Order"></Button>
-            <Button Grid.Column="1" Margin="3" Command="{Binding DeleteOrder}" Content="Delete Order"></Button>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0">
+                <!--<Button Width="40" Height="40" FontSize="15" Background="Transparent" BorderBrush="Transparent" Click="ExpandMenu_Click" RenderTransformOrigin="0.5,0.5">-->
+                <Button Click="ExpandMenu_Click" Margin="0,-3,1,0">
+
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template>
+
+                        <ControlTemplate>
+                            <!--Content="|||"-->
+
+                            <ContentControl>
+                                <Border x:Name="ButtonBorder1" CornerRadius="0,0,0,0" BorderBrush="DeepSkyBlue" BorderThickness="3">
+                                    <StackPanel>
+                                        <TextBlock Height="30" Width="30" ><TextBlock Margin="7.8,3.2,0,0" FontSize="15" Text="|||" ></TextBlock></TextBlock>
+                                    </StackPanel>
+                                </Border>
+
+
+                            </ContentControl>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsPressed" Value="True">
+                                    <Setter TargetName="ButtonBorder1" Property="BorderBrush" Value="DeepSkyBlue"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="1" Grid.Row="0" Height="30">
+                <!--<StackPanel Orientation="Horizontal" Margin="130,0,0,0">-->
+
+                <Button Height="30" Command="{Binding NavigateToAddOrder}" Background="Transparent" BorderBrush="Transparent">
+                    <StackPanel Orientation="Horizontal">
+                        <!--Margin="10,0,15,0">-->
+                        <Image Height="20" VerticalAlignment="Center" Source="/Resources/add.png"></Image>
+                        <TextBlock FontSize="11.5" Text="Добави поръчка" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <!--<Button Height="30" Command="{Binding DeletePatient}" Background="Transparent" BorderBrush="Transparent">
+                        <StackPanel Orientation="Horizontal" Margin="10,0,15,0">
+                            <Image Height="20" VerticalAlignment="Center" Source="/Resources/delete.png"></Image>
+                            <TextBlock FontSize="11.5" Text="Delete Patient" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
+                        </StackPanel>
+                    </Button>-->
+                <!--</StackPanel>-->
+            </Grid>
+
+
+
         </Grid>
+
+        <Grid>
+            <GridSplitter Height="3" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
+        </Grid>
+
         <Grid>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition MaxWidth="0" x:Name="MenuColumn"></ColumnDefinition>
+                <ColumnDefinition Width="3"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
-                <!--<ColumnDefinition></ColumnDefinition>-->
             </Grid.ColumnDefinitions>
-
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
             <Grid Grid.Column="0">
-                <ListView ItemsSource="{Binding Orders}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedOrder, Mode=TwoWay}">
-                    <ListView.View>
-                        <GridView>
-                            <GridView.Columns>
-                                <GridViewColumn Header="Type of the order" DisplayMemberBinding="{Binding Type}"/>
-                                <GridViewColumn Header="Date of receipt" DisplayMemberBinding="{Binding DateОfReceipt}"/>
-                                <GridViewColumn Header="Deadline" DisplayMemberBinding="{Binding DeadLine}"/>
-                                <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}"/>
-                                <GridViewColumn Header="Special Requirements" DisplayMemberBinding="{Binding SpecialRequirements}"/>
-                                <GridViewColumn Header="Declared Ingredients" DisplayMemberBinding="{Binding DeclaredIngredients}"/>
-                                <GridViewColumn Header="Facial Arc" DisplayMemberBinding="{Binding FacialArc}"/>
-                                <GridViewColumn Header="Articulator" DisplayMemberBinding="{Binding Articulator}"/>
-                                <GridViewColumn Header="Metal Test" DisplayMemberBinding="{Binding MetalTest}"/>
-                                <GridViewColumn Header="Ceramic Test" DisplayMemberBinding="{Binding CeramicTest}"/>
-                                <GridViewColumn Header="Type of Impression Material" DisplayMemberBinding="{Binding TypeOfImpressionMaterial}"/>
+                <StackPanel Height="900">
+                    <Button Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/0.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Начало</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/1.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Пациенти</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/2.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Зъболекари</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToActivities}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Дейности</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+            </Grid>
 
 
-                                <!-- NQMA BUTTON SHTOTO NQMA otdelen ordeR PAGE-->
-                                <!--<GridViewColumn Header="View">
+            <GridSplitter x:Name="GridSplitter1" Grid.Column="1" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
+
+
+
+
+
+
+
+
+
+
+            <Grid Grid.Column="2">
+                <StackPanel>
+                    <!--<Button Grid.Column="0" Margin="3" Command="{Binding NavigateToAddOrder}" Content="Add Order"></Button> should be deleted-->
+                    <Button Grid.Column="1" Margin="5,3,5,3" Command="{Binding DeleteOrder}" Content="Изтрий избраната поръчка"></Button>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <!--<ColumnDefinition></ColumnDefinition>-->
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <ListView ItemsSource="{Binding Orders}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedOrder, Mode=TwoWay}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridView.Columns>
+                                        <GridViewColumn Header="Type of the order Вид поръчка" DisplayMemberBinding="{Binding Type}"/>
+                                        <GridViewColumn Header="Date of receipt Дата?" DisplayMemberBinding="{Binding DateОfReceipt}"/>
+                                        <GridViewColumn Header="Deadline Краен срок" DisplayMemberBinding="{Binding DeadLine}"/>
+                                        <GridViewColumn Header="Price Цена" DisplayMemberBinding="{Binding Price}"/>
+                                        <!--<GridViewColumn Header="Dentist:" DisplayMemberBinding="{Binding DisplayingDentist}"/>-->
+                                        <GridViewColumn Header="Facial Arc?" DisplayMemberBinding="{Binding FacialArc}"/>
+                                        <GridViewColumn Header="Articulator?" DisplayMemberBinding="{Binding Articulator}"/>
+                                        <GridViewColumn Header="Metal Test?" DisplayMemberBinding="{Binding MetalTest}"/>
+                                        <GridViewColumn Header="Ceramic Test?" DisplayMemberBinding="{Binding CeramicTest}"/>
+                                        <GridViewColumn Header="Special Requirements Специални изисквания" DisplayMemberBinding="{Binding SpecialRequirements}"/>
+                                            <GridViewColumn Header="Declared Ingredients Използвани съставки (материали) ?" DisplayMemberBinding="{Binding DeclaredIngredients}"/>
+                                        <GridViewColumn Header="Type of Impression Material?" DisplayMemberBinding="{Binding TypeOfImpressionMaterial}"/>
+
+                                        <!-- NQMA BUTTON SHTOTO NQMA otdelen ordeR PAGE-->
+                                        <!--<GridViewColumn Header="View">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel>
@@ -93,11 +184,14 @@
                                 </GridViewColumn>-->
 
 
-                            </GridView.Columns>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </Grid>
+                </StackPanel>
             </Grid>
-         </Grid>
+        </Grid>
     </StackPanel>
 </Page>

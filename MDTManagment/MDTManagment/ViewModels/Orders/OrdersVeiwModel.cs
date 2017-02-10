@@ -2,7 +2,10 @@
 using MDTManagment.Models;
 using MDTManagment.Services;
 using MDTManagment.Views;
+using MDTManagment.Views.Activities;
+using MDTManagment.Views.Dentists;
 using MDTManagment.Views.Orders;
+using MDTManagment.Views.Patients;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,34 +26,45 @@ namespace MDTManagment.ViewModels.Orders
         private OrderService orderService { get; set; }
 
         public Order SelectedOrder { get; set; }
-
+        //insert dentist service za DislpayDentist
 
         public OrdersVeiwModel()
         {
-            var ordersService = new OrderService();
+            this.orderService = new OrderService();
 
-            var databaseOrders = ordersService.GetOrders();
+            var databaseOrders = orderService.GetOrders();
 
             this.Orders = new ObservableCollection<Order>(databaseOrders);
-
+     
             this.DeleteOrder = new RelayCommand(this.HandleDeleteOrder);
 
             this.NavigateToAddOrder = new RelayCommand(this.HandleNavigateToAddOrder);
 
-            //this.SelectedOrder = new Order();
+            this.NavToHome = new RelayCommand(this.HandleNavToHome);
+            this.NavToPatients = new RelayCommand(this.HandleNavToPatients);
+            this.NavToDentists = new RelayCommand(this.HandleNavToDentists);
+            this.NavToOrders = new RelayCommand(this.HandleNavToOrders);
+            this.NavToActivities = new RelayCommand(this.HandleNavToActivities);
+
         }
 
-        
+
 
         public ICommand DeleteOrder { get; set; }
 
         public ICommand NavigateToAddOrder { get; set; }
 
+        public ICommand NavToPatients { get; set; }
+        public ICommand NavToHome { get; set; }
+        public ICommand NavToDentists { get; set; }
+        public ICommand NavToOrders { get; set; }
+        public ICommand NavToActivities { get; set; }
+
 
 
         private void HandleNavigateToAddOrder(object obj)
         {
-            App.Navigation.Navigate(new AddOrderPage());
+            App.Navigation.Navigate(new AddOrderPage()); 
         }
 
         private void HandleDeleteOrder(object obj)
@@ -65,32 +79,53 @@ namespace MDTManagment.ViewModels.Orders
             this.OnPropertyChanged("Orders");
             MessageBox.Show("Order deleted.", "Orders status", MessageBoxButton.OK);
         }
-    
 
+
+        private void HandleNavToActivities(object obj)
+        {
+            App.Navigation.Navigate(new ActivitiesPage());
+        }
+        private void HandleNavToOrders(object obj)
+        {
+            App.Navigation.Navigate(new OrdersPage());
+        }
+        private void HandleNavToDentists(object obj)
+        {
+            App.Navigation.Navigate(new DentistsPage());
+        }
+        private void HandleNavToPatients(object obj)
+        {
+            App.Navigation.Navigate(new PatientsPage());
+        }
+        private void HandleNavToHome(object obj)
+        {
+            App.Navigation.Navigate(new HomePage());
+        }
+
+
+        //TODO: DELETE TypeOfTheOrderPage
 
         //TODO: everything down is not used
 
-  //      private ICommand viewOrderCommand;
-  //
-  //      public ICommand ViewOrderCommand
-  //      {
-  //          get
-  //          {
-  //              if (this.viewOrderCommand == null)
-  //              {
-  //                  this.viewOrderCommand = new RelayCommand(this.ViewOrder);
-  //              };
-  //
-  //              return this.viewOrderCommand;
-  //          }
-  //      }
-  //
-  //      public void ViewOrder(object obj)
-  //      {
-  //          App.Navigation.Navigate(new TypeOfTheOrderPage((int)obj));
-  //      }
-
-
+        //      private ICommand viewOrderCommand;
+        //
+        //      public ICommand ViewOrderCommand
+        //      {
+        //          get
+        //          {
+        //              if (this.viewOrderCommand == null)
+        //              {
+        //                  this.viewOrderCommand = new RelayCommand(this.ViewOrder);
+        //              };
+        //
+        //              return this.viewOrderCommand;
+        //          }
+        //      }
+        //
+        //      public void ViewOrder(object obj)
+        //      {
+        //          App.Navigation.Navigate(new TypeOfTheOrderPage((int)obj));
+        //      }
 
     }
 }

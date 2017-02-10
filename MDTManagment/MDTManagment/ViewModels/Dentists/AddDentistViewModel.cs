@@ -45,7 +45,7 @@ namespace MDTManagment.ViewModels.Dentists
                 this.NewDentist.MiddleName == null      ||
                 this.NewDentist.LastName==null      ||
                 this.NewDentist.Contact == null     ||
-                this.NewDentist.ProfessionalExperience < 0 || this.NewDentist.ProfessionalExperience > 140)
+                this.NewDentist.ProfessionalExperience < 0 || this.NewDentist.ProfessionalExperience > 100)
             {
                 MessageBox.Show("Invalid input.", "Dentists status", MessageBoxButton.OK);
                 return;

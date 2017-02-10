@@ -22,26 +22,25 @@ namespace MDTManagment.Views.Orders
     /// </summary>
     public partial class OrdersPage : Page
     {
-        public int obj;
-
+        //public int obj;
+//TODO: WTF is this delete it
         public OrdersPage()
         {
             InitializeComponent();
             this.DataContext = new OrdersVeiwModel();
         }
-        public OrdersPage(int obj)
+        //public OrdersPage(int obj)
+        //{
+        //    this.obj = obj;
+        //}
+
+        private void ExpandMenu_Click(object sender, RoutedEventArgs e)
         {
-            this.obj = obj;
+            double wid = this.MenuColumn.MaxWidth;
+            if (wid == 0)
+            { this.MenuColumn.MaxWidth = 170; }
+            else
+            { this.MenuColumn.MaxWidth = 0; }
         }
-//TODO: Do a menu in orders
-    //    private void ExpandMenu_Click(object sender, RoutedEventArgs e)
-    //    {
-    //        double wid = this.MenuColumn.MaxWidth;
-    //        if (wid == 0)
-    //        { this.MenuColumn.MaxWidth = 170; }
-    //        else
-    //        { this.MenuColumn.MaxWidth = 0; }
-    //
-    //    }
     }
 }

@@ -30,37 +30,37 @@ namespace MDTManagment.Views
         public HomePage()
         {
             InitializeComponent();
-            this.DataContext = new HomeViewModel(); //
+            this.DataContext = new HomeViewModel();
         }
 
+        //TODO: ?? IDK should be this here .. or as commands in VM (as it is now)
+
+        //private void GoToHomePage_Cick(object sender, RoutedEventArgs e)
+        //{
+        //    App.Navigation.Navigate(new HomePage());
+        //}
+
+        //private void GoToOrdersPage_Cick(object sender, RoutedEventArgs e)
+        //{
+        //    App.Navigation.Navigate(new OrdersPage());
+        //}
 
 
-        private void GoToHomePage_Cick(object sender, RoutedEventArgs e)
-        {
-            App.Navigation.Navigate(new HomePage());
-        }
-
-        private void GoToOrdersPage_Cick(object sender, RoutedEventArgs e)
-        {
-            App.Navigation.Navigate(new OrdersPage());
-        }
+        //private void GoToDentistsPage_Cick(object sender, RoutedEventArgs e)
+        //{
+        //    App.Navigation.Navigate(new DentistsPage());
+        //}
 
 
-        private void GoToDentistsPage_Cick(object sender, RoutedEventArgs e)
-        {
-            App.Navigation.Navigate(new DentistsPage());
-        }
+        //private void GoToPatientsPage_Cick(object sender, RoutedEventArgs e)
+        //{
+        //    App.Navigation.Navigate(new PatientsPage());
+        //}
 
-
-        private void GoToPatientsPage_Cick(object sender, RoutedEventArgs e)
-        {
-            App.Navigation.Navigate(new PatientsPage());
-        }
-
-        private void GoToActivitiesPage_Cick(object sender, RoutedEventArgs e)
-        {
-            App.Navigation.Navigate(new ActivitiesPage());
-        }
+        //private void GoToActivitiesPage_Cick(object sender, RoutedEventArgs e)
+        //{
+        //    App.Navigation.Navigate(new ActivitiesPage());
+        //}
 
         private void ExpandMenu_Click(object sender, RoutedEventArgs e)
         {

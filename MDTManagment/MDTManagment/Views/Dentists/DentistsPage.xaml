@@ -8,9 +8,247 @@
       xmlns:ViewModels ="clr-namespace:MDTManagment.ViewModels.Dentists" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="DentistsPage">
-   
 
-    <Grid>
+
+    <StackPanel>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0">
+                <!--<Button Width="40" Height="40" FontSize="15" Background="Transparent" BorderBrush="Transparent" Click="ExpandMenu_Click" RenderTransformOrigin="0.5,0.5">-->
+                <Button Click="ExpandMenu_Click" Margin="0,-3,1,0">
+
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template>
+
+                        <ControlTemplate>
+                            <!--Content="|||"-->
+
+                            <ContentControl>
+                                <Border x:Name="ButtonBorder1" CornerRadius="0,0,0,0" BorderBrush="DeepSkyBlue" BorderThickness="3">
+                                    <StackPanel>
+                                        <TextBlock Height="30" Width="30" ><TextBlock Margin="7.8,3.2,0,0" FontSize="15" Text="|||" ></TextBlock></TextBlock>
+                                    </StackPanel>
+                                </Border>
+
+
+                            </ContentControl>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsPressed" Value="True">
+                                    <Setter TargetName="ButtonBorder1" Property="BorderBrush" Value="DeepSkyBlue"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="1" Grid.Row="0" Height="30">
+                <!--<StackPanel Orientation="Horizontal" Margin="130,0,0,0">-->
+                <Button Height="30" Command="{Binding NavigateToAddDentist}" Background="Transparent" BorderBrush="Transparent">
+                    <StackPanel Orientation="Horizontal">
+                        <!--Margin="10,0,15,0">-->
+                        <Image Height="20" VerticalAlignment="Center" Source="/Resources/add.png"></Image>
+                        <TextBlock FontSize="11.5" Text="Добави зъболекар" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <!--<Button Height="30" Command="{Binding DeletePatient}" Background="Transparent" BorderBrush="Transparent">
+                        <StackPanel Orientation="Horizontal" Margin="10,0,15,0">
+                            <Image Height="20" VerticalAlignment="Center" Source="/Resources/delete.png"></Image>
+                            <TextBlock FontSize="11.5" Text="Delete Patient" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
+                        </StackPanel>
+                    </Button>-->
+                <!--</StackPanel>-->
+            </Grid>
+
+
+
+        </Grid>
+
+        <Grid>
+            <GridSplitter Height="3" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MaxWidth="0" x:Name="MenuColumn"></ColumnDefinition>
+                <ColumnDefinition Width="3"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            
+
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <Button Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/0.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Начало</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/1.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Пациенти</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/2.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Зъболекари</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToActivities}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Дейности</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+            </Grid>
+
+
+            <GridSplitter x:Name="GridSplitter1" Grid.Column="1" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
+
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <StackPanel>
+
+                        <Button Command="{Binding DisplayDentist}" Margin="5,3,2,3" Content="Покажи данни за избрания зъболекар"></Button>
+
+                        <ListView ItemsSource="{Binding Dentists}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedDentist, Mode=TwoWay}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridView.Columns>
+                                        <GridViewColumn Header="Име" DisplayMemberBinding="{Binding Name}"/>
+                                        <GridViewColumn Header="Презиме" DisplayMemberBinding="{Binding MiddleName}"/>
+                                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}"/>
+
+                                            <!--DA SE IZTRIE PATIENT PAGE ZASHTOTO E NENUJEN-->
+                                        <!--<GridViewColumn Header="View">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                    -->
+                                        <!--<Button  Command="{Binding Path=DataContext.ViewPatientCommand, 
+                                                         RelativeSource={RelativeSource Mode=FindAncestor,      
+                                                         AncestorType={x:Type ItemsControl}} }"
+                                                         CommandParameter="{Binding Id}">Explicit</Button>-->
+                                        <!--
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>-->
+
+
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+                    </StackPanel>
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <!--how to make this fit to window and not being cropped-->
+                            <RowDefinition MinHeight="800" Height="2*" AllowDrop="False"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <StackPanel>
+                                <Button Command="{Binding DeleteDentist}" Margin="2,3,5,3" Content="Изтрий избрания зъболекар"></Button>
+
+                                <Image Height="400" Margin="10" Source="/Resources/2.png" ></Image>
+                                <!--Source="{Binding SelectedPatient.PortraitPicPath}"-->
+
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Right" Text="Име:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Презиме:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Фамилия:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Контакт:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Професионален опит:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="*в години"></TextBlock>
+                                    <!--<TextBlock Text="___"></TextBlock>
+                                    <Button  Margin="0,0,10,0" HorizontalAlignment="Right" Content="Виж свързани поръчки:"></Button>-->
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <StackPanel DataContext="{Binding SelectedDentist}">
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=Name}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=MiddleName, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=LastName, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=Contact, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=ProfessionalExperience, Mode=TwoWay}"></TextBlock>
+                                    <!--<TextBlock Margin="10,0,0,0" Text="{Binding Path=DentistForDisplaying , Mode=TwoWay}">
+                                        <TextBox Text="{Binding Path=Name}"></TextBox>
+                                    </TextBlock>-->
+                                    <!--<TextBlock Text="___"></TextBlock>-->
+                                    <!--<Button Margin="30,0,0,0" HorizontalAlignment="Left" Content="Изтрий избрания пациент"></Button>-->
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+
+            </Grid>
+
+
+
+
+        </Grid>
+
+
+    </StackPanel>
+
+
+</Page>
+
+
+<!--<PAGE>
+    
+    <StackPanel>
+
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="220"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -74,7 +312,7 @@
 
     </Grid>
 
+    </StackPanel>
 
 
-
-</Page>
+</Page>-->

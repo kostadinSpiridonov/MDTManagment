@@ -9,10 +9,6 @@ namespace MDTManagment.Models
 {
     public class Order
     {
-//        public Order()
-//        {
-//           this.DeclaredIngredients = new HashSet<Ingredient>();
-//        }
 
         [Key]
         public int Id { get; set; }
@@ -22,13 +18,10 @@ namespace MDTManagment.Models
         public string ToothColour { get; set; }
 
         public DateTime DateОfReceipt { get; set; }
-                   
+
         public DateTime DeadLine { get; set; }
-
-        public double Price { get; set; }
-
-        //public List<SpecialRequirementsClass> SpecialRequirements { get; set; }       //Class SpecialRequirementsClass e deleted shot syzdavashe problemi
-//        public ICollection<Ingredient> DeclaredIngredients { get; set; }
+        
+        public decimal Price { get; set; }
 
         public string SpecialRequirements { get; set; }
 
@@ -46,6 +39,7 @@ namespace MDTManagment.Models
 
         public int DentistId { get; set; }
 
-     //   public virtual Dentist Dentist { get; set; } // ? TODO: made this to be like in Patient aka. DentistForDisplaying
+        //public string DisplayingDentist { get; set; }
+
     }
 }

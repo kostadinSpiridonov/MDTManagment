@@ -2,7 +2,10 @@
 using MDTManagment.Models;
 using MDTManagment.Services;
 using MDTManagment.Views;
+using MDTManagment.Views.Activities;
 using MDTManagment.Views.Dentists;
+using MDTManagment.Views.Orders;
+using MDTManagment.Views.Patients;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,7 +28,7 @@ namespace MDTManagment.ViewModels.Dentists
 
         public Dentist SelectedDentist { get; set; }
 
-        
+
 
         public DentistsViewModel()
         {
@@ -38,11 +41,18 @@ namespace MDTManagment.ViewModels.Dentists
             this.DeleteDentist = new RelayCommand(this.HandleDeleteDentist);
 
             this.NavigateToAddDentist = new RelayCommand(this.HandleNavigateToAddDentist);
+
+            this.NavToHome = new RelayCommand(this.HandleNavToHome);
+            this.NavToPatients = new RelayCommand(this.HandleNavToPatients);
+            this.NavToDentists = new RelayCommand(this.HandleNavToDentists);
+            this.NavToOrders = new RelayCommand(this.HandleNavToOrders);
+            this.NavToActivities = new RelayCommand(this.HandleNavToActivities);
+
+            this.DisplayDentist = new RelayCommand(this.HandleDisplayDentist);
         }
 
+        //TODO: Delete this command and delete the method ViewDentist and delete the page PatientPage and the method in Dentist Service
         private ICommand viewDentistCommand;
-
-
         public ICommand ViewDentistCommand
         {
             get
@@ -59,8 +69,17 @@ namespace MDTManagment.ViewModels.Dentists
 
         public ICommand DeleteDentist { get; set; }
 
-
         public ICommand NavigateToAddDentist { get; set; }
+
+        public ICommand NavToPatients { get; set; }
+        public ICommand NavToHome { get; set; }
+        public ICommand NavToDentists { get; set; }
+        public ICommand NavToOrders { get; set; }
+        public ICommand NavToActivities { get; set; }
+
+        public ICommand DisplayDentist { get; set; }
+
+
 
         public void ViewDentist(object obj)
         {
@@ -83,11 +102,46 @@ namespace MDTManagment.ViewModels.Dentists
             MessageBox.Show("Dentist deleted.", "Dentists status", MessageBoxButton.OK);
         }
 
-
         private void HandleNavigateToAddDentist(object obj)
         {
             App.Navigation.Navigate(new AddDentistPage());
         }
-     
+
+        private void HandleNavToActivities(object obj)
+        {
+            App.Navigation.Navigate(new ActivitiesPage());
+        }
+        private void HandleNavToOrders(object obj)
+        {
+            App.Navigation.Navigate(new OrdersPage());
+        }
+        private void HandleNavToDentists(object obj)
+        {
+            App.Navigation.Navigate(new DentistsPage());
+        }
+        private void HandleNavToPatients(object obj)
+        {
+            App.Navigation.Navigate(new PatientsPage());
+        }
+        private void HandleNavToHome(object obj)
+        {
+            App.Navigation.Navigate(new HomePage());
+        }
+
+        private void HandleDisplayDentist(object obj)
+        {
+            if (this.SelectedDentist == null)
+            {
+                MessageBox.Show("No dentist selected.", "Dentists status", MessageBoxButton.OK);
+                return;
+            }
+
+            //this.dentistService = new DentistService();
+            //var databaseDentist = dentistService.GetDentistById(this.SelectedPatient.DentistId);
+            //this.SelectedPatient.DentistForDisplaying = databaseDentist.Name + " " + databaseDentist.MiddleName + " " + databaseDentist.LastName;
+
+            OnPropertyChanged("SelectedDentist");
+        }
+
     }
 }

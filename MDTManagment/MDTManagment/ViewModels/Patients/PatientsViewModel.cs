@@ -58,9 +58,8 @@ namespace MDTManagment.ViewModels.Patients
         }
 
    
-
+        //TODO: Delete this command and delete the method ViewPatient and delete the page PatientPage and delete the method in PatientService
         private ICommand viewPatientCommand;
-        
         public ICommand ViewPatientCommand
         {
             get

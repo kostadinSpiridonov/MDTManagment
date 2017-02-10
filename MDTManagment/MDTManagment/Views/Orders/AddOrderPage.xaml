@@ -35,43 +35,43 @@
 
 
         <Grid Grid.Column="0" Grid.Row="0">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Type:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Вид поръчка:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">DateОfReceipt:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">DateОfReceipt Дата?:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="2">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">DeadLine:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">DeadLine Краен срок:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="3">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Price:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Price Цена:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="4">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">FacialArc:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">FacialArc?:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="5">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Articulator:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Articulator?:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="6">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">MetalTest:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">MetalTest?:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="7">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">CeramicTest:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">CeramicTest?:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="8">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">ToothColour:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">ToothColour Цвят на зъб:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="9">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">SpecialRequirements:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">SpecialRequirements Специални изисквания:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="10">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">DeclaredIngredients:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">DeclaredIngredients Използвани съставки (материали) ?:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="11">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">TypeOfImpressionMaterial:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">TypeOfImpressionMaterial ?:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="12">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Dentist:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Dentist Изпълняващ зъболекар?:</TextBlock>
         </Grid>
 
 
@@ -88,16 +88,60 @@
             <TextBox Text="{Binding NewOrder.Price}" Height="20"></TextBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="4">
-            <TextBox Text="{Binding NewOrder.FacialArc}" Height="20"></TextBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button Height="20" Command="{Binding FacialArcIsFalse}" Content="False" Margin="0,0,3,0"></Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button Height="20" Command="{Binding FacialArcIsTrue}" Content="True"></Button>
+                </Grid>
+            </Grid>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="5">
-            <TextBox Text="{Binding NewOrder.Articulator}" Height="20"></TextBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button Height="20" Command="{Binding ArticulatorIsFalse}" Content="False" Margin="0,0,3,0"></Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button Height="20" Command="{Binding ArticulatorIsTrue}" Content="True"></Button>
+                </Grid>
+            </Grid>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="6">
-            <TextBox Text="{Binding NewOrder.MetalTest}" Height="20"></TextBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button Height="20" Command="{Binding MetalTestIsFalse}" Content="False" Margin="0,0,3,0"></Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button Height="20" Command="{Binding MetalTestIsTrue}" Content="True"></Button>
+                </Grid>
+            </Grid>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="7">
-            <TextBox Text="{Binding NewOrder.CeramicTest}" Height="20"></TextBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button Height="20" Command="{Binding CeramicTestIsFalse}" Content="False" Margin="0,0,3,0"></Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button Height="20" Command="{Binding CeramicTestIsTrue}" Content="True"></Button>
+                </Grid>
+            </Grid>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="8">
             <TextBox Text="{Binding NewOrder.ToothColour}" Height="20"></TextBox>
@@ -122,10 +166,25 @@
             </ComboBox>
         </Grid>
 
+
+        <Grid Grid.Column="2" Grid.Row="1">
+            <StackPanel>
+                <TextBlock TextAlignment="Center" VerticalAlignment="Center"> 
+                *(mm/dd/yyyy)
+                </TextBlock>
+                <TextBlock TextAlignment="Center" VerticalAlignment="Center">
+                *(month/day/year)
+                </TextBlock>
+                <TextBlock TextAlignment="Center" VerticalAlignment="Center">
+                *(hours not required /час не е задължителен/)
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+        
         <Grid Grid.Column="2" Grid.Row="13">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Add Order" Command="{Binding AddOrder}" Height="20" Width="90"/>
-                <Button Content="Cancel" Command="{Binding NavigateToOrdersPage}" Height="20" Width="90" Margin="20,0,0,0"/>
+                <Button Content="Добави" Command="{Binding AddOrder}" Height="20" Width="90"/>
+                <Button Content="Отказ" Command="{Binding NavigateToOrdersPage}" Height="20" Width="90" Margin="20,0,0,0"/>
             </StackPanel>
         </Grid>
 

@@ -1,8 +1,11 @@
 ﻿using MDTManagment.Commands;
 using MDTManagment.Models;
 using MDTManagment.Services;
+using MDTManagment.Views;
+using MDTManagment.Views.Activities;
 using MDTManagment.Views.Dentists;
 using MDTManagment.Views.Orders;
+using MDTManagment.Views.Patients;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,33 +22,69 @@ namespace MDTManagment.ViewModels.Home
 
         private OrderService orderService;
 
+
         public HomeViewModel()
         {
             this.orderService = new OrderService();
 
-            var orders = this.orderService.GetOrders(5);
+            var orders = this.orderService.GetOrders(4);
+
             this.Orders = new ObservableCollection<Order>(orders);
+
+            this.NavToHome = new RelayCommand(this.HandleNavToHome);
+            this.NavToPatients = new RelayCommand(this.HandleNavToPatients);
+            this.NavToDentists = new RelayCommand(this.HandleNavToDentists);
+            this.NavToOrders = new RelayCommand(this.HandleNavToOrders);
+            this.NavToActivities = new RelayCommand(this.HandleNavToActivities);
+
         }
 
-        private ICommand viewOrderCommand;
 
+        private ICommand viewOrderCommand;
         public ICommand ViewOrderCommand
         {
             get
             {
                 if (this.viewOrderCommand == null)
                 {
-                    this.viewOrderCommand = new RelayCommand(this.ViewOrder);
-                };
-
+                    this.viewOrderCommand = new RelayCommand(this.HandleViewOrderCommand);
+                }
                 return this.viewOrderCommand;
             }
         }
-        public void ViewOrder(object obj)
+
+        public ICommand NavToPatients { get; set; }
+        public ICommand NavToHome { get; set; }
+        public ICommand NavToDentists { get; set; }
+        public ICommand NavToOrders { get; set; }
+        public ICommand NavToActivities { get; set; }
+
+        public void HandleViewOrderCommand(object obj)
         {
-            var id = (int)obj;
-            //Navigate to one order view
             App.Navigation.Navigate(new OrdersPage());
         }
+
+
+        private void HandleNavToActivities(object obj)
+        {
+            App.Navigation.Navigate(new ActivitiesPage());
+        }
+        private void HandleNavToOrders(object obj)
+        {
+            App.Navigation.Navigate(new OrdersPage());
+        }
+        private void HandleNavToDentists(object obj)
+        {
+            App.Navigation.Navigate(new DentistsPage());
+        }
+        private void HandleNavToPatients(object obj)
+        {
+            App.Navigation.Navigate(new PatientsPage());
+        }
+        private void HandleNavToHome(object obj)
+        {
+            App.Navigation.Navigate(new HomePage());
+        }
+
     }
 }
