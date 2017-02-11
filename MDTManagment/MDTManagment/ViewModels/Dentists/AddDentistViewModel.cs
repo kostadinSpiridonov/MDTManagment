@@ -47,11 +47,11 @@ namespace MDTManagment.ViewModels.Dentists
                 this.NewDentist.Contact == null     ||
                 this.NewDentist.ProfessionalExperience < 0 || this.NewDentist.ProfessionalExperience > 100)
             {
-                MessageBox.Show("Invalid input.", "Dentists status", MessageBoxButton.OK);
+                MessageBox.Show("Невалидни данни.", "Зъболекар", MessageBoxButton.OK);
                 return;
             }
             this.dentistService.AddDentist(this.NewDentist);
-            MessageBox.Show("New dentist added.", "Dentists status", MessageBoxButton.OK);
+            MessageBox.Show("Зъболекарят е добавен.", "Зъболекар", MessageBoxButton.OK);
             App.Navigation.Navigate(new DentistsPage());
         }
 

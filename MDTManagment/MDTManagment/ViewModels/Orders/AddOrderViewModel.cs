@@ -106,28 +106,28 @@ namespace MDTManagment.ViewModels.Orders
 
                 this.NewOrder.DentistId == checkId )
             {
-                MessageBox.Show("Invalid input.", "Orders status", MessageBoxButton.OK);
+                MessageBox.Show("Невалидни данни.", "Поръчка", MessageBoxButton.OK);
                 return;
             }
 
             if (this.NewOrder.DeadLine.Month < DateTime.Today.Month ||
                 this.NewOrder.DateОfReceipt.Month < DateTime.Today.Month )
             {
-                MessageBox.Show("Invalid input.", "Orders status", MessageBoxButton.OK);
+                MessageBox.Show("Невалидни данни.", "Поръчка", MessageBoxButton.OK);
                 return;
             }
 
             if (this.NewOrder.DateОfReceipt.Date < DateTime.Today.Date ||
                 this.NewOrder.DeadLine.Date < DateTime.Today.Date )
             {
-                MessageBox.Show("Invalid input.", "Orders status", MessageBoxButton.OK);
+                MessageBox.Show("Невалидни данни.", "Поръчка", MessageBoxButton.OK);
                 return;
             }
 
 
             this.orderService.AddOrder(this.NewOrder);
             this.OnPropertyChanged("Orders");
-            MessageBox.Show("New order added.", "Orders status", MessageBoxButton.OK);
+            MessageBox.Show("Поръчката е добавена.", "Поръчка", MessageBoxButton.OK);
             App.Navigation.Navigate(new OrdersPage());
         }
 

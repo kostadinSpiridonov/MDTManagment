@@ -116,13 +116,13 @@
                     </Button>
                     <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Command="{Binding NavToActivities}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Дейности</TextBlock>
                         </StackPanel>
                     </Button>
@@ -206,7 +206,6 @@
                                     <TextBlock HorizontalAlignment="Right" Text="Фамилия:"></TextBlock>
                                     <TextBlock HorizontalAlignment="Right" Text="Контакт:"></TextBlock>
                                     <TextBlock HorizontalAlignment="Right" Text="Професионален опит:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="*в години"></TextBlock>
                                     <!--<TextBlock Text="___"></TextBlock>
                                     <Button  Margin="0,0,10,0" HorizontalAlignment="Right" Content="Виж свързани поръчки:"></Button>-->
                                 </StackPanel>
@@ -217,7 +216,7 @@
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=MiddleName, Mode=TwoWay}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=LastName, Mode=TwoWay}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=Contact, Mode=TwoWay}"></TextBlock>
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=ProfessionalExperience, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=ProfessionalExperienceForDisplaying, Mode=TwoWay}"></TextBlock>
                                     <!--<TextBlock Margin="10,0,0,0" Text="{Binding Path=DentistForDisplaying , Mode=TwoWay}">
                                         <TextBox Text="{Binding Path=Name}"></TextBox>
                                     </TextBlock>-->

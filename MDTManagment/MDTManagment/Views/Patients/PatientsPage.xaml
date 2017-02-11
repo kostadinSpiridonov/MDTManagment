@@ -111,13 +111,13 @@
                     </Button>
                     <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Command="{Binding NavToActivities}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Дейности</TextBlock>
                         </StackPanel>
                     </Button>
@@ -212,12 +212,10 @@
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=FirstName}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=Surname, Mode=TwoWay}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=Family, Mode=TwoWay}"></TextBlock>
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=Age, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=AgeForDisplaying, Mode=TwoWay}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=Address, Mode=TwoWay}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=PhoneNumber, Mode=TwoWay}"></TextBlock>
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=DentistForDisplaying , Mode=TwoWay}">
-                                        <TextBox Text="{Binding Path=Name}"></TextBox>
-                                    </TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=DentistForDisplaying , Mode=TwoWay}"></TextBlock>
                                     <!--<TextBlock Text="___"></TextBlock>-->
                                     <!--<Button Margin="30,0,0,0" HorizontalAlignment="Left" Content="Изтрий избрания пациент"></Button>-->
                                 </StackPanel>

@@ -93,14 +93,15 @@ namespace MDTManagment.ViewModels.Patients
         private void HandleDeletePatient(object obj)
         {
             if (this.SelectedPatient == null)
+            // не сте избрали поръцхка ..изберете поръ4ка пържо // не е няма избрана поръцхка // поръчката е изтрита//невалидни данни//въведените данни са невалидни //добавяне на пациент// пациент//
             {
-                MessageBox.Show("No patient selected.", "Patients status", MessageBoxButton.OK);
+                MessageBox.Show("Не е избран пациент.", "Пациенти", MessageBoxButton.OK);
                 return;
             } 
             this.patientService.DeletePatient(this.SelectedPatient.Id);
             this.Patients.Remove(this.SelectedPatient);
             this.OnPropertyChanged("Patients");
-            MessageBox.Show("Patient deleted.", "Patients status", MessageBoxButton.OK);
+            MessageBox.Show("Пациентът е изтрит.", "Пациенти", MessageBoxButton.OK);
         }
 
         private void HandleNavigateToAddPatient(object obj)
@@ -136,13 +137,15 @@ namespace MDTManagment.ViewModels.Patients
         {
             if (this.SelectedPatient == null)
             {
-                MessageBox.Show("No patient selected.", "Patients status", MessageBoxButton.OK);
+                MessageBox.Show("Не е избран пациент.", "Пациенти", MessageBoxButton.OK);
                 return;
             }
             
             this.dentistService = new DentistService();
             var databaseDentist = dentistService.GetDentistById(this.SelectedPatient.DentistId);
             this.SelectedPatient.DentistForDisplaying = databaseDentist.Name + " " + databaseDentist.MiddleName + " " + databaseDentist.LastName;
+
+            this.SelectedPatient.AgeForDisplaying = this.SelectedPatient.Age + " г.";
 
             OnPropertyChanged("SelectedPatient");
         }

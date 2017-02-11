@@ -170,13 +170,13 @@
         <Grid Grid.Column="2" Grid.Row="1">
             <StackPanel>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center"> 
-                *(mm/dd/yyyy)
+                *(мм/дд/гггг)
                 </TextBlock>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center">
-                *(month/day/year)
+                *(месец/дата/година)
                 </TextBlock>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center">
-                *(hours not required /час не е задължителен/)
+                *(час не е задължителен)
                 </TextBlock>
             </StackPanel>
         </Grid>

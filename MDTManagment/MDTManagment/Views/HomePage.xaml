@@ -91,13 +91,13 @@
                     </Button>
                     <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Command="{Binding NavToActivities}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Дейности</TextBlock>
                         </StackPanel>
                     </Button>
@@ -154,7 +154,7 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" Margin="0,50,0,0">
                     <Image Source="/Resources/99logo.jpg" Height="500"></Image>
-                    <TextBlock FontFamily="Forte" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DeepSkyBlue" Text="MDT Managment" FontSize="30"></TextBlock>
+                    <TextBlock FontFamily="Forte" Margin="0,25,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DeepSkyBlue" Text="MDT Managment" FontSize="30"></TextBlock>
 
                     </Grid>
                    

@@ -20,7 +20,7 @@ namespace MDTManagment.Models
         public DateTime DateОfReceipt { get; set; }
 
         public DateTime DeadLine { get; set; }
-        
+
         public decimal Price { get; set; }
 
         public string SpecialRequirements { get; set; }
@@ -39,7 +39,15 @@ namespace MDTManagment.Models
 
         public int DentistId { get; set; }
 
-        //public string DisplayingDentist { get; set; }
+        public string DentistForDisplaying { get; set; }
+        public string DateОfReceiptForDisplaying { get; set; }
+        public string DeadLineForDisplaying { get; set; }
+        public string PriceForDisplaying { get; set; }
+        public string FacialArcForDisplaying { get; set; }
+        public string ArticulatorForDisplaying { get; set; }
+        public string MetalTestForDisplaying { get; set; }
+        public string CeramicTestForDisplaying { get; set; }
+
 
     }
 }

@@ -38,7 +38,7 @@
             <TextBlock TextAlignment="Center" VerticalAlignment="Center">Контакт:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="4">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Професионален стаж:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center">Професионален опит:</TextBlock>
         </Grid>
 
 

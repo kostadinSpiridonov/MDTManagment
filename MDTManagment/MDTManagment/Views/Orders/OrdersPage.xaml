@@ -7,10 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="OrdersPage">
-   
+
     <StackPanel>
-
-
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -89,9 +87,7 @@
                 <ColumnDefinition Width="3"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition ></RowDefinition>
-            </Grid.RowDefinitions>
+           
             <Grid Grid.Column="0">
                 <StackPanel Height="900">
                     <Button Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
@@ -114,13 +110,13 @@
                     </Button>
                     <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Command="{Binding NavToActivities}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Дейности</TextBlock>
                         </StackPanel>
                     </Button>
@@ -141,56 +137,114 @@
 
 
             <Grid Grid.Column="2">
-                <StackPanel>
-                    <!--<Button Grid.Column="0" Margin="3" Command="{Binding NavigateToAddOrder}" Content="Add Order"></Button> should be deleted-->
-                    <Button Grid.Column="1" Margin="5,3,5,3" Command="{Binding DeleteOrder}" Content="Изтрий избраната поръчка"></Button>
                 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <!--<ColumnDefinition></ColumnDefinition>-->
-                    </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                
+                
 
-                    <Grid Grid.Column="0">
+
+                <Grid Grid.Column="0">
+
+                    <StackPanel>
+
+                        <Button Grid.Column="0" Margin="5,3,2,3" Command="{Binding DisplayOrder}" Content="Покажи данни за избраната поръчка"></Button>
+
                         <ListView ItemsSource="{Binding Orders}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedOrder, Mode=TwoWay}">
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
                                         <GridViewColumn Header="Вид поръчка" DisplayMemberBinding="{Binding Type}"/>
-                                        <GridViewColumn Header="Дата на постъпване" DisplayMemberBinding="{Binding DateОfReceipt}"/>
-                                        <GridViewColumn Header="Краен срок" DisplayMemberBinding="{Binding DeadLine}"/>
+                                        <GridViewColumn Header="Цвят на зъб" DisplayMemberBinding="{Binding ToothColour}"/>
+                                        <!--<GridViewColumn Header="Дата на постъпване" DisplayMemberBinding="{Binding DateОfReceipt}"/>
+                                        <GridViewColumn Header="Краен срок" DisplayMemberBinding="{Binding DeadLine}"/>-->
                                         <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Price}"/>
                                         <!--<GridViewColumn Header="Dentist:" DisplayMemberBinding="{Binding DisplayingDentist}"/>-->
-                                        <GridViewColumn Header="Лицева дъга" DisplayMemberBinding="{Binding FacialArc}"/>
+                                        <!--<GridViewColumn Header="Лицева дъга" DisplayMemberBinding="{Binding FacialArc}"/>
                                         <GridViewColumn Header="Артикулатор" DisplayMemberBinding="{Binding Articulator}"/>
                                         <GridViewColumn Header="Метална проба" DisplayMemberBinding="{Binding MetalTest}"/>
                                         <GridViewColumn Header="Керамична проба" DisplayMemberBinding="{Binding CeramicTest}"/>
                                         <GridViewColumn Header="Специални изисквания" DisplayMemberBinding="{Binding SpecialRequirements}"/>
-                                            <GridViewColumn Header="Заявени съставки" DisplayMemberBinding="{Binding DeclaredIngredients}"/>
-                                        <GridViewColumn Header="Отпечатъчен материал" DisplayMemberBinding="{Binding TypeOfImpressionMaterial}"/>
-
-                                        <!-- NQMA BUTTON SHTOTO NQMA otdelen ordeR PAGE-->
-                                        <!--<GridViewColumn Header="View">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel>
-                                                <Button  Command="{Binding Path=DataContext.ViewPatientCommand,
-                                                         RelativeSource={RelativeSource Mode=FindAncestor,      
-                                                         AncestorType={x:Type ItemsControl}} }"
-                                                         CommandParameter="{Binding Id}">View</Button>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>-->
-
-
+                                        <GridViewColumn Header="Заявени съставки" DisplayMemberBinding="{Binding DeclaredIngredients}"/>
+                                        <GridViewColumn Header="Отпечатъчен материал" DisplayMemberBinding="{Binding TypeOfImpressionMaterial}"/>-->
                                     </GridView.Columns>
                                 </GridView>
                             </ListView.View>
                         </ListView>
+
+                    </StackPanel>
+
+                </Grid>
+
+
+                <Grid Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition ></RowDefinition>
+                            <!--how to make this fit to window and not being cropped-->
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <StackPanel>
+
+                                <Button Margin="2,3,5,3" Panel.ZIndex="2" Command="{Binding DeleteOrder}" Content="Изтрий избраната поръчка"></Button>
+
+                                <Image Height="430" Panel.ZIndex="1" Margin="10,-20,10,0" Source="/Resources/4.png" ></Image>
+                                <!--Source="{Binding SelectedPatient.PortraitPicPath}"-->
+
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="0,-15,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Right" Text="Вид поръчка:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Дата на постъпване:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Краен срок:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Цена:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Лицева дъга:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Артикулатор:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Метална проба:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Керамична проба:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Цвят на зъб:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Специални изисквания:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Заявени съставки:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Отпечатъчен материал:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" Text="Зъболекар:"></TextBlock>
+                                    <!--<TextBlock Text="___"></TextBlock>
+                                    <Button  Margin="0,0,10,0" HorizontalAlignment="Right" Content="Виж свързани поръчки:"></Button>-->
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1" >
+                                <StackPanel DataContext="{Binding SelectedOrder}" >
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=Type}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=DateОfReceiptForDisplaying, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=DeadLineForDisplaying, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=PriceForDisplaying, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=FacialArcForDisplaying, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=ArticulatorForDisplaying, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=MetalTestForDisplaying, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=CeramicTestForDisplaying, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=ToothColour, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=SpecialRequirements, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=DeclaredIngredients, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=TypeOfImpressionMaterial, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=DentistForDisplaying , Mode=TwoWay}"></TextBlock>
+                                    <!--<TextBlock Text="___"></TextBlock>-->
+                                    <!--<Button Margin="30,0,0,0" HorizontalAlignment="Left" Content="Изтрий избрания пациент"></Button>-->
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
-                </StackPanel>
+
+
             </Grid>
         </Grid>
     </StackPanel>

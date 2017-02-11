@@ -49,7 +49,7 @@
             <TextBlock TextAlignment="Center" VerticalAlignment="Center">Контакт:</TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="6">
-            <TextBlock TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Зъболекар на пациента:</TextBlock>
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Зъболекар:</TextBlock>
         </Grid>
 
 

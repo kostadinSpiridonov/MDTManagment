@@ -65,12 +65,12 @@ namespace MDTManagment.ViewModels.Patients
                 this.NewPatient.Address == null ||
                 this.NewPatient.DentistId == checkId)
             {
-                MessageBox.Show("Invalid input.", "Patients status", MessageBoxButton.OK);
+                MessageBox.Show("Невалидни данни.", "Пациент", MessageBoxButton.OK);
                 return;
             }
             this.patientService.AddPatient(this.NewPatient);
             this.OnPropertyChanged("Patients");
-            MessageBox.Show("New patient added.", "Patients status", MessageBoxButton.OK);
+            MessageBox.Show("Пациентът е добавен.", "Пациент", MessageBoxButton.OK);
             App.Navigation.Navigate(new PatientsPage());
         }
 

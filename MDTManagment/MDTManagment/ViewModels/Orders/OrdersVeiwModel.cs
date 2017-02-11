@@ -26,7 +26,9 @@ namespace MDTManagment.ViewModels.Orders
         private OrderService orderService { get; set; }
 
         public Order SelectedOrder { get; set; }
-        //insert dentist service za DislpayDentist
+
+        private DentistService dentistService { get; set; }
+
 
         public OrdersVeiwModel()
         {
@@ -46,6 +48,9 @@ namespace MDTManagment.ViewModels.Orders
             this.NavToOrders = new RelayCommand(this.HandleNavToOrders);
             this.NavToActivities = new RelayCommand(this.HandleNavToActivities);
 
+            this.DisplayOrder = new RelayCommand(this.HandleDisplayOrder);
+
+
         }
 
 
@@ -60,6 +65,8 @@ namespace MDTManagment.ViewModels.Orders
         public ICommand NavToOrders { get; set; }
         public ICommand NavToActivities { get; set; }
 
+        public ICommand DisplayOrder{ get; set; }
+
 
 
         private void HandleNavigateToAddOrder(object obj)
@@ -71,13 +78,13 @@ namespace MDTManagment.ViewModels.Orders
         {
             if (this.SelectedOrder == null)
             {
-                MessageBox.Show("No order selected.", "Orders status", MessageBoxButton.OK);
+                MessageBox.Show("Не е избрана поръчка.", "Поръчки", MessageBoxButton.OK);
                 return;
             }
             this.orderService.DeleteOrder(this.SelectedOrder.Id);
             this.Orders.Remove(this.SelectedOrder);
             this.OnPropertyChanged("Orders");
-            MessageBox.Show("Order deleted.", "Orders status", MessageBoxButton.OK);
+            MessageBox.Show("Поръчката е изтрита.", "Поръчки", MessageBoxButton.OK);
         }
 
 
@@ -102,6 +109,30 @@ namespace MDTManagment.ViewModels.Orders
             App.Navigation.Navigate(new HomePage());
         }
 
+
+        private void HandleDisplayOrder(object obj)
+        {
+            if (this.SelectedOrder == null)
+            {
+                MessageBox.Show("Не е избран пациент.", "Пациенти", MessageBoxButton.OK);
+                return;
+            }
+
+            this.dentistService = new DentistService();
+            var databaseDentist = dentistService.GetDentistById(this.SelectedOrder.DentistId);
+            this.SelectedOrder.DentistForDisplaying = databaseDentist.Name + " " + databaseDentist.MiddleName + " " + databaseDentist.LastName;
+
+            this.SelectedOrder.DateОfReceiptForDisplaying = this.SelectedOrder.DateОfReceipt.ToShortDateString();
+            this.SelectedOrder.DeadLineForDisplaying = this.SelectedOrder.DeadLine.ToShortDateString();
+            this.SelectedOrder.PriceForDisplaying = this.SelectedOrder.Price + " лв."; 
+            if (this.SelectedOrder.FacialArc == true) { this.SelectedOrder.FacialArcForDisplaying = "Да"; } else { this.SelectedOrder.FacialArcForDisplaying = "Не"; }
+            if (this.SelectedOrder.Articulator == true) { this.SelectedOrder.ArticulatorForDisplaying = "Да"; } else { this.SelectedOrder.ArticulatorForDisplaying = "Не"; }
+            if (this.SelectedOrder.MetalTest == true) { this.SelectedOrder.MetalTestForDisplaying = "Да"; } else { this.SelectedOrder.MetalTestForDisplaying = "Не"; }
+            if (this.SelectedOrder.CeramicTest == true) { this.SelectedOrder.CeramicTestForDisplaying = "Да"; } else { this.SelectedOrder.CeramicTestForDisplaying = "Не"; }
+            
+
+            OnPropertyChanged("SelectedOrder");
+        }
 
         //TODO: DELETE TypeOfTheOrderPage
 

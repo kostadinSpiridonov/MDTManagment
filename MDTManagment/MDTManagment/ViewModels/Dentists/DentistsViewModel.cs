@@ -92,14 +92,14 @@ namespace MDTManagment.ViewModels.Dentists
         {
             if (this.SelectedDentist == null)
             {
-                MessageBox.Show("No dentist selected.", "Dentists status", MessageBoxButton.OK);
+                MessageBox.Show("Не е избран зъболекар.", "Зъболекари", MessageBoxButton.OK);
                 return;
             }
             else
             this.dentistService.DeleteDentist(SelectedDentist.Id);
             this.Dentists.Remove(this.SelectedDentist);
             this.OnPropertyChanged("Dentists");
-            MessageBox.Show("Dentist deleted.", "Dentists status", MessageBoxButton.OK);
+            MessageBox.Show("Зъболекарят е изтрит.", "Зъболекари", MessageBoxButton.OK);
         }
 
         private void HandleNavigateToAddDentist(object obj)
@@ -132,13 +132,15 @@ namespace MDTManagment.ViewModels.Dentists
         {
             if (this.SelectedDentist == null)
             {
-                MessageBox.Show("No dentist selected.", "Dentists status", MessageBoxButton.OK);
+                MessageBox.Show("Не е избран зъболекар.", "Зъболекари", MessageBoxButton.OK);
                 return;
             }
 
             //this.dentistService = new DentistService();
             //var databaseDentist = dentistService.GetDentistById(this.SelectedPatient.DentistId);
             //this.SelectedPatient.DentistForDisplaying = databaseDentist.Name + " " + databaseDentist.MiddleName + " " + databaseDentist.LastName;
+            this.SelectedDentist.ProfessionalExperienceForDisplaying = this.SelectedDentist.ProfessionalExperience + " г.";
+
 
             OnPropertyChanged("SelectedDentist");
         }
