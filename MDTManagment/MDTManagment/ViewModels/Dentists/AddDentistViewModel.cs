@@ -20,7 +20,6 @@ namespace MDTManagment.ViewModels.Dentists
         public Dentist NewDentist { get; set; }
 
 
-
         public AddDentistViewModel()
         {
             this.dentistService = new DentistService();
@@ -33,7 +32,6 @@ namespace MDTManagment.ViewModels.Dentists
         }
 
 
-
         public ICommand AddDentist { get; set; }
 
         public ICommand NavigateToDentists { get; set; }
@@ -41,25 +39,24 @@ namespace MDTManagment.ViewModels.Dentists
 
         private void HandleAddDentist(object obj)
         {
-            if (this.NewDentist.Name == null    ||
-                this.NewDentist.MiddleName == null      ||
-                this.NewDentist.LastName==null      ||
-                this.NewDentist.Contact == null     ||
+            if (this.NewDentist.Name == null ||
+                this.NewDentist.MiddleName == null ||
+                this.NewDentist.LastName == null ||
+                this.NewDentist.Contact == null ||
                 this.NewDentist.ProfessionalExperience < 0 || this.NewDentist.ProfessionalExperience > 100)
             {
                 MessageBox.Show("Невалидни данни.", "Зъболекар", MessageBoxButton.OK);
                 return;
             }
+            this.NewDentist.ProfessionalExperienceForDisplaying = this.NewDentist.ProfessionalExperience + " г.";
             this.dentistService.AddDentist(this.NewDentist);
             MessageBox.Show("Зъболекарят е добавен.", "Зъболекар", MessageBoxButton.OK);
             App.Navigation.Navigate(new DentistsPage());
         }
 
-
         private void HandleNavigateToDentists(object obj)
         {
             App.Navigation.Navigate(new DentistsPage());
         }
-
     }
 }

@@ -12,7 +12,7 @@ namespace MDTManagment.Services
     {
         public Dentist GetDentistById(int dentistId)
         {
-            var dentist = this.database.Dentists.First(x => x.Id == dentistId); 
+            var dentist = this.database.Dentists.First(x => x.Id == dentistId);
             return dentist;
         }
 
@@ -28,18 +28,12 @@ namespace MDTManagment.Services
             this.database.Dentists.Remove(dentist);
             this.database.SaveChanges();
         }
-        
+
         public void AddDentist(Dentist dentist)
         {
             this.database.Dentists.Add(dentist);
             this.database.SaveChanges();
         }
-
-        //TODO: Delete this
-        public void GetOrders(Dentist dentist)
-        {
-
-        }
     }
 }
-    
+

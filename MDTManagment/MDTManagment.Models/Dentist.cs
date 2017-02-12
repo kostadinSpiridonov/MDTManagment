@@ -18,6 +18,5 @@ namespace MDTManagment.Models
         public int ProfessionalExperience { get; set; }
 
         public string ProfessionalExperienceForDisplaying { get; set; }
-
     }
 }

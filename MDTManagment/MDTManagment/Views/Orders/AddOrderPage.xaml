@@ -7,10 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="AddOrderPage">
-
     <Grid>
-
-
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -32,8 +29,6 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
-
         <Grid Grid.Column="0" Grid.Row="0">
             <TextBlock TextAlignment="Center" VerticalAlignment="Center">Вид поръчка:</TextBlock>
         </Grid>
@@ -73,8 +68,6 @@
         <Grid Grid.Column="0" Grid.Row="12">
             <TextBlock TextAlignment="Center" VerticalAlignment="Center">Зъболекар:</TextBlock>
         </Grid>
-
-
         <Grid Grid.Column="1" Grid.Row="0">
             <TextBox Text="{Binding NewOrder.Type}" Height="20" Margin="1,0,-1,-1"></TextBox>
         </Grid>
@@ -155,7 +148,7 @@
         <Grid Grid.Column="1" Grid.Row="11">
             <TextBox Text="{Binding NewOrder.TypeOfImpressionMaterial}" Height="20"></TextBox>
         </Grid>
-        
+
         <Grid Grid.Column="1" Grid.Row="12" >
             <ComboBox
                 Height="20"
@@ -165,8 +158,6 @@
                 DisplayMemberPath="Name">
             </ComboBox>
         </Grid>
-
-
         <Grid Grid.Column="2" Grid.Row="1">
             <StackPanel>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center"> 
@@ -180,13 +171,11 @@
                 </TextBlock>
             </StackPanel>
         </Grid>
-        
         <Grid Grid.Column="2" Grid.Row="13">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Content="Добави" Command="{Binding AddOrder}" Height="20" Width="90"/>
                 <Button Content="Отказ" Command="{Binding NavigateToOrdersPage}" Height="20" Width="90" Margin="20,0,0,0"/>
             </StackPanel>
         </Grid>
-
     </Grid>
 </Page>

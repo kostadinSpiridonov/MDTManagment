@@ -36,6 +36,5 @@ namespace MDTManagment.Views.Dentists
             else
             { this.MenuColumn.MaxWidth = 0; }
         }
-
     }
 }

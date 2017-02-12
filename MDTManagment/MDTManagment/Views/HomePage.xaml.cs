@@ -1,5 +1,4 @@
 ﻿using MDTManagment.ViewModels.Home;
-using MDTManagment.Views.Activities;
 using MDTManagment.Views.Dentists;
 using MDTManagment.Views.Orders;
 using MDTManagment.Views.Patients;
@@ -25,42 +24,11 @@ namespace MDTManagment.Views
     /// </summary>
     public partial class HomePage : Page
     {
-
-
         public HomePage()
         {
             InitializeComponent();
             this.DataContext = new HomeViewModel();
         }
-
-        //TODO: ?? IDK should be this here .. or as commands in VM (as it is now)
-
-        //private void GoToHomePage_Cick(object sender, RoutedEventArgs e)
-        //{
-        //    App.Navigation.Navigate(new HomePage());
-        //}
-
-        //private void GoToOrdersPage_Cick(object sender, RoutedEventArgs e)
-        //{
-        //    App.Navigation.Navigate(new OrdersPage());
-        //}
-
-
-        //private void GoToDentistsPage_Cick(object sender, RoutedEventArgs e)
-        //{
-        //    App.Navigation.Navigate(new DentistsPage());
-        //}
-
-
-        //private void GoToPatientsPage_Cick(object sender, RoutedEventArgs e)
-        //{
-        //    App.Navigation.Navigate(new PatientsPage());
-        //}
-
-        //private void GoToActivitiesPage_Cick(object sender, RoutedEventArgs e)
-        //{
-        //    App.Navigation.Navigate(new ActivitiesPage());
-        //}
 
         private void ExpandMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -69,7 +37,6 @@ namespace MDTManagment.Views
             { this.MenuColumn.MaxWidth = 170; }
             else
             { this.MenuColumn.MaxWidth = 0; }
-
         }
     }
 }

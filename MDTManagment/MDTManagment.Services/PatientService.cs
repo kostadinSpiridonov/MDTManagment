@@ -23,7 +23,6 @@ namespace MDTManagment.Services
             return patients.ToList();
         }
 
-
         public void DeletePatient(int patientId)
         {
             var patient = this.database.Patients.First(x => x.Id == patientId);
@@ -31,11 +30,9 @@ namespace MDTManagment.Services
             {
                 return;
             }
-
             this.database.Patients.Remove(patient);
             this.database.SaveChanges();
         }
-
 
         public void AddPatient(Patient patient)
         {

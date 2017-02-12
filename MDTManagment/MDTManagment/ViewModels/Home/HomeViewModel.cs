@@ -2,7 +2,6 @@
 using MDTManagment.Models;
 using MDTManagment.Services;
 using MDTManagment.Views;
-using MDTManagment.Views.Activities;
 using MDTManagment.Views.Dentists;
 using MDTManagment.Views.Orders;
 using MDTManagment.Views.Patients;
@@ -35,8 +34,6 @@ namespace MDTManagment.ViewModels.Home
             this.NavToPatients = new RelayCommand(this.HandleNavToPatients);
             this.NavToDentists = new RelayCommand(this.HandleNavToDentists);
             this.NavToOrders = new RelayCommand(this.HandleNavToOrders);
-            this.NavToActivities = new RelayCommand(this.HandleNavToActivities);
-
         }
 
 
@@ -57,18 +54,13 @@ namespace MDTManagment.ViewModels.Home
         public ICommand NavToHome { get; set; }
         public ICommand NavToDentists { get; set; }
         public ICommand NavToOrders { get; set; }
-        public ICommand NavToActivities { get; set; }
+
 
         public void HandleViewOrderCommand(object obj)
         {
             App.Navigation.Navigate(new OrdersPage());
         }
 
-
-        private void HandleNavToActivities(object obj)
-        {
-            App.Navigation.Navigate(new ActivitiesPage());
-        }
         private void HandleNavToOrders(object obj)
         {
             App.Navigation.Navigate(new OrdersPage());
@@ -85,6 +77,5 @@ namespace MDTManagment.ViewModels.Home
         {
             App.Navigation.Navigate(new HomePage());
         }
-
     }
 }

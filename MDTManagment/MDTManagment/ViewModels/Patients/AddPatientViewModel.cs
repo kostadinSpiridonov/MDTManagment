@@ -23,6 +23,7 @@ namespace MDTManagment.ViewModels.Patients
 
         public Patient NewPatient { get; set; }
         
+
         public AddPatientViewModel()
         {
             this.dentistService = new DentistService();
@@ -42,16 +43,13 @@ namespace MDTManagment.ViewModels.Patients
                 Id=x.Id,
                 Name=x.Name
             });
-
             this.Dentists = new ObservableCollection<SelectDentistViewModel>(mappedDentists);
         }
 
-       
 
         public ICommand AddPatient { get; set; }
 
         public ICommand NavigateToPatientsPage { get; set; }
-
 
 
         private void HandleAddPatient(object obj)
@@ -68,6 +66,12 @@ namespace MDTManagment.ViewModels.Patients
                 MessageBox.Show("Невалидни данни.", "Пациент", MessageBoxButton.OK);
                 return;
             }
+
+            this.dentistService = new DentistService();
+            var databaseDentist = dentistService.GetDentistById(this.NewPatient.DentistId);
+            this.NewPatient.DentistForDisplaying = databaseDentist.Name + " " + databaseDentist.MiddleName + " " + databaseDentist.LastName;
+            this.NewPatient.AgeForDisplaying = this.NewPatient.Age + " г.";
+
             this.patientService.AddPatient(this.NewPatient);
             this.OnPropertyChanged("Patients");
             MessageBox.Show("Пациентът е добавен.", "Пациент", MessageBoxButton.OK);
@@ -78,6 +82,5 @@ namespace MDTManagment.ViewModels.Patients
         {
             App.Navigation.Navigate(new PatientsPage());
         }           
-
     }
 }

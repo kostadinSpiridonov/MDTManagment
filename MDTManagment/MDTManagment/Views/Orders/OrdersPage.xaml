@@ -19,7 +19,6 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid Grid.Column="0" Grid.Row="0">
-                <!--<Button Width="40" Height="40" FontSize="15" Background="Transparent" BorderBrush="Transparent" Click="ExpandMenu_Click" RenderTransformOrigin="0.5,0.5">-->
                 <Button Click="ExpandMenu_Click" Margin="0,-3,1,0">
 
                     <Button.RenderTransform>
@@ -33,7 +32,6 @@
                     <Button.Template>
 
                         <ControlTemplate>
-                            <!--Content="|||"-->
 
                             <ContentControl>
                                 <Border x:Name="ButtonBorder1" CornerRadius="0,0,0,0" BorderBrush="DeepSkyBlue" BorderThickness="3">
@@ -55,22 +53,12 @@
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="0" Height="30">
-                <!--<StackPanel Orientation="Horizontal" Margin="130,0,0,0">-->
-
                 <Button Height="30" Command="{Binding NavigateToAddOrder}" Background="Transparent" BorderBrush="Transparent">
                     <StackPanel Orientation="Horizontal">
-                        <!--Margin="10,0,15,0">-->
                         <Image Height="20" VerticalAlignment="Center" Source="/Resources/add.png"></Image>
                         <TextBlock FontSize="11.5" Text="Добави поръчка" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
                     </StackPanel>
                 </Button>
-                <!--<Button Height="30" Command="{Binding DeletePatient}" Background="Transparent" BorderBrush="Transparent">
-                        <StackPanel Orientation="Horizontal" Margin="10,0,15,0">
-                            <Image Height="20" VerticalAlignment="Center" Source="/Resources/delete.png"></Image>
-                            <TextBlock FontSize="11.5" Text="Delete Patient" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
-                        </StackPanel>
-                    </Button>-->
-                <!--</StackPanel>-->
             </Grid>
 
 
@@ -87,7 +75,7 @@
                 <ColumnDefinition Width="3"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-           
+
             <Grid Grid.Column="0">
                 <StackPanel Height="900">
                     <Button Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
@@ -117,7 +105,7 @@
                     <Button Command="{Binding NavToActivities}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
-                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Дейности</TextBlock>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Дейности?</TextBlock>
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -125,26 +113,15 @@
             </Grid>
 
 
-            <GridSplitter x:Name="GridSplitter1" Grid.Column="1" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
-
-
-
-
-
-
-
-
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
 
 
             <Grid Grid.Column="2">
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                
-                
-                
 
 
                 <Grid Grid.Column="0">
@@ -154,6 +131,12 @@
                         <Button Grid.Column="0" Margin="5,3,2,3" Command="{Binding DisplayOrder}" Content="Покажи данни за избраната поръчка"></Button>
 
                         <ListView ItemsSource="{Binding Orders}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedOrder, Mode=TwoWay}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="BorderBrush" Value="LightGray" />
+                                    <Setter Property="BorderThickness" Value="0,0,0,1" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
@@ -217,8 +200,6 @@
                                     <TextBlock HorizontalAlignment="Right" Text="Заявени съставки:"></TextBlock>
                                     <TextBlock HorizontalAlignment="Right" Text="Отпечатъчен материал:"></TextBlock>
                                     <TextBlock HorizontalAlignment="Right" Text="Зъболекар:"></TextBlock>
-                                    <!--<TextBlock Text="___"></TextBlock>
-                                    <Button  Margin="0,0,10,0" HorizontalAlignment="Right" Content="Виж свързани поръчки:"></Button>-->
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="1" >
@@ -236,8 +217,6 @@
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=DeclaredIngredients, Mode=TwoWay}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=TypeOfImpressionMaterial, Mode=TwoWay}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=DentistForDisplaying , Mode=TwoWay}"></TextBlock>
-                                    <!--<TextBlock Text="___"></TextBlock>-->
-                                    <!--<Button Margin="30,0,0,0" HorizontalAlignment="Left" Content="Изтрий избрания пациент"></Button>-->
                                 </StackPanel>
                             </Grid>
                         </Grid>

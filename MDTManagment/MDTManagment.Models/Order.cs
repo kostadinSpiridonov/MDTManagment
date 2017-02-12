@@ -47,7 +47,5 @@ namespace MDTManagment.Models
         public string ArticulatorForDisplaying { get; set; }
         public string MetalTestForDisplaying { get; set; }
         public string CeramicTestForDisplaying { get; set; }
-
-
     }
 }

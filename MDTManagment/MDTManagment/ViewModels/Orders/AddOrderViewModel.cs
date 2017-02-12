@@ -25,7 +25,6 @@ namespace MDTManagment.ViewModels.Orders
         private PatientService patientService { get; set; }
 
         public ObservableCollection<SelectDentistViewModel> Dentists { get; set; }
-
        
 
         public AddOrderViewModel()
@@ -49,10 +48,7 @@ namespace MDTManagment.ViewModels.Orders
                 Id = x.Id,
                 Name = x.Name
             });
-
             this.Dentists = new ObservableCollection<SelectDentistViewModel>(mappedDentists);
-
-
 
             this.FacialArcIsTrue = new RelayCommand(this.HandleFacialArcIsTrue);
             this.FacialArcIsFalse = new RelayCommand(this.HandleFacialArcIsFalse);
@@ -65,15 +61,12 @@ namespace MDTManagment.ViewModels.Orders
 
             this.CeramicTestIsTrue = new RelayCommand(this.HandleCeramicTestIsTrue);
             this.CeramicTestIsFalse = new RelayCommand(this.HandleCeramicTestIsFalse);
-
         }
-
       
 
         public ICommand AddOrder { get; set; }
 
         public ICommand NavigateToOrdersPage { get; set; }
-
 
         public ICommand FacialArcIsTrue { get; set; }
         public ICommand FacialArcIsFalse { get; set; }
@@ -86,9 +79,6 @@ namespace MDTManagment.ViewModels.Orders
 
         public ICommand CeramicTestIsTrue { get; set; }
         public ICommand CeramicTestIsFalse { get; set; }
-
-
-
 
     
         private void HandleAddOrder(object obj)
@@ -124,6 +114,17 @@ namespace MDTManagment.ViewModels.Orders
                 return;
             }
 
+            this.dentistService = new DentistService();
+            var databaseDentist = dentistService.GetDentistById(this.NewOrder.DentistId);
+            this.NewOrder.DentistForDisplaying = databaseDentist.Name + " " + databaseDentist.MiddleName + " " + databaseDentist.LastName;
+
+            this.NewOrder.DateОfReceiptForDisplaying = this.NewOrder.DateОfReceipt.ToShortDateString();
+            this.NewOrder.DeadLineForDisplaying = this.NewOrder.DeadLine.ToShortDateString();
+            this.NewOrder.PriceForDisplaying = this.NewOrder.Price + " лв.";
+            if (this.NewOrder.FacialArc == true) { this.NewOrder.FacialArcForDisplaying = "Да"; } else { this.NewOrder.FacialArcForDisplaying = "Не"; }
+            if (this.NewOrder.Articulator == true) { this.NewOrder.ArticulatorForDisplaying = "Да"; } else { this.NewOrder.ArticulatorForDisplaying = "Не"; }
+            if (this.NewOrder.MetalTest == true) { this.NewOrder.MetalTestForDisplaying = "Да"; } else { this.NewOrder.MetalTestForDisplaying = "Не"; }
+            if (this.NewOrder.CeramicTest == true) { this.NewOrder.CeramicTestForDisplaying = "Да"; } else { this.NewOrder.CeramicTestForDisplaying = "Не"; }
 
             this.orderService.AddOrder(this.NewOrder);
             this.OnPropertyChanged("Orders");
@@ -135,11 +136,6 @@ namespace MDTManagment.ViewModels.Orders
         {
             App.Navigation.Navigate(new OrdersPage());
         }
-
-
-
-
-
 
         private void HandleFacialArcIsTrue(object obj)
         {
@@ -176,7 +172,5 @@ namespace MDTManagment.ViewModels.Orders
         {
             this.NewOrder.CeramicTest = false; 
         }
-
-
     }
 }

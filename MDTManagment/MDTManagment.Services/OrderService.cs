@@ -24,8 +24,6 @@ namespace MDTManagment.Services
         }
 
 
-
-
         public Order GetOrder()
         {
             var order = this.database.Orders.First();
@@ -47,6 +45,5 @@ namespace MDTManagment.Services
 
             return orders.ToList();
         }
-
     }
 }

@@ -6,11 +6,14 @@
         xmlns:local="clr-namespace:MDTManagment"
         xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
         GlowBrush="{DynamicResource AccentColorBrush}"
-        BorderThickness="1"
         mc:Ignorable="d"
-        Title="MDTManagment"
+        Icon="/Resources/icon.png" 
+        Title="MDT Managment"
         ResizeMode="NoResize"
         WindowState="Maximized">
-    <Frame Source="Views/HomePage.xaml" x:Name="MainFrame"></Frame>
-    <!--NavigationUIVisibility="Hidden"-->
+    
+    <Frame Source="Views/HomePage.xaml" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+    
+    
+    
 </metro:MetroWindow>

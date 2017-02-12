@@ -30,8 +30,6 @@ namespace MDTManagment.Models
 
         public string AgeForDisplaying { get; set; }
 
-        //public Dentist Dentist { get; set; }  //TODO: NE BACHKA OSHTE VYV ..ADD PATIENT V M.. 
-
         //public string PortraitPicPath { get; set; }
     }
 }
