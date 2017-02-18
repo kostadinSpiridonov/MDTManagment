@@ -23,10 +23,11 @@ namespace MDTManagment.Services
             this.database.SaveChanges();
         }
 
-
+        
+        //TODO: is this even used ??
         public Order GetOrder()
         {
-            var order = this.database.Orders.First();
+            var order = this.database.Orders.First(); 
             return order;
         }
 
@@ -45,5 +46,15 @@ namespace MDTManagment.Services
 
             return orders.ToList();
         }
+        
+
+        //public List<Order> GetOrdersByDeadLine(int forYear)
+        //{
+            
+        //    return OrdersForYear;
+        //}
+
+
+
     }
 }

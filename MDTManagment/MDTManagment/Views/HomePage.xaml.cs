@@ -2,6 +2,7 @@
 using MDTManagment.Views.Dentists;
 using MDTManagment.Views.Orders;
 using MDTManagment.Views.Patients;
+using MDTManagment.Views.Reports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,11 @@ namespace MDTManagment.Views
             { this.MenuColumn.MaxWidth = 170; }
             else
             { this.MenuColumn.MaxWidth = 0; }
+        }
+
+        private void AReportTry(object sender, RoutedEventArgs e)
+        {
+            App.Navigation.Navigate(new AnnualReportPage());
         }
     }
 }

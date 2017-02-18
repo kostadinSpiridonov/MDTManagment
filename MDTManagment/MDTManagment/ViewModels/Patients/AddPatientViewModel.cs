@@ -41,7 +41,7 @@ namespace MDTManagment.ViewModels.Patients
             var mappedDentists = databaseDentists.Select(x => new SelectDentistViewModel()
             {
                 Id=x.Id,
-                Name=x.Name
+                Name=x.NameForDisplaying
             });
             this.Dentists = new ObservableCollection<SelectDentistViewModel>(mappedDentists);
         }

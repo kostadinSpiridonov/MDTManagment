@@ -48,6 +48,7 @@ namespace MDTManagment.ViewModels.Dentists
                 MessageBox.Show("Невалидни данни.", "Зъболекар", MessageBoxButton.OK);
                 return;
             }
+            this.NewDentist.NameForDisplaying = this.NewDentist.Name + " " + this.NewDentist.MiddleName + " " + this.NewDentist.LastName;
             this.NewDentist.ProfessionalExperienceForDisplaying = this.NewDentist.ProfessionalExperience + " г.";
             this.dentistService.AddDentist(this.NewDentist);
             MessageBox.Show("Зъболекарят е добавен.", "Зъболекар", MessageBoxButton.OK);
