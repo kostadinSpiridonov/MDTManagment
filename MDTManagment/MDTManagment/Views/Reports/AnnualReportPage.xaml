@@ -1,0 +1,47 @@
+﻿<Page x:Class="MDTManagment.Views.Reports.AnnualReportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MDTManagment.Views.Reports"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="AnnualReportPage">
+
+    <Grid>
+        <StackPanel>
+            <Button Command="{Binding Home}">Home</Button>
+            <TextBox Text="{Binding ChosenYear}"></TextBox>
+            <Button Command="{Binding ChooseYear}">ChooseYear</Button>
+
+            <ListView Margin="50,0,50,0" ItemsSource="{Binding OrdersForChosenYear}" IsSynchronizedWithCurrentItem="True">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="BorderBrush" Value="LightGray" />
+                            <Setter Property="BorderThickness" Value="0,0,0,1" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <!--TODO: make this for displaying and change the width .. also trqa da ima oshte edin list view ili cherta i pod neq Obshto za Price-->
+                            <GridViewColumn Width="300"   DisplayMemberBinding="{Binding Type}">
+                                <GridViewColumnHeader>
+                                    <TextBlock FontStyle="Oblique" FontWeight="Bold" Text="Вид поръчка"></TextBlock>
+                                                                                                                                                           </GridViewColumnHeader>
+                            </GridViewColumn>
+                                <GridViewColumn Width="300" Header="Дата на постъпване" DisplayMemberBinding="{Binding DateОfReceipt}"/>
+                                <GridViewColumn Width="500" Header="Краен срок" DisplayMemberBinding="{Binding DeadLine}"/>
+                                <GridViewColumn Width="50" Header="Цена" DisplayMemberBinding="{Binding Price}"/>
+                            </GridView.Columns>
+                        
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            
+            
+            
+            
+        </StackPanel>
+    </Grid>
+</Page>

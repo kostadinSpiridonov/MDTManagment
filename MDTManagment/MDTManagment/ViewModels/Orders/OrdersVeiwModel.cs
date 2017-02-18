@@ -101,7 +101,7 @@ namespace MDTManagment.ViewModels.Orders
         {
             if (this.SelectedOrder == null)
             {
-                MessageBox.Show("Не е избран пациент.", "Пациенти", MessageBoxButton.OK);
+                MessageBox.Show("Не е избрана поръчка.", "Поръчки", MessageBoxButton.OK);
                 return;
             }
             OnPropertyChanged("SelectedOrder");
