@@ -44,5 +44,11 @@ namespace MDTManagment.Views
         {
             App.Navigation.Navigate(new AnnualReportPage());
         }
+
+        private void MonthlyReportTry(object sender, RoutedEventArgs e)
+        {
+
+            App.Navigation.Navigate(new MonthlyReportPage());
+        }
     }
 }

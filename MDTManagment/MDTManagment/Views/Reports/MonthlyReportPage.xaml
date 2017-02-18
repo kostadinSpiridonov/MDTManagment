@@ -1,0 +1,71 @@
+﻿<Page x:Class="MDTManagment.Views.Reports.MonthlyReportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="MonthlyReportPage">
+
+
+    <Grid>
+        <StackPanel>
+            <TextBox Text="{Binding Year}"></TextBox>
+            <ComboBox ItemsSource="{Binding Months}" SelectedValue="{Binding SelectedMonth}"   SelectedValuePath="Number"
+                DisplayMemberPath="Name"></ComboBox>
+            <Button Command="{Binding GenerateReport}">Generate report</Button>
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                </Grid>
+                <TextBlock Text="Orders count"></TextBlock>
+                <TextBlock Grid.Row="1" Text="Total price"></TextBlock>
+
+                <TextBlock Grid.Column="1" Text="{Binding MonthlyReport.OrdersCount}"></TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding MonthlyReport.TotalPrice}"></TextBlock>
+                <Button Click="ShowDentistDetails">Dentist details</Button>
+            </StackPanel>
+            <StackPanel x:Name="DentistDetailsPanel" Visibility="Hidden">
+
+                <ListView Margin="50,0,50,0" ItemsSource="{Binding MonthlyReport.ByDentistDetails}" IsSynchronizedWithCurrentItem="True">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="BorderBrush" Value="LightGray" />
+                            <Setter Property="BorderThickness" Value="0,0,0,1" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Width="300" Text="{Binding DentistName}"></TextBlock>
+                                <ListView Margin="50,0,50,0" ItemsSource="{Binding Orders}" IsSynchronizedWithCurrentItem="True">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListViewItem}">
+                                            <Setter Property="BorderBrush" Value="LightGray" />
+                                            <Setter Property="BorderThickness" Value="0,0,0,1" />
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridView.Columns>
+                                                <GridViewColumn Header="Вид поръчка" DisplayMemberBinding="{Binding Type}"/>
+                                                <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Price}"/>
+                                            </GridView.Columns>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

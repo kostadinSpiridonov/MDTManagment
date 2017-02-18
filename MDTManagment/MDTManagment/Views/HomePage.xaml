@@ -95,7 +95,13 @@
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Годишен отчет</TextBlock>
                         </StackPanel>
                     </Button>
-
+                    
+                    <Button Click="MonthlyReportTry" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>-->
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Месечен отчет</TextBlock>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </Grid>
             <GridSplitter Grid.Column="1" Height="900" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>

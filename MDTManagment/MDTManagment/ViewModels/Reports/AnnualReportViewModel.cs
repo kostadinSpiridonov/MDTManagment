@@ -15,7 +15,7 @@ namespace MDTManagment.ViewModels.Reports
 {
     public class AnnualReportViewModel : BaseViewModel
     {
-        
+
         public int ChosenYear { get; set; } // should this be prop not field ?
 
         public ObservableCollection<Order> Orders { get; set; }
@@ -28,17 +28,17 @@ namespace MDTManagment.ViewModels.Reports
         public AnnualReportViewModel()
         {
 
-this.Home = new RelayCommand(this.HandleHome);
+            this.Home = new RelayCommand(this.HandleHome);
 
-            this.ChooseYear = new RelayCommand(this.HandleChooseYear); 
+            this.ChooseYear = new RelayCommand(this.HandleChooseYear);
         }
 
-private void HandleHome(object obj)
-{
-    App.Navigation.Navigate(new HomePage());
-}
+        private void HandleHome(object obj)
+        {
+            App.Navigation.Navigate(new HomePage());
+        }
 
-public ICommand Home { get; set; }
+        public ICommand Home { get; set; }
 
         public ICommand ChooseYear { get; set; }
 

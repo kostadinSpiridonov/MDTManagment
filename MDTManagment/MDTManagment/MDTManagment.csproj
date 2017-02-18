@@ -90,6 +90,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Enums\Months.cs" />
     <Compile Include="StartupWindow.xaml.cs">
       <DependentUpon>StartupWindow.xaml</DependentUpon>
     </Compile>
@@ -103,6 +104,8 @@
     <Compile Include="ViewModels\Patients\AddPatientViewModel.cs" />
     <Compile Include="ViewModels\Patients\PatientsViewModel.cs" />
     <Compile Include="ViewModels\Reports\AnnualReportViewModel.cs" />
+    <Compile Include="ViewModels\Reports\MonthlyReportViewModel.cs" />
+    <Compile Include="ViewModels\Reports\MonthSelectedModel.cs" />
     <Compile Include="Views\Dentists\AddDentistPage.xaml.cs">
       <DependentUpon>AddDentistPage.xaml</DependentUpon>
     </Compile>
@@ -130,6 +133,9 @@
     </Compile>
     <Compile Include="Views\Reports\AnnualReportPage.xaml.cs">
       <DependentUpon>AnnualReportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\MonthlyReportPage.xaml.cs">
+      <DependentUpon>MonthlyReportPage.xaml</DependentUpon>
     </Compile>
     <Page Include="StartupWindow.xaml">
       <SubType>Designer</SubType>
@@ -164,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Reports\AnnualReportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\MonthlyReportPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
