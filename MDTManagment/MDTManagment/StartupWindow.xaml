@@ -9,8 +9,13 @@
         mc:Ignorable="d"
         Icon="/Resources/icon.png" 
         Title="MDT Managment"
-        ResizeMode="NoResize"
-        WindowState="Maximized">
+        ShowMinButton="True"
+        IsWindowDraggable="False"
+        ShowSystemMenuOnRightClick="False"
+        WindowState="Maximized"
+        ShowMaxRestoreButton="False">
+    <!--ResizeMode="NoResize"
+    IsMaxRestoreButtonEnabled="True"-->
     
     <Frame Source="Views/HomePage.xaml" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
     

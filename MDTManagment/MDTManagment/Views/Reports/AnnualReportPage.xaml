@@ -7,41 +7,312 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="AnnualReportPage">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0">
+                <Button Click="ExpandMenu_Click" Margin="0,-3,1,0">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <ContentControl>
+                                <Border x:Name="ButtonBorder1" CornerRadius="0,0,0,0" BorderBrush="DeepSkyBlue" BorderThickness="3">
+                                    <StackPanel>
+                                        <TextBlock Height="30" Width="30" ><TextBlock Margin="7.8,3.2,0,0" FontSize="15" Text="|||" ></TextBlock></TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </ContentControl>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsPressed" Value="True">
+                                    <Setter TargetName="ButtonBorder1" Property="BorderBrush" Value="DeepSkyBlue"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="240"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" FontStyle="Italic" FontSize="16">За година:</TextBlock>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Margin="30,0,20,0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="3" Width="110" VerticalContentAlignment="Top" FontSize="14" Text="{Binding ChosenYear}" IsEnabled="False"></TextBox>
+                        <Button Command="{Binding YearMM}" FontSize="14" VerticalContentAlignment="Top" Margin="0,0,5,0" Height="10" Width="20" Background="Transparent">
+                            <TextBlock Margin="0,-3,0,0" VerticalAlignment="Top">-</TextBlock>
+                        </Button>
+                        <Button Command="{Binding YearPP}" FontSize="14" VerticalContentAlignment="Top" Height="10" Width="20" Background="Transparent">
+                            <TextBlock Margin="0,-2,0,0" VerticalAlignment="Top">+</TextBlock>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid>
+            <GridSplitter Height="3" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MaxWidth="0" x:Name="MenuColumn"></ColumnDefinition>
+                <ColumnDefinition Width="3"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <Button Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/0.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Начало</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/2.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Зъболекари</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/1.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Пациенти</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding NavToAnnualReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Годишен отчет</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <GridSplitter Grid.Column="1" Height="900" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
+            <Grid Grid.Column="2">
+                
+                
+                
+                <StackPanel Margin="100,70,100,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                            <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
 
-    <Grid>
-        <StackPanel>
-            <Button Command="{Binding Home}">Home</Button>
-            <TextBox Text="{Binding ChosenYear}"></TextBox>
-            <Button Command="{Binding ChooseYear}">ChooseYear</Button>
+                        <Grid Grid.Column="1" Grid.Row="3">
+                            <TextBlock FontSize="16">Месец</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="3">
+                            <TextBlock FontSize="16">Брой поръчки</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="3">
+                            <TextBlock FontSize="16" HorizontalAlignment="Right">Приход</TextBlock>
+                        </Grid>
 
-            <ListView Margin="50,0,50,0" ItemsSource="{Binding OrdersForChosenYear}" IsSynchronizedWithCurrentItem="True">
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="{x:Type ListViewItem}">
-                            <Setter Property="BorderBrush" Value="LightGray" />
-                            <Setter Property="BorderThickness" Value="0,0,0,1" />
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <ListView.View>
-                        <GridView>
-                            <GridView.Columns>
-                                <!--TODO: make this for displaying and change the width .. also trqa da ima oshte edin list view ili cherta i pod neq Obshto za Price-->
-                            <GridViewColumn Width="300"   DisplayMemberBinding="{Binding Type}">
-                                <GridViewColumnHeader>
-                                    <TextBlock FontStyle="Oblique" FontWeight="Bold" Text="Вид поръчка"></TextBlock>
-                                                                                                                                                           </GridViewColumnHeader>
-                            </GridViewColumn>
-                                <GridViewColumn Width="300" Header="Дата на постъпване" DisplayMemberBinding="{Binding DateОfReceipt}"/>
-                                <GridViewColumn Width="500" Header="Краен срок" DisplayMemberBinding="{Binding DeadLine}"/>
-                                <GridViewColumn Width="50" Header="Цена" DisplayMemberBinding="{Binding Price}"/>
-                            </GridView.Columns>
+                    </Grid>
+
+                    <Separator Margin="0,3,0,20"></Separator>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                            <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Column="1" Grid.Row="0">
+                            <TextBlock>Януари</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <TextBlock>Февруари</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="2">
+                            <TextBlock>Март</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="3">
+                            <TextBlock>Април</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="4">
+                            <TextBlock>Май</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="5">
+                            <TextBlock>Юни</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="6">
+                            <TextBlock>Юли</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="7">
+                            <TextBlock>Август</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="8">
+                            <TextBlock>Септември</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="9">
+                            <TextBlock>Октомври</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="10">
+                            <TextBlock>Ноември</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="11">
+                            <TextBlock>Декември</TextBlock>
+                        </Grid>
+
+
+                        <Grid Grid.Column="2" Grid.Row="0">
+                            <TextBlock Text="{Binding CountOfOrdersForJanuary}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="1">
+                            <TextBlock Text="{Binding CountOfOrdersForFebruary}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="2">
+                            <TextBlock Text="{Binding CountOfOrdersForMarch}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="3">
+                            <TextBlock Text="{Binding CountOfOrdersForApril}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="4">
+                            <TextBlock Text="{Binding CountOfOrdersForMay}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="5">
+                            <TextBlock Text="{Binding CountOfOrdersForJune}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="6">
+                            <TextBlock Text="{Binding CountOfOrdersForJuly}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="7">
+                            <TextBlock Text="{Binding CountOfOrdersForAugust}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="8">
+                            <TextBlock Text="{Binding CountOfOrdersForSeptember}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="9">
+                            <TextBlock Text="{Binding CountOfOrdersForOctober}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="10">
+                            <TextBlock Text="{Binding CountOfOrdersForNovember}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="11">
+                            <TextBlock Text="{Binding CountOfOrdersForDecember}"></TextBlock>
+                        </Grid>
+
+                        <Grid Grid.Column="3" Grid.Row="0">
+                            <TextBlock Text="{Binding IncomeOfOrdersForJanuary}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="1">
+                            <TextBlock Text="{Binding IncomeOfOrdersForFebruary}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="2">
+                            <TextBlock Text="{Binding IncomeOfOrdersForMarch}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="3">
+                            <TextBlock Text="{Binding IncomeOfOrdersForApril}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="4">
+                            <TextBlock Text="{Binding IncomeOfOrdersForMay}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="5">
+                            <TextBlock Text="{Binding IncomeOfOrdersForJune}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="6">
+                            <TextBlock Text="{Binding IncomeOfOrdersForJuly}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="7">
+                            <TextBlock Text="{Binding IncomeOfOrdersForAugust}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="8">
+                            <TextBlock Text="{Binding IncomeOfOrdersForSeptember}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="9">
+                            <TextBlock Text="{Binding IncomeOfOrdersForOctober}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="10">
+                            <TextBlock Text="{Binding IncomeOfOrdersForNovember}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="11">
+                            <TextBlock Text="{Binding IncomeOfOrdersForDecember}" HorizontalAlignment="Right"></TextBlock>
+                        </Grid>
+
+                    </Grid>
+
+                    <Separator></Separator>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                            <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
                         
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            
-            
-            
-            
-        </StackPanel>
-    </Grid>
+                        <Grid Grid.Column="2" Grid.Row="0">
+                            <TextBlock HorizontalAlignment="Right" FontSize="16" Margin="0,0,-100,0">Общо:</TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="0">
+                            <TextBlock FontSize="16"  HorizontalAlignment="Right" Text="{Binding TotalIncome}"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="4" Grid.Row="0">
+                            <TextBlock FontSize="16" Margin="10,0,0,0"> лв.</TextBlock>
+                        </Grid>
+                        
+                    </Grid>
+
+
+                </StackPanel>
+
+                
+                
+                
+            </Grid>
+        </Grid>
+    </StackPanel>
 </Page>

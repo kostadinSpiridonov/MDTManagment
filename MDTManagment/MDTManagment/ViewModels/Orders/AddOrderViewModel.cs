@@ -100,19 +100,24 @@ namespace MDTManagment.ViewModels.Orders
                 return;
             }
 
-            if (this.NewOrder.DeadLine.Month < DateTime.Today.Month ||
-                this.NewOrder.DateОfReceipt.Month < DateTime.Today.Month )
+            if (this.NewOrder.DateОfReceipt.Year == DateTime.Today.Year ||
+                this.NewOrder.DeadLine.Year == DateTime.Today.Year)
             {
-                MessageBox.Show("Невалидни данни.", "Поръчка", MessageBoxButton.OK);
-                return;
+                if (this.NewOrder.DeadLine.Month < DateTime.Today.Month ||
+                this.NewOrder.DateОfReceipt.Month < DateTime.Today.Month)
+                {
+                    MessageBox.Show("Невалидни данни.", "Поръчка", MessageBoxButton.OK);
+                    return;
+                }
+
+                if (this.NewOrder.DateОfReceipt.Date < DateTime.Today.Date ||
+                    this.NewOrder.DeadLine.Date < DateTime.Today.Date)
+                {
+                    MessageBox.Show("Невалидни данни.", "Поръчка", MessageBoxButton.OK);
+                    return;
+                }
             }
 
-            if (this.NewOrder.DateОfReceipt.Date < DateTime.Today.Date ||
-                this.NewOrder.DeadLine.Date < DateTime.Today.Date )
-            {
-                MessageBox.Show("Невалидни данни.", "Поръчка", MessageBoxButton.OK);
-                return;
-            }
 
             this.dentistService = new DentistService();
             var databaseDentist = dentistService.GetDentistById(this.NewOrder.DentistId);

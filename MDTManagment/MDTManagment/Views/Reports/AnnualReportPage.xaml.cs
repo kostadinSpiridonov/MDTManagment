@@ -26,5 +26,14 @@ namespace MDTManagment.Views.Reports
             InitializeComponent();
             this.DataContext = new AnnualReportViewModel();
         }
+
+        private void ExpandMenu_Click(object sender, RoutedEventArgs e)
+        {
+            double wid = this.MenuColumn.MaxWidth;
+            if (wid == 0)
+            { this.MenuColumn.MaxWidth = 170; }
+            else
+            { this.MenuColumn.MaxWidth = 0; }
+        }
     }
 }

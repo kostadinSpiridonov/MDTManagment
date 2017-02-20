@@ -5,6 +5,7 @@ using MDTManagment.Views;
 using MDTManagment.Views.Dentists;
 using MDTManagment.Views.Orders;
 using MDTManagment.Views.Patients;
+using MDTManagment.Views.Reports;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -45,6 +46,7 @@ namespace MDTManagment.ViewModels.Orders
             this.NavToPatients = new RelayCommand(this.HandleNavToPatients);
             this.NavToDentists = new RelayCommand(this.HandleNavToDentists);
             this.NavToOrders = new RelayCommand(this.HandleNavToOrders);
+            this.NavToAnnualReport = new RelayCommand(this.HandleNavToAnnualReport);
 
             this.DisplayOrder = new RelayCommand(this.HandleDisplayOrder);
         }
@@ -58,6 +60,7 @@ namespace MDTManagment.ViewModels.Orders
         public ICommand NavToHome { get; set; }
         public ICommand NavToDentists { get; set; }
         public ICommand NavToOrders { get; set; }
+        public ICommand NavToAnnualReport { get; set; }
 
         public ICommand DisplayOrder { get; set; }
 
@@ -96,6 +99,11 @@ namespace MDTManagment.ViewModels.Orders
         {
             App.Navigation.Navigate(new HomePage());
         }
+        private void HandleNavToAnnualReport(object obj)
+        {
+            App.Navigation.Navigate(new AnnualReportPage());
+        }
+
 
         private void HandleDisplayOrder(object obj)
         {

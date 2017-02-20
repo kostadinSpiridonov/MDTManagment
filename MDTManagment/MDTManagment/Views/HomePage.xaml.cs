@@ -40,9 +40,5 @@ namespace MDTManagment.Views
             { this.MenuColumn.MaxWidth = 0; }
         }
 
-        private void AReportTry(object sender, RoutedEventArgs e)
-        {
-            App.Navigation.Navigate(new AnnualReportPage());
-        }
     }
 }
