@@ -24,7 +24,7 @@ namespace MDTManagment.Views.Reports
         public MonthlyReportPage()
         {
             InitializeComponent();
-            this.DataContext = new MonthlyReportViewModel();
+            //this.DataContext = new MonthlyReportViewModel();
         }
 
         private void ShowDentistDetails(object sender, RoutedEventArgs e)
