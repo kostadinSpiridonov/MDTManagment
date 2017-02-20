@@ -68,7 +68,7 @@
                 Height="20"
                 ItemsSource="{Binding Dentists}" 
                 SelectedValue="{Binding NewPatient.DentistId}"
-                SelectedValuePath="Id"
+                SelectedValuePath="Number"
                 DisplayMemberPath="Name">
             </ComboBox>
         </Grid>
