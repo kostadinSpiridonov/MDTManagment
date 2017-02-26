@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MDTManagment.Views"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="OrdersPage">
@@ -78,34 +79,40 @@
 
             <Grid Grid.Column="0">
                 <StackPanel Height="900">
-                    <Button Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Margin="0,10,0,0" Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/0.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Начало</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Margin="0,10,0,0" Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/2.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Зъболекари</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Margin="0,10,0,0" Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/1.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Пациенти</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                    <Button Margin="0,10,0,0" Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToAnnualReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                    <Button Margin="0,10,0,0" Command="{Binding NavToAnnualReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Годишен отчет</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="0,10,0,0" Command="{Binding NavToMonthlyReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Месечен отчет</TextBlock>
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -128,9 +135,9 @@
 
                     <StackPanel>
 
-                        <Button Grid.Column="0" Margin="5,3,2,3" Command="{Binding DisplayOrder}" Content="Покажи данни за избраната поръчка"></Button>
+                        <!--<Button Grid.Column="0" Margin="5,3,2,3" Command="{Binding DisplayOrder}" Content="Покажи данни за избраната поръчка"></Button>-->
 
-                        <ListView ItemsSource="{Binding Orders}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedOrder, Mode=TwoWay}">
+                        <ListView Padding="7,14,7,0" FontWeight="Regular" BorderThickness="0,0,1,0" Height="900" BorderBrush="LightGray" ItemsSource="{Binding Orders}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedOrder, Mode=TwoWay}">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListViewItem}">
                                     <Setter Property="BorderBrush" Value="LightGray" />
@@ -140,11 +147,13 @@
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
-                                        <GridViewColumn Header="Вид поръчка" DisplayMemberBinding="{Binding Type}"/>
-                                        <GridViewColumn Header="Цвят на зъб" DisplayMemberBinding="{Binding ToothColour}"/>
+                                        <GridViewColumn Width="150" Header="Вид поръчка" DisplayMemberBinding="{Binding Type}"/>
+                                        <GridViewColumn Width="190" Header="Зъболекар" DisplayMemberBinding="{Binding DentistForDisplaying}"/>
+                                        <GridViewColumn Width="190" Header="Пациент" DisplayMemberBinding="{Binding PatientForDisplaying}"/>
+                                        <GridViewColumn Width="200" Header="Цена" DisplayMemberBinding="{Binding PriceForDisplaying}"/>
+                                        <!--<GridViewColumn Header="Цвят на зъб" DisplayMemberBinding="{Binding ToothColour}"/>-->
                                         <!--<GridViewColumn Header="Дата на постъпване" DisplayMemberBinding="{Binding DateОfReceipt}"/>
                                         <GridViewColumn Header="Краен срок" DisplayMemberBinding="{Binding DeadLine}"/>-->
-                                        <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Price}"/>
                                         <!--<GridViewColumn Header="Dentist:" DisplayMemberBinding="{Binding DisplayingDentist}"/>-->
                                         <!--<GridViewColumn Header="Лицева дъга" DisplayMemberBinding="{Binding FacialArc}"/>
                                         <GridViewColumn Header="Артикулатор" DisplayMemberBinding="{Binding Articulator}"/>
@@ -153,9 +162,14 @@
                                         <GridViewColumn Header="Специални изисквания" DisplayMemberBinding="{Binding SpecialRequirements}"/>
                                         <GridViewColumn Header="Заявени съставки" DisplayMemberBinding="{Binding DeclaredIngredients}"/>
                                         <GridViewColumn Header="Отпечатъчен материал" DisplayMemberBinding="{Binding TypeOfImpressionMaterial}"/>-->
-                                    </GridView.Columns>
+                                        </GridView.Columns>
                                 </GridView>
                             </ListView.View>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding DisplayOrder}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                         </ListView>
 
                     </StackPanel>
@@ -167,43 +181,43 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition ></RowDefinition>
-                            <!--how to make this fit to window and not being cropped-->
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <StackPanel>
-
-                                <Button Margin="2,3,5,3" Panel.ZIndex="2" Command="{Binding DeleteOrder}" Content="Изтрий избраната поръчка"></Button>
-
+                                <!--<Button Margin="2,3,5,3" Panel.ZIndex="2" Command="{Binding DeleteOrder}" Content="Изтрий избраната поръчка"></Button>-->
                                 <Image Height="430" Panel.ZIndex="1" Margin="10,-20,10,0" Source="/Resources/4.png" ></Image>
                                 <!--Source="{Binding SelectedPatient.PortraitPicPath}"-->
-
                             </StackPanel>
                         </Grid>
-                        <Grid Grid.Row="1" Margin="0,-15,0,0">
+                        <Grid Grid.Row="1" Margin="0,-40,0,0">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                                <ColumnDefinition Width="185"></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0">
+                            <Grid Grid.Column="1">
                                 <StackPanel>
-                                    <TextBlock HorizontalAlignment="Right" Text="Вид поръчка:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Дата на постъпване:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Краен срок:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Цена:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Лицева дъга:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Артикулатор:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Метална проба:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Керамична проба:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Цвят на зъб:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Специални изисквания:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Заявени съставки:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Отпечатъчен материал:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Зъболекар:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Вид поръчка:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Дата на постъпване:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Краен срок:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Цена:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Лицева дъга:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Артикулатор:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Метална проба:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Керамична проба:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Цвят на зъб:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Специални изисквания:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Заявени съставки:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Отпечатъчен материал:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Зъболекар:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Пациент:"></TextBlock>
+                                    <Button Margin="0,20,-110,0" Command="{Binding DeleteOrder}" Content="Изтрий избраната поръчка"></Button>
+
                                 </StackPanel>
                             </Grid>
-                            <Grid Grid.Column="1" >
-                                <StackPanel DataContext="{Binding SelectedOrder}" >
+                            <Grid Grid.Column="2" >
+                                <StackPanel DataContext="{Binding SelectedOrder}">
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=Type}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=DateОfReceiptForDisplaying, Mode=TwoWay}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=DeadLineForDisplaying, Mode=TwoWay}"></TextBlock>
@@ -216,7 +230,8 @@
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=SpecialRequirements, Mode=TwoWay}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=DeclaredIngredients, Mode=TwoWay}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=TypeOfImpressionMaterial, Mode=TwoWay}"></TextBlock>
-                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=DentistForDisplaying , Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=DentistForDisplaying, Mode=TwoWay}"></TextBlock>
+                                    <TextBlock Margin="10,0,0,0" Text="{Binding Path=PatientForDisplaying, Mode=TwoWay}"></TextBlock>
                                 </StackPanel>
                             </Grid>
                         </Grid>

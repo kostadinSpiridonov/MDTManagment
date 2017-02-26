@@ -8,7 +8,7 @@
         GlowBrush="{DynamicResource AccentColorBrush}"
         mc:Ignorable="d"
         Icon="/Resources/icon.png" 
-        Title="MDT Managment"
+        Title="MDT Management"
         ShowMinButton="True"
         IsWindowDraggable="False"
         ShowSystemMenuOnRightClick="False"

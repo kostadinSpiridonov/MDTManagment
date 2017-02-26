@@ -25,7 +25,11 @@ namespace MDTManagment.ViewModels.Orders
         private PatientService patientService { get; set; }
 
         public ObservableCollection<SelectDentistViewModel> Dentists { get; set; }
-       
+
+
+        public ObservableCollection<SelectDentistViewModel> Patients { get; set; }
+
+
 
         public AddOrderViewModel()
         {
@@ -37,9 +41,6 @@ namespace MDTManagment.ViewModels.Orders
 
             this.patientService = new PatientService();
 
-            this.AddOrder = new RelayCommand(this.HandleAddOrder);
-
-            this.NavigateToOrdersPage = new RelayCommand(this.HandleNavigateToOrdersPage);
 
             var databaseDentists = this.dentistService.GetAllDentists();
 
@@ -49,6 +50,21 @@ namespace MDTManagment.ViewModels.Orders
                 Name = x.NameForDisplaying
             });
             this.Dentists = new ObservableCollection<SelectDentistViewModel>(mappedDentists);
+
+
+            var databasePatients = this.patientService.GetAllPatients();
+
+            var mappedPatients = databasePatients.Select(x => new SelectDentistViewModel()
+            {
+                Id = x.Id,
+                Name = x.NameForDisplaying
+            });
+            this.Patients = new ObservableCollection<SelectDentistViewModel>(mappedPatients);
+
+
+            this.AddOrder = new RelayCommand(this.HandleAddOrder);
+
+            this.NavigateToOrdersPage = new RelayCommand(this.HandleNavigateToOrdersPage);
 
             this.FacialArcIsTrue = new RelayCommand(this.HandleFacialArcIsTrue);
             this.FacialArcIsFalse = new RelayCommand(this.HandleFacialArcIsFalse);
@@ -94,7 +110,8 @@ namespace MDTManagment.ViewModels.Orders
                 this.NewOrder.DateОfReceipt.Year < DateTime.Today.Year ||
                 this.NewOrder.DeadLine.Year < DateTime.Today.Year ||
 
-                this.NewOrder.DentistId == checkId )
+                this.NewOrder.DentistId == checkId ||
+                this.NewOrder.PatientId == checkId )
             {
                 MessageBox.Show("Невалидни данни.", "Поръчка", MessageBoxButton.OK);
                 return;
@@ -110,11 +127,39 @@ namespace MDTManagment.ViewModels.Orders
                     return;
                 }
 
-                if (this.NewOrder.DateОfReceipt.Date < DateTime.Today.Date ||
-                    this.NewOrder.DeadLine.Date < DateTime.Today.Date)
+                if (this.NewOrder.DeadLine.Month == DateTime.Today.Month ||
+                this.NewOrder.DateОfReceipt.Month == DateTime.Today.Month)
                 {
-                    MessageBox.Show("Невалидни данни.", "Поръчка", MessageBoxButton.OK);
+                    if (this.NewOrder.DateОfReceipt.Date < DateTime.Today.Date ||
+                     this.NewOrder.DeadLine.Date < DateTime.Today.Date)
+                    {
+                        MessageBox.Show("Невалидни данни.", "Поръчка", MessageBoxButton.OK);
+                        return;
+                    }
+                }
+            }
+
+            if (this.NewOrder.DeadLine.Year < this.NewOrder.DateОfReceipt.Year)
+            {
+                MessageBox.Show("Невалидни данни. Датата на постъпване трябва да е преди крайния срок.", "Поръчка", MessageBoxButton.OK);
+                return;
+            }
+
+            if (this.NewOrder.DeadLine.Year == this.NewOrder.DateОfReceipt.Year)
+            {
+                if (this.NewOrder.DeadLine.Month < this.NewOrder.DateОfReceipt.Month)
+                {
+                    MessageBox.Show("Невалидни данни. Датата на постъпване трябва да е преди крайния срок.", "Поръчка", MessageBoxButton.OK);
                     return;
+                }
+
+                if (this.NewOrder.DeadLine.Month == this.NewOrder.DateОfReceipt.Month)
+                {
+                    if (this.NewOrder.DeadLine.Date < this.NewOrder.DateОfReceipt.Date)
+                    {
+                        MessageBox.Show("Невалидни данни. Датата на постъпване трябва да е преди крайния срок.", "Поръчка", MessageBoxButton.OK);
+                        return;
+                    }
                 }
             }
 
@@ -122,6 +167,12 @@ namespace MDTManagment.ViewModels.Orders
             this.dentistService = new DentistService();
             var databaseDentist = dentistService.GetDentistById(this.NewOrder.DentistId);
             this.NewOrder.DentistForDisplaying = databaseDentist.Name + " " + databaseDentist.MiddleName + " " + databaseDentist.LastName;
+
+            this.patientService = new PatientService();
+            var databasePatient = patientService.GetPatientById(this.NewOrder.PatientId);
+            this.NewOrder.PatientForDisplaying = databasePatient.FirstName + " " + databasePatient.Surname + " " + databasePatient.Family;
+
+
 
             this.NewOrder.DateОfReceiptForDisplaying = this.NewOrder.DateОfReceipt.ToShortDateString();
             this.NewOrder.DeadLineForDisplaying = this.NewOrder.DeadLine.ToShortDateString();
@@ -148,7 +199,7 @@ namespace MDTManagment.ViewModels.Orders
         }
         private void HandleFacialArcIsFalse(object obj)
         {
-              this.NewOrder.FacialArc = false;
+            this.NewOrder.FacialArc = false;
         }
 
         private void HandleArticulatorIsTrue(object obj)

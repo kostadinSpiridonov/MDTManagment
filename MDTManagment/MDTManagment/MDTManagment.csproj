@@ -104,6 +104,7 @@
     <Compile Include="ViewModels\Patients\AddPatientViewModel.cs" />
     <Compile Include="ViewModels\Patients\PatientsViewModel.cs" />
     <Compile Include="ViewModels\Reports\AnnualReportViewModel.cs" />
+    <Compile Include="ViewModels\Reports\MonthlyReportViewModel.cs" />
     <Compile Include="ViewModels\Reports\MonthSelectedModel.cs" />
     <Compile Include="Views\Dentists\AddDentistPage.xaml.cs">
       <DependentUpon>AddDentistPage.xaml</DependentUpon>

@@ -3,69 +3,273 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="MonthlyReportPage">
 
 
-    <Grid>
-        <StackPanel>
-            <TextBox Text="{Binding Year}"></TextBox>
-            <ComboBox ItemsSource="{Binding Months}" SelectedValue="{Binding SelectedMonth}"   SelectedValuePath="Number"
-                DisplayMemberPath="Name"></ComboBox>
-            <Button Command="{Binding GenerateReport}">Generate report</Button>
-            <StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0">
+                <Button Click="ExpandMenu_Click" Margin="0,-3,1,0">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <ContentControl>
+                                <Border x:Name="ButtonBorder1" CornerRadius="0,0,0,0" BorderBrush="DeepSkyBlue" BorderThickness="3">
+                                    <StackPanel>
+                                        <TextBlock Height="30" Width="30" ><TextBlock Margin="7.8,3.2,0,0" FontSize="15" Text="|||" ></TextBlock></TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </ContentControl>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsPressed" Value="True">
+                                    <Setter TargetName="ButtonBorder1" Property="BorderBrush" Value="SkyBlue"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+
+
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="240"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" FontStyle="Italic" FontSize="16">За година:</TextBlock>
                 </Grid>
-                <TextBlock Text="Orders count"></TextBlock>
-                <TextBlock Grid.Row="1" Text="Total price"></TextBlock>
+                <Grid Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Margin="30,0,20,0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="3" Width="110" VerticalContentAlignment="Top" FontSize="14" Text="{Binding Year}" IsEnabled="False"></TextBox>
+                        <Button Command="{Binding YearMM}" FontSize="14" VerticalContentAlignment="Top" Margin="0,0,5,0" Height="10" Width="20" Background="Transparent">
+                            <TextBlock Margin="0,-3,0,0" VerticalAlignment="Top">-</TextBlock>
+                        </Button>
+                        <Button Command="{Binding YearPP}" FontSize="14" VerticalContentAlignment="Top" Height="10" Width="20" Background="Transparent">
+                            <TextBlock Margin="0,-2,0,0" VerticalAlignment="Top">+</TextBlock>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
 
-                <TextBlock Grid.Column="1" Text="{Binding MonthlyReport.OrdersCount}"></TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding MonthlyReport.TotalPrice}"></TextBlock>
-                <Button Click="ShowDentistDetails">Dentist details</Button>
-            </StackPanel>
-            <StackPanel x:Name="DentistDetailsPanel" Visibility="Hidden">
 
-                <ListView Margin="50,0,50,0" ItemsSource="{Binding MonthlyReport.ByDentistDetails}" IsSynchronizedWithCurrentItem="True">
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="{x:Type ListViewItem}">
-                            <Setter Property="BorderBrush" Value="LightGray" />
-                            <Setter Property="BorderThickness" Value="0,0,0,1" />
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Width="300" Text="{Binding DentistName}"></TextBlock>
-                                <ListView Margin="50,0,50,0" ItemsSource="{Binding Orders}" IsSynchronizedWithCurrentItem="True">
-                                    <ListView.ItemContainerStyle>
-                                        <Style TargetType="{x:Type ListViewItem}">
-                                            <Setter Property="BorderBrush" Value="LightGray" />
-                                            <Setter Property="BorderThickness" Value="0,0,0,1" />
-                                        </Style>
-                                    </ListView.ItemContainerStyle>
-                                    <ListView.View>
-                                        <GridView>
-                                            <GridView.Columns>
-                                                <GridViewColumn Header="Вид поръчка" DisplayMemberBinding="{Binding Type}"/>
-                                                <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Price}"/>
-                                            </GridView.Columns>
-                                        </GridView>
-                                    </ListView.View>
-                                </ListView>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
-        </StackPanel>
-    </Grid>
+
+        </Grid>
+        <Grid>
+            <GridSplitter Height="3" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MaxWidth="0" x:Name="MenuColumn"></ColumnDefinition>
+                <ColumnDefinition Width="3"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <Button Margin="0,10,0,0" Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/0.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Начало</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="0,10,0,0" Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/2.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Зъболекари</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="0,10,0,0" Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/1.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Пациенти</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="0,10,0,0" Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="0,10,0,0" Command="{Binding NavToAnnualReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Годишен отчет</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="0,10,0,0" Command="{Binding NavToMonthlyReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Месечен отчет</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <GridSplitter Grid.Column="1" Height="900" HorizontalAlignment="Stretch" Background="DeepSkyBlue"></GridSplitter>
+            <Grid Grid.Column="2">
+                <StackPanel>
+
+
+
+
+
+                    <StackPanel Margin="100,40,100,40">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                                <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Column="1" Grid.Row="3">
+                                <TextBlock FontSize="16">Месец</TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="2" Grid.Row="3">
+                                <TextBlock FontSize="16">Брой поръчки</TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="3" Grid.Row="3">
+                                <TextBlock FontSize="16" HorizontalAlignment="Right">Приход</TextBlock>
+                            </Grid>
+                        </Grid>
+
+                        <Separator Margin="0,3,0,20"></Separator>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                                <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="1" Grid.Row="0">
+                                <ComboBox ItemsSource="{Binding Months}" 
+                                          SelectedValue="{Binding SelectedMonth, Mode=TwoWay}" 
+                                          SelectedValuePath="Number" 
+                                          DisplayMemberPath="Name"
+                                          Height="5"
+                                          Width="200"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Top"
+                                          Margin="0,-5,0,0"
+                                          >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="SelectionChanged">
+                                            <i:InvokeCommandAction Command="{Binding GenerateReport}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </ComboBox>
+                            </Grid>
+                            <Grid Grid.Column="2" Grid.Row="0">
+                                <TextBlock Text="{Binding MonthlyReport.OrdersCount}"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="3" Grid.Row="0">
+                                <TextBlock Text="{Binding MonthlyReport.TotalPrice}" HorizontalAlignment="Right"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="4" Grid.Row="0">
+                                <TextBlock Margin="5,0,0,0"> лв.</TextBlock>
+                            </Grid>
+                        </Grid>
+
+                        <Separator Margin="0,0,0,20"></Separator>
+                    </StackPanel>
+
+
+
+
+
+                    <StackPanel>
+                        <Separator></Separator>
+                        <TextBlock Margin="0,40,0,40" VerticalAlignment="Center" FontWeight="SemiBold" HorizontalAlignment="Center"  FontSize="16">Поръчки за месеца групирани по зъболекар</TextBlock>
+                    </StackPanel>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <ListView Grid.Column="1" Height="350" BorderThickness="0" FontWeight="Regular" ItemsSource="{Binding MonthlyReport.ByDentistDetails}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="BorderBrush" Value="LightGray" />
+                                    <Setter Property="BorderThickness" Value="0,0,0,1" />
+                                    <Setter Property="Margin" Value="0,25,0,25"></Setter>
+                                    <Setter Property="Focusable" Value="False" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <ListView Margin="11,0,0,50" Width="Auto" Padding="7,14,7,14" BorderThickness="0,1,0,1" FontWeight="Regular" ItemsSource="{Binding Orders}">
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="{x:Type ListViewItem}">
+                                                    <Setter Property="BorderBrush" Value="LightGray" />
+                                                    <Setter Property="BorderThickness" Value="0,0,0,1" />
+                                                    <Setter Property="Focusable" Value="False" />
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridView.Columns>
+                                                        <GridViewColumn Width="190" Header="Зъболекар" DisplayMemberBinding="{Binding DentistForDisplaying}"/>
+                                                        <GridViewColumn Width="150" Header="Вид поръчка" DisplayMemberBinding="{Binding Type}"/>
+                                                        <GridViewColumn Width="185" Header="Дата на постъпване" DisplayMemberBinding="{Binding DateОfReceiptForDisplaying}"/>
+                                                        <GridViewColumn Width="185" Header="Краен срок" DisplayMemberBinding="{Binding DeadLineForDisplaying}"/>
+                                                        <GridViewColumn Width="150" Header="Цена" DisplayMemberBinding="{Binding PriceForDisplaying}"/>
+                                                        <GridViewColumn Width="200" Header="Пациент" DisplayMemberBinding="{Binding PatientForDisplaying}"/>
+                                                        <GridViewColumn Width="150" Header="Цвят на зъб" DisplayMemberBinding="{Binding ToothColour}"/>
+                                                        <!--<GridViewColumn Header="Лицева дъга" DisplayMemberBinding="{Binding FacialArcForDisplaying}"/>-->
+                                                        <!--<GridViewColumn Header="Артикулатор" DisplayMemberBinding="{Binding ArticulatorForDisplaying}"/>-->
+                                                        <!--<GridViewColumn Header="Метална проба" DisplayMemberBinding="{Binding MetalTestForDisplaying}"/>-->
+                                                        <!--<GridViewColumn Header="Керамична проба" DisplayMemberBinding="{Binding CeramicTestForDisplaying}"/>-->
+                                                        <!--<GridViewColumn Header="Специални изисквания" DisplayMemberBinding="{Binding SpecialRequirements}"/>-->
+                                                        <!--<GridViewColumn Header="Заявени съставки" DisplayMemberBinding="{Binding DeclaredIngredients}"/>-->
+                                                        <!--<GridViewColumn Header="Отпечатъчен материал" DisplayMemberBinding="{Binding TypeOfImpressionMaterial}"/>-->
+                                                    </GridView.Columns>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+
+
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </StackPanel>
 </Page>

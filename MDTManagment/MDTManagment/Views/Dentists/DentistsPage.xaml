@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MDTManagment.Views"
       mc:Ignorable="d" 
-      xmlns:ViewModels ="clr-namespace:MDTManagment.ViewModels.Dentists" 
+      xmlns:ViewModels ="clr-namespace:MDTManagment.ViewModels.Dentists"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       d:DesignHeight="300" d:DesignWidth="300"
       Title="DentistsPage">
 
@@ -77,34 +78,40 @@
 
             <Grid Grid.Column="0">
                 <StackPanel>
-                    <Button Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Margin="0,10,0,0" Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/0.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Начало</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Margin="0,10,0,0" Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/2.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Зъболекари</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Margin="0,10,0,0" Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/1.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Пациенти</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                    <Button Margin="0,10,0,0" Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToAnnualReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                    <Button Margin="0,10,0,0" Command="{Binding NavToAnnualReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Годишен отчет</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="0,10,0,0" Command="{Binding NavToMonthlyReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Месечен отчет</TextBlock>
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -123,9 +130,9 @@
                 <Grid Grid.Column="0">
                     <StackPanel>
 
-                        <Button Command="{Binding DisplayDentist}" Margin="5,3,2,3" Content="Покажи данни за избрания зъболекар"></Button>
+                        <!--<Button Command="{Binding DisplayDentist}" Margin="5,3,2,3" Content="Покажи данни за избрания зъболекар"></Button>-->
 
-                        <ListView ItemsSource="{Binding Dentists}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedDentist, Mode=TwoWay}">
+                        <ListView Padding="7,14,7,0" FontWeight="Regular" BorderThickness="0,0,1,0" Height="900" BorderBrush="LightGray" ItemsSource="{Binding Dentists}" IsSynchronizedWithCurrentItem="True"  SelectedItem="{Binding SelectedDentist, Mode=TwoWay}">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListViewItem}">
                                     <Setter Property="BorderBrush" Value="LightGray" />
@@ -135,12 +142,17 @@
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
-                                        <GridViewColumn Header="Име" DisplayMemberBinding="{Binding Name}"/>
-                                        <GridViewColumn Header="Презиме" DisplayMemberBinding="{Binding MiddleName}"/>
-                                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}"/>
+                                        <GridViewColumn Width="200" Header="Име" DisplayMemberBinding="{Binding Name}"/>
+                                        <GridViewColumn Width="210" Header="Презиме" DisplayMemberBinding="{Binding MiddleName}"/>
+                                        <GridViewColumn Width="500" Header="Фамилия" DisplayMemberBinding="{Binding LastName}"/>
                                     </GridView.Columns>
                                 </GridView>
                             </ListView.View>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding DisplayDentist}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                         </ListView>
 
                     </StackPanel>
@@ -151,33 +163,33 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1*"></RowDefinition>
-                            <!--how to make this fit to window and not being cropped-->
-                            <RowDefinition MinHeight="800" Height="2*" AllowDrop="False"></RowDefinition>
+                            <RowDefinition MinHeight="800" Height="2*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <StackPanel>
-                                <Button Command="{Binding DeleteDentist}" Margin="2,3,5,3" Content="Изтрий избрания зъболекар"></Button>
-
-                                <Image Height="400" Margin="10" Source="/Resources/2.png" ></Image>
+                                <!--<Button Command="{Binding DeleteDentist}" Margin="2,3,5,3" Content="Изтрий избрания зъболекар"></Button>-->
+                                <Image Height="400" Margin="10,20,10,50" Source="/Resources/2.png" ></Image>
                                 <!--Source="{Binding SelectedPatient.PortraitPicPath}"-->
 
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                                <ColumnDefinition Width="185"></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0">
+                            <Grid Grid.Column="1">
                                 <StackPanel>
-                                    <TextBlock HorizontalAlignment="Right" Text="Име:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Презиме:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Фамилия:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Контакт:"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" Text="Професионален опит:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Име:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Презиме:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Фамилия:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Контакт:"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" FontWeight="SemiBold" Text="Професионален опит:"></TextBlock>
+                                    <Button Command="{Binding DeleteDentist}" Margin="0,50,-110,0" Content="Изтрий избрания зъболекар"></Button>
                                 </StackPanel>
                             </Grid>
-                            <Grid Grid.Column="1">
+                            <Grid Grid.Column="2">
                                 <StackPanel DataContext="{Binding SelectedDentist}">
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=Name}"></TextBlock>
                                     <TextBlock Margin="10,0,0,0" Text="{Binding Path=MiddleName, Mode=TwoWay}"></TextBlock>

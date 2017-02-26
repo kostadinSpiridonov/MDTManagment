@@ -24,22 +24,17 @@ namespace MDTManagment.Views.Reports
         public MonthlyReportPage()
         {
             InitializeComponent();
-            //this.DataContext = new MonthlyReportViewModel();
+            this.DataContext = new MonthlyReportViewModel();
         }
 
-        private void ShowDentistDetails(object sender, RoutedEventArgs e)
+        private void ExpandMenu_Click(object sender, RoutedEventArgs e)
         {
-            if (this.DentistDetailsPanel.Visibility == Visibility.Visible)
-            {
-                this.DentistDetailsPanel.Visibility = Visibility.Hidden;
-
-            }
+            double wid = this.MenuColumn.MaxWidth;
+            if (wid == 0)
+            { this.MenuColumn.MaxWidth = 170; }
             else
-            {
-                this.DentistDetailsPanel.Visibility = Visibility.Visible;
-
-
-            }
+            { this.MenuColumn.MaxWidth = 0; }
         }
+
     }
 }

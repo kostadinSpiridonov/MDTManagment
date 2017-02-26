@@ -20,12 +20,7 @@ namespace MDTManagment.ViewModels.Reports
     public class AnnualReportViewModel : BaseViewModel
     {
 
-
-
-
-
-
-        public int ChosenYear { get; set; } 
+        public int ChosenYear { get; set; }
 
         public ObservableCollection<Order> Orders { get; set; }
         private OrderService orderService { get; set; }
@@ -68,6 +63,7 @@ namespace MDTManagment.ViewModels.Reports
             this.NavToDentists = new RelayCommand(this.HandleNavToDentists);
             this.NavToOrders = new RelayCommand(this.HandleNavToOrders);
             this.NavToAnnualReport = new RelayCommand(this.HandleNavToAnnualReport);
+            this.NavToMonthlyReport = new RelayCommand(this.HandleNavToMonthlyReport);
 
             this.ChosenYear = DateTime.Today.Year;
 
@@ -84,6 +80,7 @@ namespace MDTManagment.ViewModels.Reports
         public ICommand NavToDentists { get; set; }
         public ICommand NavToOrders { get; set; }
         public ICommand NavToAnnualReport { get; set; }
+        public ICommand NavToMonthlyReport { get; set; }
 
 
         public ICommand YearPP { get; set; }
@@ -110,6 +107,10 @@ namespace MDTManagment.ViewModels.Reports
         private void HandleNavToAnnualReport(object obj)
         {
             App.Navigation.Navigate(new AnnualReportPage());
+        }
+        private void HandleNavToMonthlyReport(object obj)
+        {
+            App.Navigation.Navigate(new MonthlyReportPage());
         }
 
 
@@ -177,12 +178,6 @@ namespace MDTManagment.ViewModels.Reports
         {
             this.ChosenYear++;
 
-            if (this.ChosenYear <= 2016)
-            {
-                MessageBox.Show("Невалидна година.", "Годишен отчет", MessageBoxButton.OK);
-                return;
-            }
-
             HandleLoadTodayReport(this.ChosenYear);
 
             OnPropertyChanged("CountOfOrdersForJanuary");
@@ -220,7 +215,7 @@ namespace MDTManagment.ViewModels.Reports
         {
             this.ChosenYear--;
 
-            if (this.ChosenYear <= 2016)
+            if (this.ChosenYear <= 2016 || this.ChosenYear == 0)
             {
                 MessageBox.Show("Невалидна година.", "Годишен отчет", MessageBoxButton.OK);
                 this.ChosenYear++;

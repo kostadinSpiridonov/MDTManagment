@@ -58,7 +58,7 @@ namespace MDTManagment.ViewModels.Patients
             if (this.NewPatient.FirstName == null ||
                 this.NewPatient.Surname == null ||
                 this.NewPatient.Family == null ||
-                this.NewPatient.Age <= 0 || this.NewPatient.Age > 140 ||
+                this.NewPatient.Age <= 0  || this.NewPatient.Age > 140 ||
                 this.NewPatient.PhoneNumber == null ||
                 this.NewPatient.Address == null ||
                 this.NewPatient.DentistId == checkId)
@@ -71,6 +71,9 @@ namespace MDTManagment.ViewModels.Patients
             var databaseDentist = dentistService.GetDentistById(this.NewPatient.DentistId);
             this.NewPatient.DentistForDisplaying = databaseDentist.Name + " " + databaseDentist.MiddleName + " " + databaseDentist.LastName;
             this.NewPatient.AgeForDisplaying = this.NewPatient.Age + " г.";
+
+            this.NewPatient.NameForDisplaying = this.NewPatient.FirstName + " " + this.NewPatient.Surname + " " + this.NewPatient.Family;
+
 
             this.patientService.AddPatient(this.NewPatient);
             this.OnPropertyChanged("Patients");

@@ -46,15 +46,5 @@ namespace MDTManagment.Services
 
             return orders.ToList();
         }
-        
-
-        //public List<Order> GetOrdersByDeadLine(int forYear)
-        //{
-            
-        //    return OrdersForYear;
-        //}
-
-
-
     }
 }

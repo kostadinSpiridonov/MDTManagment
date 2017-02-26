@@ -76,34 +76,40 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <StackPanel>
-                    <Button Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Margin="0,10,0,0" Command="{Binding NavToHome}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/0.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Начало</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Margin="0,10,0,0" Command="{Binding NavToDentists}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/2.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Зъболекари</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <Button Margin="0,10,0,0" Command="{Binding NavToPatients}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/1.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Пациенти</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                    <Button Margin="0,10,0,0" Command="{Binding NavToOrders}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/4.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Поръчки</TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding NavToAnnualReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                    <Button Margin="0,10,0,0" Command="{Binding NavToAnnualReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
                             <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
                             <TextBlock FontSize="11.5" VerticalAlignment="Center">Годишен отчет</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="0,10,0,0" Command="{Binding NavToMonthlyReport}" Background="Transparent" BorderBrush="Transparent" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="10,0,10,0" Height="25" Source="/Resources/3.png"></Image>
+                            <TextBlock FontSize="11.5" VerticalAlignment="Center">Месечен отчет</TextBlock>
                         </StackPanel>
                     </Button>
                 </StackPanel>

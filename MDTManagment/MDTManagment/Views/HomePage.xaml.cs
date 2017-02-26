@@ -39,16 +39,5 @@ namespace MDTManagment.Views
             else
             { this.MenuColumn.MaxWidth = 0; }
         }
-
-        private void AReportTry(object sender, RoutedEventArgs e)
-        {
-            App.Navigation.Navigate(new AnnualReportPage());
-        }
-
-        private void MonthlyReportTry(object sender, RoutedEventArgs e)
-        {
-
-            App.Navigation.Navigate(new MonthlyReportPage());
-        }
     }
 }

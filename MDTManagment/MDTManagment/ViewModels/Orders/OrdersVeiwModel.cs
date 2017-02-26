@@ -47,6 +47,7 @@ namespace MDTManagment.ViewModels.Orders
             this.NavToDentists = new RelayCommand(this.HandleNavToDentists);
             this.NavToOrders = new RelayCommand(this.HandleNavToOrders);
             this.NavToAnnualReport = new RelayCommand(this.HandleNavToAnnualReport);
+            this.NavToMonthlyReport = new RelayCommand(this.HandleNavToMonthlyReport);
 
             this.DisplayOrder = new RelayCommand(this.HandleDisplayOrder);
         }
@@ -61,6 +62,7 @@ namespace MDTManagment.ViewModels.Orders
         public ICommand NavToDentists { get; set; }
         public ICommand NavToOrders { get; set; }
         public ICommand NavToAnnualReport { get; set; }
+        public ICommand NavToMonthlyReport { get; set; }
 
         public ICommand DisplayOrder { get; set; }
 
@@ -103,15 +105,14 @@ namespace MDTManagment.ViewModels.Orders
         {
             App.Navigation.Navigate(new AnnualReportPage());
         }
+        private void HandleNavToMonthlyReport(object obj)
+        {
+            App.Navigation.Navigate(new MonthlyReportPage());
+        }
 
 
         private void HandleDisplayOrder(object obj)
         {
-            if (this.SelectedOrder == null)
-            {
-                MessageBox.Show("Не е избрана поръчка.", "Поръчки", MessageBoxButton.OK);
-                return;
-            }
             OnPropertyChanged("SelectedOrder");
         }
     }

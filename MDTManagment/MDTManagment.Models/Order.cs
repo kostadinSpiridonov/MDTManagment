@@ -39,6 +39,9 @@ namespace MDTManagment.Models
 
         public int DentistId { get; set; }
 
+
+        public int PatientId { get; set; }
+
         public string DentistForDisplaying { get; set; }
         public string DateОfReceiptForDisplaying { get; set; }
         public string DeadLineForDisplaying { get; set; }
@@ -47,5 +50,9 @@ namespace MDTManagment.Models
         public string ArticulatorForDisplaying { get; set; }
         public string MetalTestForDisplaying { get; set; }
         public string CeramicTestForDisplaying { get; set; }
+
+
+
+        public string PatientForDisplaying { get; set; }
     }
 }

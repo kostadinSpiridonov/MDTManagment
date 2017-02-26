@@ -30,6 +30,8 @@ namespace MDTManagment.Models
 
         public string AgeForDisplaying { get; set; }
 
+        public string NameForDisplaying { get; set; }
+
         //public string PortraitPicPath { get; set; }
     }
 }

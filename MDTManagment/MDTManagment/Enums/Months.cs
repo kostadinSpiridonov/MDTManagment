@@ -8,17 +8,17 @@ namespace MDTManagment.Enums
 {
     public enum Months
     {
-        January,
-        February,
-        March,
-        April,
-        May,
-        June,
-        July,
-        August,
-        September,
-        October,
-        November,
-        December
+        Януари,
+        Февруари,
+        Март,
+        Април,
+        Май,
+        Юни,
+        Юли,
+        Август,
+        Септември,
+        Октомври,
+        Ноември,
+        Декември
     }
 }
